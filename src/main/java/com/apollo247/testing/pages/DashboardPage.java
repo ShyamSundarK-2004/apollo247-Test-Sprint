@@ -20,7 +20,7 @@ public class DashboardPage {
 		this.utility = new AllUtilityFunctions();
 		this.utility.initializeDriver(driver); // Pass the active driver to utility
 	}
-	// locators
+	// ====== locators ======
 
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
@@ -62,7 +62,7 @@ public class DashboardPage {
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
 
-	// getters and setter
+	// ===== getters and setter ======
 
 	// login button
 	public WebElement getLoginBtn() {
@@ -114,11 +114,11 @@ public class DashboardPage {
 		return myAccountModule;
 	}
 
-	// business logic
+	// ====== business logic ======
 
 	// closing dom popup
 	public void closeDomPopup() {
-		// Wait for shadow host
+		// Wait for shadow host and locate the hidden host
 		WebElement domPopup = utility.waituntilPresenceOfElementLocated(30L, By.cssSelector("ct-web-popup-imageonly"));
 
 		// Access shadow root
@@ -153,12 +153,20 @@ public class DashboardPage {
 		verify.click();
 	}
 
-	public void clickonModule(WebDriver driver, String module) {
+	public void clickOnModule(String module) {
 
 		utility.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
+	}
+
+	public void clickOnMyAccountBtn() {
+		getMyAccountModule().click();
+	}
+
+	public String getCurrentPageUrl() {
+		return utility.fetchApplicationURL();
 	}
 
 }
