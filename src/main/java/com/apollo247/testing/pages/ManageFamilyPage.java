@@ -11,12 +11,12 @@ public class ManageFamilyPage {
 
     WebDriver driver;
 
-    // Constructor
     public ManageFamilyPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    // ---------------- LOCATORS ----------------
 
     @FindBy(className = "ProfileNew_profileContainer__mUxKD")
     private WebElement profileIcon;
@@ -51,86 +51,52 @@ public class ManageFamilyPage {
     @FindBy(xpath = "//span[.='CONFIRM']")
     private WebElement confirmBtn;
 
-    // Getter Methods
+    // ✅ NEW: Generic validation error message
+    @FindBy(xpath = "//*[contains(text(),'required') or contains(text(),'invalid') or contains(text(),'enter')]")
+    private WebElement validationError;
 
-    public WebElement getProfileIcon() {
-        return profileIcon;
-    }
+    // ---------------- GETTERS ----------------
 
-    public WebElement getManageFamilyMembers() {
-        return manageFamilyMembers;
-    }
+    public WebElement getProfileIcon() { return profileIcon; }
+    public WebElement getManageFamilyMembers() { return manageFamilyMembers; }
+    public WebElement getAddNewProfile() { return addNewProfile; }
+    public WebElement getFirstName() { return firstName; }
+    public WebElement getLastName() { return lastName; }
+    public WebElement getDob() { return dob; }
+    public WebElement getFemaleGender() { return femaleGender; }
+    public WebElement getRelationDropdown() { return relationDropdown; }
+    public WebElement getMotherOption() { return motherOption; }
+    public WebElement getSaveBtn() { return saveBtn; }
+    public WebElement getConfirmBtn() { return confirmBtn; }
 
-    public WebElement getAddNewProfile() {
-        return addNewProfile;
-    }
+    // ---------------- BUSINESS METHODS ----------------
 
-    public WebElement getFirstName() {
-        return firstName;
-    }
-
-    public WebElement getLastName() {
-        return lastName;
-    }
-
-    public WebElement getDob() {
-        return dob;
-    }
-
-    public WebElement getFemaleGender() {
-        return femaleGender;
-    }
-
-    public WebElement getRelationDropdown() {
-        return relationDropdown;
-    }
-
-    public WebElement getMotherOption() {
-        return motherOption;
-    }
-
-    public WebElement getSaveBtn() {
-        return saveBtn;
-    }
-
-    public WebElement getConfirmBtn() {
-        return confirmBtn;
-    }
-
-    // Business Methods
-
-    // Navigate to Manage Family Members
     public void openManageFamilyMembers() {
         profileIcon.click();
         manageFamilyMembers.click();
     }
 
-    // Click Add New Profile
     public void clickAddNewProfile() {
         addNewProfile.click();
     }
 
-    // Enter details
     public void enterFamilyMemberDetails(String fName, String lName, String dateOfBirth) {
         firstName.sendKeys(fName);
         lastName.sendKeys(lName);
         dob.sendKeys(dateOfBirth);
     }
 
-    // Select gender + relation
     public void selectFemaleAndMother() {
         femaleGender.click();
         relationDropdown.click();
         motherOption.click();
     }
 
-    // Save member
     public void saveFamilyMember() {
         saveBtn.click();
         confirmBtn.click();
     }
 
-    // Full reusable flow
     public void addFamilyMember(String fName, String lName, String dobValue) {
         clickAddNewProfile();
         enterFamilyMemberDetails(fName, lName, dobValue);
@@ -138,7 +104,24 @@ public class ManageFamilyPage {
         saveFamilyMember();
     }
 
-    // Shadow DOM popup handling (kept same)
+    //Negative Scenario
+    
+    // Leave fields empty and click save
+    public void clickSaveWithoutEnteringDetails() {
+        clickAddNewProfile();
+        saveBtn.click();
+    }
+
+    // Verify validation error is displayed
+    public boolean isValidationErrorDisplayed() {
+        try {
+            return validationError.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // Shadow DOM popup
     public void closePopup(SearchContext shadowRoot) {
         shadowRoot.findElement(By.cssSelector("#close")).click();
     }
