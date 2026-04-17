@@ -29,11 +29,8 @@ public class LabTestPage {
 	private WebElement searchBar;
 
 	// test names inside each result
-<<<<<<< HEAD
+
 	@FindBy(xpath = "//p[contains(@class,'RX')]")
-=======
-	@FindBy(css = "li.LabTestsSearch_borderStyling__U8YrA div.Q__mb_")
->>>>>>> 50d3c765a19af4ba3b25bcdf507a8e38d5451478
 	private List<WebElement> testNames;
 
 	// call back popup
