@@ -21,13 +21,9 @@ public class DashboardPage {
 		this.utility = new AllUtilityFunctions();
 		this.utility.initializeDriver(driver); // Pass the active driver to utility
 	}
-<<<<<<< HEAD
-	// ====== locators ======
-=======
 
 	// ====== locators ======
 
->>>>>>> feature/insurance
 
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
@@ -69,10 +65,7 @@ public class DashboardPage {
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/insurance
 	// ===== getters and setter ======
 
 	// login button
@@ -187,12 +180,6 @@ public class DashboardPage {
 		return utility.fetchApplicationURL();
 	}
 
-	public void clickOnMyAccountBtn() {
-		getMyAccountModule().click();
-	}
-
-	public String getCurrentPageUrl() {
-		return utility.fetchApplicationURL();
-	}
+	
 
 }

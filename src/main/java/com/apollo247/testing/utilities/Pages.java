@@ -17,7 +17,7 @@ public class Pages {
 	public static LabTestPage labTestPage;
 
 	public static HealthInsurancePage healthInsurancePage;
-	public static LabTestPage labTestPage;
+	
 
 
 	// all the pages are initialized with the driver object
