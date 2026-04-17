@@ -2,6 +2,7 @@ package com.apollo247.testing.utilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import com.apollo247.testing.pages.DashboardPage;
+<<<<<<< HEAD
 import com.apollo247.testing.pages.LabTestPage;
 import com.apollo247.testing.pages.SearchDoctorPage;
 import com.apollo247.testing.pages.RadiologyPage;
@@ -27,12 +28,22 @@ public class Pages {
 	public static MyAppointmentPage AppointmentDocter;
 	public static LocationPage LocationDocter;
 	public static HealthtoolPage HeartToolPage;
+=======
+
+import com.apollo247.testing.pages.HealthInsurancePage;
+
+public class Pages {
+
+	public static DashboardPage dashboardPage;;
+	public static HealthInsurancePage healthInsurancePage;
+>>>>>>> 903d57d (Insurance Updated)
 
 	// all the pages are initialized with the driver object
 	public static void loadAllPages(WebDriver driver) {
 
 		// dashboard page driver initialization
 		dashboardPage = new DashboardPage(driver);
+<<<<<<< HEAD
 		Searchdocter=new SearchDoctorPage(driver);
 //	    manageFamilyPage = new ManageFamilyPage(driver);
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
@@ -41,6 +52,10 @@ public class Pages {
 //		PageFactory.initElements(driver, manageFamilyPage);
 //		PageFactory.initElements(driver, healthInsurancePage);
 		PageFactory.initElements(driver, Searchdocter);
+=======
+		PageFactory.initElements(driver, dashboardPage);
+
+>>>>>>> 903d57d (Insurance Updated)
 
 		// labtest page driver initialization
 		// upload_prescription page driver initialization
