@@ -55,7 +55,7 @@ public class ManageFamilyPage {
     @FindBy(xpath = "//*[contains(text(),'required') or contains(text(),'invalid') or contains(text(),'enter')]")
     private WebElement validationError;
 
-    // ---------------- GETTERS ----------------
+    // Getter Methods
 
     public WebElement getProfileIcon() { return profileIcon; }
     public WebElement getManageFamilyMembers() { return manageFamilyMembers; }
@@ -69,7 +69,7 @@ public class ManageFamilyPage {
     public WebElement getSaveBtn() { return saveBtn; }
     public WebElement getConfirmBtn() { return confirmBtn; }
 
-    // ---------------- BUSINESS METHODS ----------------
+    // Business logic
 
     public void openManageFamilyMembers() {
         profileIcon.click();
