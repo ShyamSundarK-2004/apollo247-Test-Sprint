@@ -3,6 +3,7 @@ package com.apollo247.testing.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
 
@@ -13,6 +14,7 @@ public class PainRelief {
 
     public PainRelief(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
         utility = new AllUtilityFunctions();
         utility.initializeDriver(driver);
     }

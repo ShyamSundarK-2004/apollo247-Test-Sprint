@@ -156,7 +156,6 @@ public class DashboardPage {
 	public void clickonModule(WebDriver driver, String module) {
 
 		utility.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}

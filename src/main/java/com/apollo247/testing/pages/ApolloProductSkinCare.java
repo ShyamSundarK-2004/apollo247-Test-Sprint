@@ -3,6 +3,7 @@ package com.apollo247.testing.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
 
@@ -13,17 +14,18 @@ public class ApolloProductSkinCare {
 
     public ApolloProductSkinCare(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
         utility = new AllUtilityFunctions();
         utility.initializeDriver(driver);
     }
 
-    @FindBy(linkText="Apollo Products")
+    @FindBy(linkText = "Apollo Products")
     private WebElement apolloProducts;
 
-    @FindBy(xpath="//*[contains(text(),'Skin Care')]")
+    @FindBy(xpath = "//*[contains(text(),'Skin Care')]")
     private WebElement skinCare;
 
-    @FindBy(xpath="(//button[@aria-label='Add'])[1]")
+    @FindBy(xpath = "(//button[@aria-label='Add'])[1]")
     private WebElement addBtn;
 
     public void openApolloProducts() {
