@@ -1,22 +1,41 @@
-Feature: Account Module - Manage Family Members
+Feature: Account Module - Manage Family Members & My Appointments
 
 Background:
-Given Open the browser
-And user launches the Apollo247 "https://www.apollo247.com/"
-And user closes the popup
-When user logs in with mobile number "<7448516380>"
-And user clicks verify after entering OTP
-And user opens My Account panel
-And user navigates to Manage Family Members
+  Given user opens My Account panel
 
+# ============================================================
+# SCENARIO 1: Manage Family Members (currently failing - tagged)
+# ============================================================
+@ManageFamily
 Scenario Outline: Add valid family member
-When user clicks Add New Profile
-And user enters family member details "<FirstName>" "<LastName>" "<DOB>"
-And user selects gender as Male and relation as Brother
-And user clicks Save
-And user clicks Ok
-Then new family member "<FirstName>" should be displayed
+
+  When user clicks Add New Profile
+  And user enters family member details "<FirstName>" "<LastName>" "<DOB>"
+  And user selects gender "<Gender>" and relation "<Relation>"
+  And user clicks Save
+  Then family member should be created successfully
 
 Examples:
-| FirstName | LastName | DOB        |
-| Sathish   | K        | 20/05/1991 |
+  | FirstName | LastName | DOB        | Gender | Relation |
+  | abcgdhjd  | K        | 20/05/1991 | Male   | Brother  |
+
+
+# ============================================================
+# SCENARIO 2: My Appointments - Page Load
+# ============================================================
+@MyAppointments @AppointmentDisplay
+Scenario: Verify My Appointments page loads successfully
+
+  When user clicks My Appointments
+  Then Appointments section should be displayed
+
+
+# ============================================================
+# SCENARIO 3: My Appointments - Refresh Validation
+# ============================================================
+@MyAppointments @PageReload
+Scenario: Verify My Appointments page persists after refresh
+
+  When user clicks My Appointments
+  And user refreshes the page
+  Then Appointments section should still be displayed

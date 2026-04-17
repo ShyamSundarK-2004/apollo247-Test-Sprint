@@ -1,6 +1,9 @@
 package com.apollo247.testing.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,15 +12,23 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.apollo247.testing.utilities.AllUtilityFunctions;
+
 public class ManageFamilyPage {
 
     WebDriver driver;
+    public AllUtilityFunctions utility;
 
     public ManageFamilyPage(WebDriver driver) {
         this.driver = driver;
+        this.utility = new AllUtilityFunctions();
+        this.utility.initializeDriver(driver);
         PageFactory.initElements(driver, this);
     }
 
+    // ----------------------------
+    // LOCATORS (STATIC ELEMENTS)
+    // ----------------------------
 
     @FindBy(className = "ProfileNew_profileContainer__mUxKD")
     private WebElement profileIcon;
@@ -40,78 +51,37 @@ public class ManageFamilyPage {
     @FindBy(xpath = "//div[contains(@class,'AphSelect_select')]")
     private WebElement relationDropdown;
 
-    @FindBy(css = "[data-value='BROTHER']")
-    private WebElement brotherOption;
-
     @FindBy(xpath = "//span[.='Save']")
     private WebElement saveBtn;
 
     @FindBy(xpath = "//span[.='CONFIRM']")
     private WebElement confirmBtn;
-    
-    @FindBy(xpath = "//span[.='OK']")
-    private WebElement okBtn;
 
-    @FindBy(xpath = "//*[contains(text(),'successfully') or contains(text(),'created') or contains(text(),'added')]")
-    private WebElement successToast;
-
-    // Getter Methods
-
-    public WebElement getProfileIcon() { 
-    	return profileIcon; 
-    }
-    public WebElement getManageFamilyMembers() { 
-    	return manageFamilyMembers; 
-    }
-    public WebElement getAddNewProfile() { 
-    	return addNewProfile; 
-    }
-    public WebElement getFirstName() { 
-    	return firstName; 
-    }
-    public WebElement getLastName() { 
-    	return lastName; 
-    }
-    public WebElement getDob() { 
-    	return dob; 
-    }
-    
-    public WebElement getRelationDropdown() { 
-    	return relationDropdown; 
-    }
-    public WebElement getBrotherOption() { 
-    	return brotherOption; 
-    }
-    public WebElement getSaveBtn() { 
-    	return saveBtn; 
-    }
-    public WebElement getConfirmBtn() { 
-    	return confirmBtn; 
-    }
-    public WebElement getokBtn() {
-    	return okBtn;
-    }
-
-    // Business logic
+    // ----------------------------
+    // NAVIGATION
+    // ----------------------------
 
     public void openManageFamilyMembers() {
-        profileIcon.click();
-        manageFamilyMembers.click();
+        utility.safeClick(driver, profileIcon);
+        utility.safeClick(driver, manageFamilyMembers);
     }
 
+    // ----------------------------
+    // ADD PROFILE FLOW
+    // ----------------------------
+
     public void clickAddNewProfile() {
-        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement element = wait.until(
-                org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf(addNewProfile)
+                ExpectedConditions.visibilityOf(addNewProfile)
         );
 
-        // Scroll into view (important for side panel UI)
-        ((org.openqa.selenium.JavascriptExecutor) driver)
+        ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].scrollIntoView({block:'center'});", element);
 
-        // JS click (bypasses overlay issue)
-        ((org.openqa.selenium.JavascriptExecutor) driver)
+        ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", element);
     }
 
@@ -123,60 +93,91 @@ public class ManageFamilyPage {
 
     public void selectMaleAndBrother() {
 
-        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        // wait for form to be ready
+        // wait for form to load
         wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//*[contains(text(),'Gender') or contains(text(),'Male') or contains(text(),'Female')]")
+                By.cssSelector("[placeholder='First Name']")
         ));
 
-        // click Male (flexible locator)
+        // select Male
         WebElement male = wait.until(
-            ExpectedConditions.elementToBeClickable(
-                By.xpath("//*[contains(text(),'Male') or contains(@value,'MALE')]")
-            )
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//*[contains(text(),'Male')]")
+                )
         );
-
         male.click();
 
-    }
+        // open dropdown
+        WebElement dropdown = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//div[contains(@class,'AphSelect_select')]")
+                )
+        );
+        dropdown.click();
 
+        // wait for dropdown options to render
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.cssSelector("[data-value='BROTHER']")
+        ));
+
+        // re-find fresh element (VERY IMPORTANT)
+        WebElement brother = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.cssSelector("[data-value='BROTHER']")
+                )
+        );
+
+        brother.click();
+    }
     public void saveFamilyMember() {
         saveBtn.click();
         confirmBtn.click();
-        okBtn.click();
     }
-    public boolean isProfileCreatedSuccess() {
 
-        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
+    // ----------------------------
+    // 🔥 SUCCESS VALIDATION (NEW CLEAN APPROACH)
+    // ----------------------------
+
+    public boolean isSuccessToastDisplayed() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             return wait.until(
-                ExpectedConditions.visibilityOf(successToast)
+                    ExpectedConditions.visibilityOfElementLocated(
+                            By.xpath("//*[contains(text(),'successfully') or contains(text(),'created') or contains(text(),'added')]")
+                    )
             ).isDisplayed();
+
         } catch (Exception e) {
             return false;
         }
     }
 
+    // ----------------------------
+    // FULL FLOW WRAPPER
+    // ----------------------------
+
     public void addFamilyMember(String fName, String lName, String dobValue) {
-        clickAddNewProfile();
         enterFamilyMemberDetails(fName, lName, dobValue);
         selectMaleAndBrother();
         saveFamilyMember();
     }
 
-    //Negative Scenario
-    
-    // Leave fields empty and click save
+    // ----------------------------
+    // NEGATIVE SCENARIO
+    // ----------------------------
+
     public void clickSaveWithoutEnteringDetails() {
         clickAddNewProfile();
         saveBtn.click();
     }
 
-    
+    // ----------------------------
+    // SHADOW DOM POPUP
+    // ----------------------------
 
-    // Shadow DOM popup
     public void closePopup(SearchContext shadowRoot) {
         shadowRoot.findElement(By.cssSelector("#close")).click();
     }

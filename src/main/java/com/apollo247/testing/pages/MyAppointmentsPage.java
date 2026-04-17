@@ -1,11 +1,16 @@
 package com.apollo247.testing.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MyAppointmentsPage {
 
@@ -38,8 +43,26 @@ public class MyAppointmentsPage {
 
     // Navigate to My Appointments
     public void openMyAppointments() {
-        profileIcon.click();
-        myAppointments.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        // Step 1: Click profile icon safely
+        wait.until(ExpectedConditions.elementToBeClickable(profileIcon)).click();
+
+        // Step 2: Wait for panel/menu to load
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//span[contains(.,'My Appointments')]")
+        ));
+
+        // Step 3: Re-locate element (IMPORTANT for stale fix)
+        WebElement myAppointmentsFresh = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[contains(.,'My Appointments')]")
+            )
+        );
+
+        // Step 4: Click using JS (bypass interception)
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", myAppointmentsFresh);
     }
 
     // Validate appointments page content
@@ -58,6 +81,11 @@ public class MyAppointmentsPage {
     // Refresh page
     public void refreshPage() {
         driver.navigate().refresh();
+
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+            .until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//*[contains(text(),'Appointments') or contains(text(),'No Appointments')]")
+            ));
     }
 
     // Shadow DOM popup close - reusable

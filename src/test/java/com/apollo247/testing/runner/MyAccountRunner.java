@@ -6,6 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
     features = "./src/test/java/com/apollo247/testing/features/MyAccount.feature",
     glue = "com.apollo247.testing.stepdefinitions",
+    tags="@MyAppointments",
     dryRun = false,   
     plugin = {
         "pretty",

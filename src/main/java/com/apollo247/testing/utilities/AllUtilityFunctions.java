@@ -29,6 +29,7 @@ public class AllUtilityFunctions {
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
 		this.action = new Actions(driver);
+
 	}
 	// webdriver utlitiy
 
@@ -269,5 +270,20 @@ public class AllUtilityFunctions {
 			a.keyDown(Keys.ARROW_DOWN);
 		}
 		a.click().perform();
+	}
+	//Handles overlay issues and Waits until element is clickable
+	public void safeClick(WebDriver driver, WebElement element) {
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+	    wait.until(ExpectedConditions.visibilityOf(element));
+	    wait.until(ExpectedConditions.elementToBeClickable(element));
+
+	    try {
+	        element.click();
+	    } catch (Exception e) {
+	        ((org.openqa.selenium.JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", element);
+	    }
 	}
 }
