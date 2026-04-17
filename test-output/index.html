@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Shyam Sundar\AppData\Local\Temp\testng-eclipse--1646258576\testng-customsuite.xml</span>
+                    <span>C:\Users\Swetha\AppData\Local\Temp\testng-eclipse-582128804\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Login and navigate to Lab Tests&quot;, &quot;Apollo 247 Login and Module Navigation&quot;)">runScenario("Login and navigate to Lab Tests", "Apollo 247 Login and Module Navigation")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO_Docter" class="method navigator-link" hash-for-method="runScenario(&quot;Book a hospital visit appointment&quot;, &quot;Apollo 247 Doctor Booking&quot;)">runScenario("Book a hospital visit appointment", "Apollo 247 Doctor Booking")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -121,24 +121,30 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.apollo247.testing.runner.RunnerIO</span>
+              <span class="class-name">com.apollo247.testing.runner.RunnerIO_Docter</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Login and navigate to Lab Tests&quot;, &quot;Apollo 247 Login and Module Navigation&quot;)">
-                  </a> <!-- runScenario("Login and navigate to Lab Tests", "Apollo 247 Login and Module Navigation") -->
+                  <a name="runScenario(&quot;Book a hospital visit appointment&quot;, &quot;Apollo 247 Doctor Booking&quot;)">
+                  </a> <!-- runScenario("Book a hospital visit appointment", "Apollo 247 Doctor Booking") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Login and navigate to Lab Tests","Apollo 247 Login and Module Navigation")</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
+                  <span class="parameters">("Book a hospital visit appointment","Apollo 247 Doctor Booking")</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (40838eb87e267e6e0e2ba522daf20bcb)] -&gt; xpath: (//button[text()=&apos;Hospital Visit&apos;])[1]] (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.apollo247.testing.pages.SearchDoctorPage.SelectDoctor(SearchDoctorPage.java:218)
+	at com.apollo247.testing.stepdefinitions.search.user_selects_the_first_available_doctor(search.java:58)
+	at ✽.user selects the first available doctor(file:///D:/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/FindDocter.feature:12)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//button[text()=&apos;Hospital Visit&apos;])[1]&quot;}
   (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f3485b47148b6d38476b5903b0f911c7, findElement {value=//button[text()=&apos;Verify&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54227}, goog:processID: 17824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54227/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f3485b47148b6d38476b5903b0f911c7
+Command: [40838eb87e267e6e0e2ba522daf20bcb, findElement {using=xpath, value=(//button[text()=&apos;Hospital Visit&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Swetha\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50019}, goog:processID: 1564, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50019/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40838eb87e267e6e0e2ba522daf20bcb
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -155,15 +161,14 @@ Session ID: f3485b47148b6d38476b5903b0f911c7
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy22.toString(Unknown Source)
-	at java.base/java.lang.String.valueOf(String.java:4465)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.toString(ExpectedConditions.java:675)
-	at java.base/java.lang.String.valueOf(String.java:4465)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:225)
-	at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:124)
-	at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:152)
-	at com.apollo247.testing.stepdefinitions.DashBoardSteps.user_should_be_prompted_for_otp_verification(DashBoardSteps.java:29)
-	at ✽.User should be prompted for OTP verification(file:///C:/Users/Shyam%20Sundar/OneDrive/Desktop/Capgemini%20Selenium%20Training/com.apollo247.Testing_Sprint/src/test/java/com/apollo247/testing/features/Dashboard.feature:9)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 3 more
 
 </div> <!-- stack-trace -->
                   <em>
@@ -175,7 +180,7 @@ Session ID: f3485b47148b6d38476b5903b0f911c7
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Shyam Sundar\AppData\Local\Temp\testng-eclipse--1646258576\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Swetha\AppData\Local\Temp\testng-eclipse-582128804\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -184,7 +189,7 @@ Session ID: f3485b47148b6d38476b5903b0f911c7
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.apollo247.testing.runner.RunnerIO&quot;/&gt;
+      &lt;class name=&quot;com.apollo247.testing.runner.RunnerIO_Docter&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -235,13 +240,13 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
-data.setCell(0, 2, 'com.apollo247.testing.runner.RunnerIO')
-data.setCell(0, 3, 49975);
+data.setCell(0, 2, 'com.apollo247.testing.runner.RunnerIO_Docter')
+data.setCell(0, 3, 80216);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 49 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -267,20 +272,20 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.apollo247.testing.runner.RunnerIO</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.apollo247.testing.runner.RunnerIO_Docter</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@5f69e2b)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@222afc67)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("Login and navigate to Lab Tests", "Apollo 247 Login and Module Navigation")</span>
-                <span class="method-start">412 ms</span>
+                <span class="method-name">runScenario("Book a hospital visit appointment", "Apollo 247 Doctor Booking")</span>
+                <span class="method-start">164 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">50419 ms</span>
+                <span class="method-start">80399 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

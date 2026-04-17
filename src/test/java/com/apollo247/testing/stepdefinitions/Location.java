@@ -1,5 +1,5 @@
 package com.apollo247.testing.stepdefinitions;
 
-public class TestScenario_05_Location {
+public class Location {
 
 }

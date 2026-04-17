@@ -5,6 +5,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
@@ -19,6 +20,7 @@ public class DashboardPage {
 		this.driver = driver;
 		this.utility = new AllUtilityFunctions();
 		this.utility.initializeDriver(driver); // Pass the active driver to utility
+		PageFactory.initElements(driver, this);
 	}
 	// locators
 

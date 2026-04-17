@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 16 14:38:28 IST 2026</td>
+<td>Started on:</td><td>Fri Apr 17 13:24:40 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>50 seconds (50480 ms)</td>
+<tr><td>Total time:</td><td>80 seconds (80427 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,16 +76,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.apollo247.testing.runner.RunnerIO.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.RunnerIO<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login and navigate to Lab Tests", "Apollo 247 Login and Module Navigation"</td>
-<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
+<td title='com.apollo247.testing.runner.RunnerIO_Docter.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.RunnerIO_Docter<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Book a hospital visit appointment", "Apollo 247 Doctor Booking"</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (40838eb87e267e6e0e2ba522daf20bcb)] -&gt; xpath: (//button[text()=&apos;Hospital Visit&apos;])[1]] (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.apollo247.testing.pages.SearchDoctorPage.SelectDoctor(SearchDoctorPage.java:218)
+	at com.apollo247.testing.stepdefinitions.search.user_selects_the_first_available_doctor(search.java:58)
+	at ✽.user selects the first available doctor(file:///D:/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/FindDocter.feature:12)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//button[text()=&apos;Hospital Visit&apos;])[1]&quot;}
   (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f3485b47148b6d38476b5903b0f911c7, findElement {value=//button[text()=&apos;Verify&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54227}, goog:processID: 17824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54227/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f3485b47148b6d38476b5903b0f911c7
+Command: [40838eb87e267e6e0e2ba522daf20bcb, findElement {using=xpath, value=(//button[text()=&apos;Hospital Visit&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Swetha\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50019}, goog:processID: 1564, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50019/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40838eb87e267e6e0e2ba522daf20bcb
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -102,25 +108,30 @@ Session ID: f3485b47148b6d38476b5903b0f911c7
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy22.toString(Unknown Source)
-	at java.base/java.lang.String.valueOf(String.java:4465)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.toString(ExpectedConditions.java:675)
-	at java.base/java.lang.String.valueOf(String.java:4465)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:225)
-	at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:124)
-	at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:152)
-	at com.apollo247.testing.stepdefinitions.DashBoardSteps.user_should_be_prompted_for_otp_verification(DashBoardSteps.java:29)
-	at ✽.User should be prompted for OTP verification(file:///C:/Users/Shyam%20Sundar/OneDrive/Desktop/Capgemini%20Selenium%20Training/com.apollo247.Testing_Sprint/src/test/java/com/apollo247/testing/features/Dashboard.feature:9)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1131710157", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1131710157'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
+	at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 3 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1658273453", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1658273453'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (40838eb87e267e6e0e2ba522daf20bcb)] -&gt; xpath: (//button[text()=&apos;Hospital Visit&apos;])[1]] (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.apollo247.testing.pages.SearchDoctorPage.SelectDoctor(SearchDoctorPage.java:218)
+	at com.apollo247.testing.stepdefinitions.search.user_selects_the_first_available_doctor(search.java:58)
+	at ✽.user selects the first available doctor(file:///D:/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/FindDocter.feature:12)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//button[text()=&apos;Hospital Visit&apos;])[1]&quot;}
   (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f3485b47148b6d38476b5903b0f911c7, findElement {value=//button[text()=&apos;Verify&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54227}, goog:processID: 17824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54227/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f3485b47148b6d38476b5903b0f911c7
+Command: [40838eb87e267e6e0e2ba522daf20bcb, findElement {using=xpath, value=(//button[text()=&apos;Hospital Visit&apos;])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Swetha\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50019}, goog:processID: 1564, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50019/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40838eb87e267e6e0e2ba522daf20bcb
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -137,18 +148,17 @@ Session ID: f3485b47148b6d38476b5903b0f911c7
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy22.toString(Unknown Source)
-	at java.base/java.lang.String.valueOf(String.java:4465)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.toString(ExpectedConditions.java:675)
-	at java.base/java.lang.String.valueOf(String.java:4465)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:225)
-	at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:124)
-	at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:152)
-	at com.apollo247.testing.stepdefinitions.DashBoardSteps.user_should_be_prompted_for_otp_verification(DashBoardSteps.java:29)
-	at ✽.User should be prompted for OTP verification(file:///C:/Users/Shyam%20Sundar/OneDrive/Desktop/Capgemini%20Selenium%20Training/com.apollo247.Testing_Sprint/src/test/java/com/apollo247/testing/features/Dashboard.feature:9)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 3 more
 </pre></div></td>
-<td>49</td>
-<td>com.apollo247.testing.runner.RunnerIO@2df3b89c</td></tr>
+<td>80</td>
+<td>com.apollo247.testing.runner.RunnerIO_Docter@2df3b89c</td></tr>
 </table><p>
 </body>
 </html>
