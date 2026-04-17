@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testng-results ignored="0" total="5" passed="1" failed="4" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <suite started-at="2026-04-17T08:37:15 IST" name="Default suite" finished-at="2026-04-17T08:45:43 IST" duration-ms="507310">
     <groups>
@@ -54,6 +54,9 @@
 >>>>>>> feature/insurance
 =======
   <suite started-at="2026-04-17T14:38:42 IST" name="Default suite" finished-at="2026-04-17T14:40:09 IST" duration-ms="86998">
+=======
+  <suite started-at="2026-04-17T13:24:40 IST" name="Default suite" finished-at="2026-04-17T13:26:01 IST" duration-ms="80427">
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO_Docter@2df3b89c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
@@ -65,14 +68,19 @@
           <params>
             <param index="0">
               <value>
+<<<<<<< HEAD
                 <![CDATA[org.testng.TestRunner@1abfe081]]>
 >>>>>>> feature/finddoctor
+=======
+                <![CDATA[org.testng.TestRunner@222afc67]]>
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:37:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T08:38:31 IST" duration-ms="75781" status="PASS">
@@ -97,15 +105,22 @@
 >>>>>>> feature/insurance
 =======
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO_Docter@2df3b89c]" started-at="2026-04-17T14:38:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T14:40:09 IST" duration-ms="86709" status="FAIL">
+=======
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO_Docter@2df3b89c]" started-at="2026-04-17T13:24:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T13:26:01 IST" duration-ms="80216" status="FAIL">
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
           <params>
             <param index="0">
               <value>
                 <![CDATA["Book a hospital visit appointment"]]>
+<<<<<<< HEAD
 >>>>>>> feature/finddoctor
+=======
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
               </value>
             </param>
             <param index="1">
               <value>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 <![CDATA["Apollo 247 Module Navigation"]]>
@@ -148,12 +163,15 @@
             <message>
               <![CDATA[Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (c19e1fdb6af239521d722b85d49dd00b)] -> xpath: //button[text()='Verify']] (tried for 40 second(s) with 500 milliseconds interval)
 =======
+=======
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
                 <![CDATA["Apollo 247 Doctor Booking"]]>
               </value>
             </param>
           </params>
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
+<<<<<<< HEAD
               <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //p[text()='Dr. Amvrin Chatterjee']/ancestor::div//button[contains(text(),'Hospital Visit')] (tried for 30 second(s) with 500 milliseconds interval)
 >>>>>>> feature/finddoctor
 Build info: version: '4.38.0', revision: '6b412e825c*'
@@ -253,6 +271,26 @@ Driver info: org.openqa.selenium.chrome.ChromeDriver
 Command: [c6cb94c9d83f3892db3e49d8a1213729, findElement {using=xpath, value= //div[@class='CallbackWidget_popUpOpen__5Zh2n']//child::img[@alt='close']}]
 Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62387}, goog:processID: 25220, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62387/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
 Session ID: c6cb94c9d83f3892db3e49d8a1213729
+=======
+              <![CDATA[Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (40838eb87e267e6e0e2ba522daf20bcb)] -> xpath: (//button[text()='Hospital Visit'])[1]] (tried for 20 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (40838eb87e267e6e0e2ba522daf20bcb)] -> xpath: (//button[text()='Hospital Visit'])[1]] (tried for 20 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.apollo247.testing.pages.SearchDoctorPage.SelectDoctor(SearchDoctorPage.java:218)
+at com.apollo247.testing.stepdefinitions.search.user_selects_the_first_available_doctor(search.java:58)
+at ✽.user selects the first available doctor(file:///D:/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/FindDocter.feature:12)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//button[text()='Hospital Visit'])[1]"}
+  (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.5'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40838eb87e267e6e0e2ba522daf20bcb, findElement {using=xpath, value=(//button[text()='Hospital Visit'])[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Swetha\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50019}, goog:processID: 1564, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50019/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40838eb87e267e6e0e2ba522daf20bcb
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -269,6 +307,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+<<<<<<< HEAD
 at jdk.proxy2/jdk.proxy2.$Proxy22.isDisplayed(Unknown Source)
 at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
@@ -284,12 +323,23 @@ at com.apollo247.testing.pages.SearchDoctorPage.SelectDoctor(SearchDoctorPage.ja
 at com.apollo247.testing.stepdefinitions.search.selectDoctor(search.java:52)
 at ✽.user selects doctor "Dr. Amvrin Chatterjee"(file:///D:/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/FindDocter.feature:12)
 >>>>>>> feature/finddoctor
+=======
+at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 3 more
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
+<<<<<<< HEAD
 <<<<<<< HEAD
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:44:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T08:45:43 IST" duration-ms="47704" status="FAIL">
           <params>
@@ -339,6 +389,9 @@ at com.apollo247.testing.stepdefinitions.Hook.setup(Hook.java:59)
 =======
         <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO_Docter@2df3b89c]" started-at="2026-04-17T14:40:09 IST" name="tearDownClass" finished-at="2026-04-17T14:40:09 IST" duration-ms="0" status="PASS">
 >>>>>>> feature/finddoctor
+=======
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO_Docter@2df3b89c]" started-at="2026-04-17T13:26:01 IST" name="tearDownClass" finished-at="2026-04-17T13:26:01 IST" duration-ms="9" status="PASS">
+>>>>>>> fd490f80f0cd8a197cc4dd88f21e72928c9f2109
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

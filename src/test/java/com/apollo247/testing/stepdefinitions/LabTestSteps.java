@@ -11,12 +11,13 @@ public class LabTestSteps {
 
 	@When("User searches for {string}")
 	public void user_searches_for(String testName) {
-		Pages.labTestPage.closePopup();
+		Pages.labTestPage.closePopupIfPresent();
 		Pages.labTestPage.searchTest(testName);
 	}
 
-	@Then("{string} should be displayed")
-	public void should_be_displayed(String string) {
+	@Then("results should be displayed")
+	public void results_should_be_displayed() {
+
 		boolean flag = Pages.labTestPage.isResultDisplayed();
 		assertTrue(flag, "Results for the search are not displayed");
 	}
