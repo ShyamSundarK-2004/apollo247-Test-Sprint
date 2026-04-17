@@ -154,7 +154,7 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntillElementIsCLickable(40, getVerifyBtn());
+		WebElement verify = utility.waitUntillElementIsCLickable(60, getVerifyBtn());
 		verify.click();
 	}
 
