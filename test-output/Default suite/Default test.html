@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Apr 17 13:44:59 IST 2026</td>
+<td>Started on:</td><td>Fri Apr 17 14:22:15 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>98 seconds (98065 ms)</td>
+<tr><td>Total time:</td><td>79 seconds (79259 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,31 +77,33 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.apollo247.testing.runner.MyAccountRunner.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.MyAccountRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Add valid family member", "Account Module - Manage Family Members"</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[normalize-space()=&apos;Male&apos;] (tried for 15 second(s) with 500 milliseconds interval)
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (fe9a395102a92dadc94b24cee6a50b61)] -&gt; xpath: //button[text()=&apos;Verify&apos;]] (tried for 60 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.101, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49623}, goog:processID: 3256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49623/devtoo..., se:cdpVersion: 147.0.7727.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ff4ad4de8ac5e08796ad967f03650850
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.101, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52007}, goog:processID: 22856, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52007/devtoo..., se:cdpVersion: 147.0.7727.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fe9a395102a92dadc94b24cee6a50b61
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.apollo247.testing.pages.ManageFamilyPage.selectMaleAndBrother(ManageFamilyPage.java:137)
-	at com.apollo247.testing.stepdefinitions.AccountModuleSteps.user_selects_gender_as_male_and_relation_as_brother(AccountModuleSteps.java:68)
-	at ✽.user selects gender as Male and relation as Brother(file:///C:/Users/Admin/git/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/MyAccount.feature:15)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1293940401", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1293940401'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[normalize-space()=&apos;Male&apos;] (tried for 15 second(s) with 500 milliseconds interval)
+	at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:124)
+	at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:153)
+	at com.apollo247.testing.stepdefinitions.AccountModuleSteps.user_clicks_verify_after_entering_otp(AccountModuleSteps.java:47)
+	at ✽.user clicks verify after entering OTP(file:///C:/Users/Admin/git/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/MyAccount.feature:8)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1511319053", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1511319053'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (fe9a395102a92dadc94b24cee6a50b61)] -&gt; xpath: //button[text()=&apos;Verify&apos;]] (tried for 60 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.101, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49623}, goog:processID: 3256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49623/devtoo..., se:cdpVersion: 147.0.7727.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: ff4ad4de8ac5e08796ad967f03650850
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.101, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52007}, goog:processID: 22856, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52007/devtoo..., se:cdpVersion: 147.0.7727.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fe9a395102a92dadc94b24cee6a50b61
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.apollo247.testing.pages.ManageFamilyPage.selectMaleAndBrother(ManageFamilyPage.java:137)
-	at com.apollo247.testing.stepdefinitions.AccountModuleSteps.user_selects_gender_as_male_and_relation_as_brother(AccountModuleSteps.java:68)
-	at ✽.user selects gender as Male and relation as Brother(file:///C:/Users/Admin/git/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/MyAccount.feature:15)
+	at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:124)
+	at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:153)
+	at com.apollo247.testing.stepdefinitions.AccountModuleSteps.user_clicks_verify_after_entering_otp(AccountModuleSteps.java:47)
+	at ✽.user clicks verify after entering OTP(file:///C:/Users/Admin/git/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/MyAccount.feature:8)
 </pre></div></td>
-<td>96</td>
+<td>78</td>
 <td>com.apollo247.testing.runner.MyAccountRunner@2de23121</td></tr>
 </table><p>
 </body>

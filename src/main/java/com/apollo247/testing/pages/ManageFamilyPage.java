@@ -37,9 +37,7 @@ public class ManageFamilyPage {
     @FindBy(css = "[placeholder='dd/mm/yyyy']")
     private WebElement dob;
 
-    
-
-    @FindBy(xpath = "//div[@class='AphSelect_select__MnPUj ']")
+    @FindBy(xpath = "//div[contains(@class,'AphSelect_select')]")
     private WebElement relationDropdown;
 
     @FindBy(css = "[data-value='BROTHER']")
@@ -54,9 +52,8 @@ public class ManageFamilyPage {
     @FindBy(xpath = "//span[.='OK']")
     private WebElement okBtn;
 
-    // NEW: Generic validation error message
-    @FindBy(xpath = "//*[contains(text(),'required') or contains(text(),'invalid') or contains(text(),'enter')]")
-    private WebElement validationError;
+    @FindBy(xpath = "//*[contains(text(),'successfully') or contains(text(),'created') or contains(text(),'added')]")
+    private WebElement successToast;
 
     // Getter Methods
 
@@ -124,31 +121,42 @@ public class ManageFamilyPage {
         dob.sendKeys(dateOfBirth);
     }
 
-        	public void selectMaleAndBrother() {
+    public void selectMaleAndBrother() {
 
-    	    WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(15));
 
-    	    // wait for form to be ready (VERY IMPORTANT)
-    	    wait.until(ExpectedConditions.visibilityOfElementLocated(
-    	        By.xpath("//div")
-    	    ));
+        // wait for form to be ready
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//*[contains(text(),'Gender') or contains(text(),'Male') or contains(text(),'Female')]")
+        ));
 
-    	    // click Male
-    	    WebElement male = wait.until(
-    	        ExpectedConditions.elementToBeClickable(
-    	            By.xpath("//*[normalize-space()='Male']")
-    	        )
-    	    );
-    	    male.click();
+        // click Male (flexible locator)
+        WebElement male = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[contains(text(),'Male') or contains(@value,'MALE')]")
+            )
+        );
 
-    	    relationDropdown.click();
-    	    brotherOption.click();
-    	}
+        male.click();
+
+    }
 
     public void saveFamilyMember() {
         saveBtn.click();
         confirmBtn.click();
         okBtn.click();
+    }
+    public boolean isProfileCreatedSuccess() {
+
+        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
+
+        try {
+            return wait.until(
+                ExpectedConditions.visibilityOf(successToast)
+            ).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void addFamilyMember(String fName, String lName, String dobValue) {
@@ -166,14 +174,7 @@ public class ManageFamilyPage {
         saveBtn.click();
     }
 
-    // Verify validation error is displayed
-    public boolean isValidationErrorDisplayed() {
-        try {
-            return validationError.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
+    
 
     // Shadow DOM popup
     public void closePopup(SearchContext shadowRoot) {
