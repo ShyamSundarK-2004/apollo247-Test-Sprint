@@ -26,7 +26,6 @@ public class DashboardPage {
 
 	// ====== locators ======
 
-
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
 	private WebElement loginBtn;
@@ -66,7 +65,6 @@ public class DashboardPage {
 	// my account module
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
-
 
 	// ===== getters and setter ======
 
@@ -156,7 +154,7 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utility.waitUntillElementIsCLickable(60, getVerifyBtn());
+		WebElement verify = utilities.waitUntillElementIsCLickable(60, getVerifyBtn());
 		verify.click();
 	}
 
@@ -167,22 +165,16 @@ public class DashboardPage {
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
+
 	public void clickonHealthInsuranceModule() {
-		utility.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
+		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule = Pages.healthInsurancePage.getClickBuyInsurance();
 		healthInsuranceModule.click();
 
-		
 	}
 
 	public void clickOnMyAccountBtn() {
 		getMyAccountModule().click();
 	}
-
-	public String getCurrentPageUrl() {
-		return utility.fetchApplicationURL();
-	}
-
-	
 
 }
