@@ -49,10 +49,19 @@ public class Hook extends AllUtilityFunctions {
 		// initialize all the pages with driver using page factory
 		Pages.loadAllPages(b.driver);
 
+		// closing the shadow dom popup
+		Pages.dashboardPage.closeDomPopup();
+
+		// logging in with mobile number
+		Pages.dashboardPage.login(getPropertyKeyValue("phoneNo"));
+
+		// enter otp and verify otp
+		Pages.dashboardPage.enterOtpAndclickVerify();
+
 	}
 
 	@After
 	public void teadDown() {
-//		quitBroswerWindow();
+		quitBroswerWindow();
 	}
 }
