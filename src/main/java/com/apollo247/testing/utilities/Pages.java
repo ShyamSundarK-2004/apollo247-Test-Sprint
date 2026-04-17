@@ -4,15 +4,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.apollo247.testing.pages.DashboardPage;
+import com.apollo247.testing.pages.LabTestPage;
 
 public class Pages {
 
 	public static DashboardPage dashboardPage;
+	public static LabTestPage labTestPage;
 
 	// all the pages are initialized with the driver object
 	public static void loadAllPages(WebDriver driver) {
 		dashboardPage = new DashboardPage(driver);
 		PageFactory.initElements(driver, dashboardPage);
+		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
 
 	}
 }
