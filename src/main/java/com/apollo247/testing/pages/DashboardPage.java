@@ -153,7 +153,7 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utility.waitUntillElementIsCLickable(40, getVerifyBtn());
+		WebElement verify = utility.waitUntillElementIsCLickable(60, getVerifyBtn());
 		verify.click();
 	}
 
@@ -179,6 +179,7 @@ public class DashboardPage {
 	public String getCurrentPageUrl() {
 		return utility.fetchApplicationURL();
 	}
+
 
 	
 

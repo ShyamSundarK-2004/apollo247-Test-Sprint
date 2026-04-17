@@ -10,6 +10,7 @@ import com.apollo247.testing.pages.HealthInsurancePage;
 
 import com.apollo247.testing.pages.LabTestPage;
 
+import com.apollo247.testing.pages.ManageFamilyPage;
 
 public class Pages {
 
@@ -19,10 +20,12 @@ public class Pages {
 	public static HealthInsurancePage healthInsurancePage;
 	
 
+	public static ManageFamilyPage manageFamilyPage; 
 
 	// all the pages are initialized with the driver object
 	public static void loadAllPages(WebDriver driver) {
 		dashboardPage = new DashboardPage(driver);
+		manageFamilyPage = new ManageFamilyPage(driver);
 		PageFactory.initElements(driver, dashboardPage);
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
 
@@ -30,6 +33,7 @@ public class Pages {
 		PageFactory.initElements(driver, healthInsurancePage);
 
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
+		PageFactory.initElements(driver, manageFamilyPage);
 
 	}
 }
