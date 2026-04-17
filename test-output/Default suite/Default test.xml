@@ -45,4 +45,6 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
 ]]>
     </failure>
   </testcase> <!-- runScenario -->
+  <testcase classname="io.cucumber.testng.AbstractTestNGCucumberTests" name="runScenario" time="0.097"/>
+  <testcase classname="io.cucumber.testng.AbstractTestNGCucumberTests" name="runScenario" time="0.004"/>
 </testsuite> <!-- Default test -->
