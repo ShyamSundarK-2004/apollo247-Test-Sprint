@@ -29,7 +29,7 @@ public class LabTestPage {
 
 	// test names inside each result
 	@FindBy(css = "li.LabTestsSearch_borderStyling__U8YrA div.Q__mb_")
-	private java.util.List<WebElement> testNames;
+	private List<WebElement> testNames;
 
 	// call back popup
 	@FindBy(xpath = " //div[@class='CallbackWidget_popUpOpen__5Zh2n']//child::img[@alt='close']")
