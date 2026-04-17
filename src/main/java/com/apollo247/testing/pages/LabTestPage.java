@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
 
@@ -28,8 +29,8 @@ public class LabTestPage {
 	private WebElement searchBar;
 
 	// test names inside each result
-	@FindBy(css = "li.LabTestsSearch_borderStyling__U8YrA div.Q__mb_")
-	private java.util.List<WebElement> testNames;
+	@FindBy(xpath = "//p[contains(@class,'RX')]")
+	private List<WebElement> testNames;
 
 	// call back popup
 	@FindBy(xpath = " //div[@class='CallbackWidget_popUpOpen__5Zh2n']//child::img[@alt='close']")
@@ -73,10 +74,14 @@ public class LabTestPage {
 		getSearchBar().sendKeys(Keys.ENTER);
 	}
 
-	public void closePopup() {
-
-		utilities.waitUntilElementIsVisibility(15L, popupCloseBtn);
-		getPopupCloseBtn().click();
+	public void closePopupIfPresent() {
+		try {
+			if (getPopupCloseBtn().isDisplayed()) {
+				getPopupCloseBtn().click();
+			}
+		} catch (Exception e) {
+			Reporter.log("No Popup showes");
+		}
 	}
 
 	public boolean isResultDisplayed() {
@@ -85,6 +90,10 @@ public class LabTestPage {
 
 	public void clickOnRadiologyBookingBtn() {
 		getRadiologyBookingBtn().click();
+	}
+
+	public String getCurrentPageUrl() {
+		return utilities.fetchApplicationURL();
 	}
 
 }
