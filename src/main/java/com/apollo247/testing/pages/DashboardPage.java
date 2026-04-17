@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.Pages;
 
 public class DashboardPage {
 
@@ -21,6 +22,10 @@ public class DashboardPage {
 		this.utility.initializeDriver(driver); // Pass the active driver to utility
 	}
 	// locators
+	
+	//Dom Login Modal hidden one
+	@FindBy (css =".LoginModal_loginForm__0CKIM" )
+	private By hiddenLoginModal;
 
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
@@ -63,6 +68,11 @@ public class DashboardPage {
 	private WebElement myAccountModule;
 
 	// getters and setter
+	
+	// wait until invisible hidden LoginModal
+	public By getHiddenLoginModal() {
+		return hiddenLoginModal;
+	}
 
 	// login button
 	public WebElement getLoginBtn() {
@@ -155,10 +165,17 @@ public class DashboardPage {
 
 	public void clickonModule(WebDriver driver, String module) {
 
-		utility.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		utility.waitUntilInvisibilityOfElementLocated(25L, getHiddenLoginModal());
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
+	}
+	public void clickonHealthInsuranceModule() {
+		utility.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
+		healthInsuranceModule.click();
+
+		
 	}
 
 }
