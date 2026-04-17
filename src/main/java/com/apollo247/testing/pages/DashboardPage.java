@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.Pages;
 
 public class DashboardPage {
 
@@ -20,7 +21,9 @@ public class DashboardPage {
 		this.utilities = new AllUtilityFunctions();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
 	}
+
 	// ====== locators ======
+
 
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
@@ -61,6 +64,7 @@ public class DashboardPage {
 	// my account module
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
+
 
 	// ===== getters and setter ======
 
@@ -161,9 +165,22 @@ public class DashboardPage {
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
+	public void clickonHealthInsuranceModule() {
+		utility.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
+		healthInsuranceModule.click();
+
+		
+	}
 
 	public void clickOnMyAccountBtn() {
 		getMyAccountModule().click();
 	}
+
+	public String getCurrentPageUrl() {
+		return utility.fetchApplicationURL();
+	}
+
+	
 
 }
