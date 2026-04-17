@@ -25,7 +25,12 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+
+      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
+
+      <span class="top-banner-font-1">1 suite</span>
+
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +97,12 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">2 methods, 2 failed,   </span>
+
+                    <span class="method-stats">5 methods, 4 failed,   1 passed</span>
+
+                    <span class="method-stats">1 method,   1 passed</span>
+
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,11 +112,45 @@
                     </span>
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Verify valid member selection (Female and Self)&quot;, &quot;Apollo 247 Health Insurance - Member Selection V...)">runScenario("Verify valid member selection (Female and Self)", "Apollo 247 Health Insurance - Member Selection V...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Verify search functionality for lab tests&quot;, &quot;Apollo 247 Module Navigation&quot;)">runScenario("Verify search functionality for lab tests", "Apollo 247 Module Navigation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Verify search functionality for lab tests&quot;, &quot;Apollo 247 Module Navigation&quot;)">runScenario("Verify search functionality for lab tests", "Apollo 247 Module Navigation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can access Lab Tests module&quot;, &quot;Apollo 247 Module Navigation&quot;)">runScenario("Verify user can access Lab Tests module", "Apollo 247 Module Navigation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
                         <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.MyAccountRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Add valid family member&quot;, &quot;Account Module - Manage Family Members&quot;)">runScenario("Add valid family member", "Account Module - Manage Family Members")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can access Lab Tests module&quot;, &quot;Apollo 247 Module Navigation&quot;)">runScenario("Verify user can access Lab Tests module", "Apollo 247 Module Navigation")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -150,6 +194,9 @@ Session ID: fe9a395102a92dadc94b24cee6a50b61
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
+
+          </div> <!-- suite-Default_suite-class-passed -->
+
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -210,7 +257,7 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.apollo247.testing.runner.MyAccountRunner')
