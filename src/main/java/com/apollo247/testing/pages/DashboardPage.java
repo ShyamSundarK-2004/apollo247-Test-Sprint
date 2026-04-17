@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.Pages;
 
 public class DashboardPage {
 
@@ -149,7 +150,7 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utility.waitUntillElementIsCLickable(40, getVerifyBtn());
+		WebElement verify = utility.waitUntillElementIsCLickable(60, getVerifyBtn());
 		verify.click();
 	}
 
@@ -160,5 +161,6 @@ public class DashboardPage {
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
+	
 
 }

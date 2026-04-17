@@ -2,96 +2,70 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-16T14:38:28 IST" name="Default suite" finished-at="2026-04-16T14:39:18 IST" duration-ms="50480">
+  <suite started-at="2026-04-17T13:44:59 IST" name="Default suite" finished-at="2026-04-17T13:46:37 IST" duration-ms="98065">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.MyAccountRunner@2de23121]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-04-16T14:38:28 IST" name="Default test" finished-at="2026-04-16T14:39:18 IST" duration-ms="50480">
-      <class name="com.apollo247.testing.runner.RunnerIO">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-16T14:38:28 IST" name="setUpClass" finished-at="2026-04-16T14:38:28 IST" duration-ms="376" status="PASS">
+    <test started-at="2026-04-17T13:44:59 IST" name="Default test" finished-at="2026-04-17T13:46:37 IST" duration-ms="98065">
+      <class name="com.apollo247.testing.runner.MyAccountRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.MyAccountRunner@2de23121]" started-at="2026-04-17T13:44:59 IST" name="setUpClass" finished-at="2026-04-17T13:45:00 IST" duration-ms="1070" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@5f69e2b]]>
+                <![CDATA[org.testng.TestRunner@717d7587]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-16T14:38:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-16T14:39:18 IST" duration-ms="49975" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.MyAccountRunner@2de23121]" started-at="2026-04-17T13:45:00 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T13:46:37 IST" duration-ms="96863" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Login and navigate to Lab Tests"]]>
+                <![CDATA["Add valid family member"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Apollo 247 Login and Module Navigation"]]>
+                <![CDATA["Account Module - Manage Family Members"]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchWindowException">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=147.0.7727.56)
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //*[normalize-space()='Male'] (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f3485b47148b6d38476b5903b0f911c7, findElement {value=//button[text()='Verify'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54227}, goog:processID: 17824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54227/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f3485b47148b6d38476b5903b0f911c7]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.101, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49623}, goog:processID: 3256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49623/devtoo..., se:cdpVersion: 147.0.7727.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ff4ad4de8ac5e08796ad967f03650850]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=147.0.7727.56)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[normalize-space()='Male'] (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f3485b47148b6d38476b5903b0f911c7, findElement {value=//button[text()='Verify'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54227}, goog:processID: 17824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54227/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f3485b47148b6d38476b5903b0f911c7
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy22.toString(Unknown Source)
-at java.base/java.lang.String.valueOf(String.java:4465)
-at org.openqa.selenium.support.ui.ExpectedConditions$23.toString(ExpectedConditions.java:675)
-at java.base/java.lang.String.valueOf(String.java:4465)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:225)
-at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:124)
-at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:152)
-at com.apollo247.testing.stepdefinitions.DashBoardSteps.user_should_be_prompted_for_otp_verification(DashBoardSteps.java:29)
-at ✽.User should be prompted for OTP verification(file:///C:/Users/Shyam%20Sundar/OneDrive/Desktop/Capgemini%20Selenium%20Training/com.apollo247.Testing_Sprint/src/test/java/com/apollo247/testing/features/Dashboard.feature:9)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.101, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49623}, goog:processID: 3256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49623/devtoo..., se:cdpVersion: 147.0.7727.101, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ff4ad4de8ac5e08796ad967f03650850
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.apollo247.testing.pages.ManageFamilyPage.selectMaleAndBrother(ManageFamilyPage.java:137)
+at com.apollo247.testing.stepdefinitions.AccountModuleSteps.user_selects_gender_as_male_and_relation_as_brother(AccountModuleSteps.java:68)
+at ✽.user selects gender as Male and relation as Brother(file:///C:/Users/Admin/git/apollo247-Test-Sprint/./src/test/java/com/apollo247/testing/features/MyAccount.feature:15)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-16T14:39:18 IST" name="tearDownClass" finished-at="2026-04-16T14:39:18 IST" duration-ms="10" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.MyAccountRunner@2de23121]" started-at="2026-04-17T13:46:37 IST" name="tearDownClass" finished-at="2026-04-17T13:46:37 IST" duration-ms="52" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- com.apollo247.testing.runner.RunnerIO -->
+      </class> <!-- com.apollo247.testing.runner.MyAccountRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
