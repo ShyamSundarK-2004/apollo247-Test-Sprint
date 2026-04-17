@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="5" passed="1" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -15,21 +16,88 @@
             <param index="0">
               <value>
                 <![CDATA[org.testng.TestRunner@c4551c6]]>
+=======
+<<<<<<< HEAD
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-04-17T11:04:22 IST" name="Default suite" finished-at="2026-04-17T11:05:41 IST" duration-ms="78591">
+=======
+<testng-results ignored="0" total="5" passed="1" failed="4" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-04-17T08:37:15 IST" name="Default suite" finished-at="2026-04-17T08:45:43 IST" duration-ms="507310">
+>>>>>>> 5d63dfb (merged commit)
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@548a24a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+<<<<<<< HEAD
+    <test started-at="2026-04-17T11:04:22 IST" name="Default test" finished-at="2026-04-17T11:05:41 IST" duration-ms="78591">
+      <class name="com.apollo247.testing.runner.RunnerIO">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@548a24a]" started-at="2026-04-17T11:04:22 IST" name="setUpClass" finished-at="2026-04-17T11:04:22 IST" duration-ms="232" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@a9f023e]]>
+=======
+    <test started-at="2026-04-17T08:37:15 IST" name="Default test" finished-at="2026-04-17T08:45:43 IST" duration-ms="507310">
+      <class name="com.apollo247.testing.runner.RunnerIO">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:37:15 IST" name="setUpClass" finished-at="2026-04-17T08:37:16 IST" duration-ms="365" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@c4551c6]]>
+>>>>>>> 5d63dfb (merged commit)
+>>>>>>> feature/insurance
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
+<<<<<<< HEAD
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:37:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T08:38:31 IST" duration-ms="75781" status="PASS">
           <params>
             <param index="0">
               <value>
                 <![CDATA["Verify user can access Lab Tests module"]]>
+=======
+<<<<<<< HEAD
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@548a24a]" started-at="2026-04-17T11:04:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T11:05:41 IST" duration-ms="78292" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify valid member selection (Female and Self)"]]>
+=======
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:37:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T08:38:31 IST" duration-ms="75781" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify user can access Lab Tests module"]]>
+>>>>>>> 5d63dfb (merged commit)
+>>>>>>> feature/insurance
               </value>
             </param>
             <param index="1">
               <value>
+<<<<<<< HEAD
+                <![CDATA["Apollo 247 Module Navigation"]]>
+=======
+<<<<<<< HEAD
+                <![CDATA["Apollo 247 Health Insurance - Member Selection Validation"]]>
+>>>>>>> feature/insurance
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+<<<<<<< HEAD
+=======
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO@548a24a]" started-at="2026-04-17T11:05:41 IST" name="tearDownClass" finished-at="2026-04-17T11:05:41 IST" duration-ms="4" status="PASS">
+=======
                 <![CDATA["Apollo 247 Module Navigation"]]>
               </value>
             </param>
@@ -37,6 +105,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
+>>>>>>> feature/insurance
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:38:31 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-17T08:39:19 IST" duration-ms="47667" status="FAIL">
           <params>
             <param index="0">
@@ -210,6 +279,10 @@ at com.apollo247.testing.stepdefinitions.Hook.setup(Hook.java:59)
           </reporter-output>
         </test-method> <!-- runScenario -->
         <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2df3b89c]" started-at="2026-04-17T08:45:43 IST" name="tearDownClass" finished-at="2026-04-17T08:45:43 IST" duration-ms="14" status="PASS">
+<<<<<<< HEAD
+=======
+>>>>>>> 5d63dfb (merged commit)
+>>>>>>> feature/insurance
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

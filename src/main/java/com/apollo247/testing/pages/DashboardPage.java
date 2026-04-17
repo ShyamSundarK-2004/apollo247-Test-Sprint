@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.Pages;
 
 public class DashboardPage {
 
@@ -20,7 +21,13 @@ public class DashboardPage {
 		this.utility = new AllUtilityFunctions();
 		this.utility.initializeDriver(driver); // Pass the active driver to utility
 	}
+<<<<<<< HEAD
 	// ====== locators ======
+=======
+
+	// ====== locators ======
+
+>>>>>>> feature/insurance
 
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
@@ -62,6 +69,10 @@ public class DashboardPage {
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/insurance
 	// ===== getters and setter ======
 
 	// login button
@@ -155,10 +166,25 @@ public class DashboardPage {
 
 	public void clickOnModule(String module) {
 
-		utility.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		utility.waitUntilInvisibilityOfElementLocated(25L,  By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
+	}
+	public void clickonHealthInsuranceModule() {
+		utility.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
+		healthInsuranceModule.click();
+
+		
+	}
+
+	public void clickOnMyAccountBtn() {
+		getMyAccountModule().click();
+	}
+
+	public String getCurrentPageUrl() {
+		return utility.fetchApplicationURL();
 	}
 
 	public void clickOnMyAccountBtn() {
