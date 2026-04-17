@@ -16,8 +16,8 @@ public class Pages {
 	public static void loadAllPages(WebDriver driver) {
 		dashboardPage = new DashboardPage(driver);
 		Searchdocter=new SearchDoctorPage(driver);
-//		PageFactory.initElements(driver, dashboardPage);
-//		PageFactory.initElements(driver, Searchdocter);
+		PageFactory.initElements(driver, dashboardPage);
+		PageFactory.initElements(driver, Searchdocter);
 		
 	}
 }

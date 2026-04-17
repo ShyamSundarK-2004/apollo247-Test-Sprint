@@ -18,7 +18,6 @@ public class SearchDoctorPage {
 	    public SearchDoctorPage(WebDriver driver) {
 	        this.driver = driver;
 	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-	        PageFactory.initElements(driver, this);
 	    }
 
     
@@ -40,12 +39,6 @@ public class SearchDoctorPage {
     
     @FindBy(xpath = "//span[text()='Submit']")
     private WebElement submitBtn;
-    
-    @FindBy(xpath = "(//button[text()='Hospital Visit'])[1]")
-    private WebElement HospitalVisit;
-    
-    @FindBy(xpath="//p[text()='Dr. Amvrin Chatterjee']/../../../..//button[text()='Hospital Visit']")
-    private WebElement Docter;
     
     @FindBy(xpath = "//div[@class=\"slots_date__Dy0W_ \"]/../../..//p[text()='20']")
     private WebElement dateSlot;
@@ -114,16 +107,6 @@ public class SearchDoctorPage {
 
 	public WebElement getSubmitBtn() {
 		return submitBtn;
-	}
-
-	public WebElement getHospitalVisit() {
-		return HospitalVisit;
-	}
-
-
-
-	public WebElement getDocter() {
-		return Docter;
 	}
 
 
@@ -208,15 +191,28 @@ public class SearchDoctorPage {
         location.clear();
         location.sendKeys(LocationName);
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//li[@role='option']//span[contains(text(),'" + LocationName + "')]")
-        )).click();
-        submitBtn.click();
+        // wait for dropdown option
+        WebElement city = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                By.xpath("//li[@role='option']//span[contains(text(),'" + LocationName + "')]")
+            )
+        );
+
+        // click using JS (IMPORTANT for overlay issues)
+        ((org.openqa.selenium.JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", city);
     }
 
-    public void SelectDoctor() {
-        wait.until(ExpectedConditions.elementToBeClickable(HospitalVisit)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(Docter)).click();
+    public void SelectDoctor(String doctorName) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        WebElement doctorBtn = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                By.xpath("//p[text()='" + doctorName + "']/ancestor::div//button[contains(text(),'Hospital Visit')]")
+            )
+        );
+
+        doctorBtn.click();
     }
    
 

@@ -17,12 +17,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class search extends BaseClass{
-	private BaseClass b;
-
-    public search(BaseClass b) {
-        this.b = b;
-    }
-	
 	@Given("Open the Browser")
 	public void open_the_browser() {
 		  driver= new ChromeDriver();
@@ -53,9 +47,9 @@ public class search extends BaseClass{
 
 	    Pages.Searchdocter.SearchDoctor(spec, city, date);
 	}
-	@When("user selects the first available doctor")
-	public void user_selects_the_first_available_doctor() {
-	   Pages.Searchdocter.SelectDoctor();
+	@When("user selects doctor {string}")
+	public void selectDoctor(String doctorName) {
+	    Pages.Searchdocter.SelectDoctor(doctorName);
 	}
 	@When("user selects available slot")
 	public void user_selects_available_slot() {

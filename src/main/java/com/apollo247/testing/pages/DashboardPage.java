@@ -20,7 +20,6 @@ public class DashboardPage {
 		this.driver = driver;
 		this.utility = new AllUtilityFunctions();
 		this.utility.initializeDriver(driver); // Pass the active driver to utility
-		PageFactory.initElements(driver, this);
 	}
 	// locators
 
