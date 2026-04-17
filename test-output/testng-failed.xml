@@ -6,8 +6,12 @@
       <class name="com.apollo247.testing.runner.RunnerIO">
         <methods>
           <include name="setUpClass"/>
+<<<<<<< HEAD
+=======
           <include name="runScenario" invocation-numbers="1 2 3 4"/>
+>>>>>>> 50d3c765a19af4ba3b25bcdf507a8e38d5451478
           <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- com.apollo247.testing.runner.RunnerIO -->
     </classes>

@@ -14,12 +14,12 @@ public class DashboardPage {
 
 	public WebDriverWait wait;
 	public WebDriver driver;
-	public AllUtilityFunctions utility;
+	public AllUtilityFunctions utilities;
 
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
-		this.utility = new AllUtilityFunctions();
-		this.utility.initializeDriver(driver); // Pass the active driver to utility
+		this.utilities = new AllUtilityFunctions();
+		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
 	}
 
 	// ====== locators ======
@@ -123,7 +123,8 @@ public class DashboardPage {
 	// closing dom popup
 	public void closeDomPopup() {
 		// Wait for shadow host and locate the hidden host
-		WebElement domPopup = utility.waituntilPresenceOfElementLocated(30L, By.cssSelector("ct-web-popup-imageonly"));
+		WebElement domPopup = utilities.waituntilPresenceOfElementLocated(30L,
+				By.cssSelector("ct-web-popup-imageonly"));
 
 		// Access shadow root
 		SearchContext shadowDom = domPopup.getShadowRoot();
@@ -153,13 +154,13 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utility.waitUntillElementIsCLickable(40, getVerifyBtn());
+		WebElement verify = utilities.waitUntillElementIsCLickable(40, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-		utility.waitUntilInvisibilityOfElementLocated(25L,  By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		utilities.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();

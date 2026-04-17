@@ -2,3 +2,6 @@
 /target/
 /Reports/
 /Screenshots/
+*.log
+*.html
+*.xml
