@@ -39,6 +39,7 @@ public class Hook extends AllUtilityFunctions {
 
 		// launching browser in maximize window
 		configMaximizeBrowser();
+		waitForElements(20);
 
 		// adding a implicit wait for the page to load
 		waitForElements(50);
@@ -57,6 +58,7 @@ public class Hook extends AllUtilityFunctions {
 
 		// enter otp and verify otp
 		Pages.dashboardPage.enterOtpAndclickVerify();
+		
 
 	}
 

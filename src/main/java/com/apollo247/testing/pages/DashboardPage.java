@@ -1,11 +1,13 @@
 package com.apollo247.testing.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
@@ -19,7 +21,7 @@ public class DashboardPage {
 
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		this.utilities = new AllUtilityFunctions();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
 	}
@@ -30,7 +32,7 @@ public class DashboardPage {
 	@FindBy(xpath = "//span[text()= 'Login']")
 	private WebElement loginBtn;
 
-	// phone number field
+	// phone number field 
 	@FindBy(css = "[name='mobileNumber']")
 	private WebElement mobileNumberField;
 
@@ -154,7 +156,7 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntillElementIsCLickable(60, getVerifyBtn());
+		WebElement verify = utilities.waitUntillElementIsCLickable(120, getVerifyBtn());
 		verify.click();
 	}
 
@@ -174,7 +176,35 @@ public class DashboardPage {
 	}
 
 	public void clickOnMyAccountBtn() {
-		getMyAccountModule().click();
+
+	    utilities.waitUntilInvisibilityOfElementLocated(10L, By.id("loginPopup"));
+
+	    WebElement element = utilities.waitUntillElementIsCLickable(20, getMyAccountModule());
+
+	    try {
+	        element.click();
+	    } catch (Exception e) {
+	        ((org.openqa.selenium.JavascriptExecutor) driver)
+	                .executeScript("arguments[0].click();", element);
+	    }
+	}
+	public void clickProfileIcon() {
+
+	    // Close popup if present
+	    try {
+	        closeDomPopup();
+	    } catch (Exception e) {
+	        // ignore
+	    }
+
+	    By profileIcon = By.className("ProfileNew_profileContainer__mUxKD");
+
+
+	    WebElement profile = wait.until(
+	        ExpectedConditions.elementToBeClickable(profileIcon)
+	    );
+
+	    profile.click();
 	}
 
 }

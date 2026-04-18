@@ -8,7 +8,6 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,13 +16,14 @@ import com.apollo247.testing.utilities.AllUtilityFunctions;
 public class ManageFamilyPage {
 
     WebDriver driver;
+    WebDriverWait wait;
     public AllUtilityFunctions utility;
 
     public ManageFamilyPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.utility = new AllUtilityFunctions();
         this.utility.initializeDriver(driver);
-        PageFactory.initElements(driver, this);
     }
 
     // ----------------------------
@@ -72,7 +72,6 @@ public class ManageFamilyPage {
 
     public void clickAddNewProfile() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement element = wait.until(
                 ExpectedConditions.visibilityOf(addNewProfile)
@@ -93,7 +92,6 @@ public class ManageFamilyPage {
 
     public void selectMaleAndBrother() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         // wait for form to load
         wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -136,12 +134,11 @@ public class ManageFamilyPage {
     }
 
     // ----------------------------
-    // 🔥 SUCCESS VALIDATION (NEW CLEAN APPROACH)
+    //  SUCCESS VALIDATION (NEW CLEAN APPROACH)
     // ----------------------------
 
     public boolean isSuccessToastDisplayed() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         try {
             return wait.until(

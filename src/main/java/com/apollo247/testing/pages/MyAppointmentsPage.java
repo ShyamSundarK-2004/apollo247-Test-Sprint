@@ -8,18 +8,19 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class MyAppointmentsPage {
 
-    WebDriver driver;
+    public WebDriver driver;
+    public WebDriverWait wait;
 
     // Constructor
     public MyAppointmentsPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this); // IMPORTANT
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
 
@@ -44,25 +45,27 @@ public class MyAppointmentsPage {
     // Navigate to My Appointments
     public void openMyAppointments() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        // Step 1: Click profile icon (FAST but safe)
+        WebElement profile = wait.until(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.className("ProfileNew_profileContainer__mUxKD")
+                )
+        );
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", profile);
 
-        // Step 1: Click profile icon safely
-        wait.until(ExpectedConditions.elementToBeClickable(profileIcon)).click();
-
-        // Step 2: Wait for panel/menu to load
+        // Step 2: WAIT for panel to actually OPEN (this was missing ❗)
         wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//span[contains(.,'My Appointments')]")
+                By.xpath("//span[contains(.,'My Appointments')]")
         ));
 
-        // Step 3: Re-locate element (IMPORTANT for stale fix)
-        WebElement myAppointmentsFresh = wait.until(
-            ExpectedConditions.elementToBeClickable(
-                By.xpath("//span[contains(.,'My Appointments')]")
-            )
+        // Step 3: Click My Appointments (fresh element)
+        WebElement myAppointments = wait.until(
+                ExpectedConditions.presenceOfElementLocated(
+                        By.xpath("//span[contains(.,'My Appointments')]")
+                )
         );
 
-        // Step 4: Click using JS (bypass interception)
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", myAppointmentsFresh);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", myAppointments);
     }
 
     // Validate appointments page content

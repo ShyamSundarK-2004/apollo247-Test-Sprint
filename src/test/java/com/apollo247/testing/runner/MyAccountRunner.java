@@ -4,13 +4,14 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-    features = "./src/test/java/com/apollo247/testing/features/MyAccount.feature",
+    features = "./src/test/java/com/apollo247/testing/features/NeedHelp.feature",
     glue = "com.apollo247.testing.stepdefinitions",
-    tags="@MyAppointments",
     dryRun = false,   
     plugin = {
         "pretty",
-        "html:target/account-module-report.html"
+        "html:target/account-module-report.html",
+        "json:target/account-module-report.json"
+
     }
 )
 
