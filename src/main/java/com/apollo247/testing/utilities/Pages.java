@@ -11,6 +11,10 @@ import com.apollo247.testing.pages.HealthInsurancePage;
 import com.apollo247.testing.pages.LabTestPage;
 
 import com.apollo247.testing.pages.ManageFamilyPage;
+import com.apollo247.testing.pages.SearchDoctorPage;
+import com.apollo247.testing.pages.ManageFamilyPage;
+import com.apollo247.testing.pages.LabTestPage;
+import com.apollo247.testing.pages.HealthInsurancePage;
 
 public class Pages {
 
@@ -21,12 +25,21 @@ public class Pages {
 	
 
 	public static ManageFamilyPage manageFamilyPage; 
+	public static SearchDoctorPage Searchdocter;
+	public static ManageFamilyPage manageFamilyPage; 
+	public static LabTestPage labTestPage;
+	public static HealthInsurancePage healthInsurancePage;
 
 	// all the pages are initialized with the driver object
 	public static void loadAllPages(WebDriver driver) {
 		dashboardPage = new DashboardPage(driver);
-		manageFamilyPage = new ManageFamilyPage(driver);
+		Searchdocter=new SearchDoctorPage(driver);
+//		PageFactory.initElements(driver, dashboardPage);
+//		PageFactory.initElements(driver, Searchdocter);
+		
 		PageFactory.initElements(driver, dashboardPage);
+    	manageFamilyPage = new ManageFamilyPage(driver);
+		PageFactory.initElements(driver, manageFamilyPage);
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
 
 		healthInsurancePage=new HealthInsurancePage(driver);
@@ -34,6 +47,7 @@ public class Pages {
 
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
 		PageFactory.initElements(driver, manageFamilyPage);
+		
 
 	}
 }
