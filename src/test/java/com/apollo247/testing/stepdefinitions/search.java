@@ -13,36 +13,36 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class search extends BaseClass {
+public class search  {
 	private BaseClass b;
 
 	public search(BaseClass b) {
 		this.b = b;
 	}
 
-	@Given("Open the Browser")
-	public void open_the_browser() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-	}
-
-	@Given("user launches the Apollo247 {string}")
-	public void user_launches_the_apollo247(String URL) {
-		driver.get(URL);
-		Pages.loadAllPages(driver);
-	}
-
-	@Given("user closes the popup")
-	public void user_closes_the_popup() {
-		Pages.dashboardPage.closeDomPopup();
-	}
-
-	@When("user logs in with mobile number {string}")
-	public void user_logs_in_with_mobile_number(String mobile) {
-		Pages.dashboardPage.login(mobile);
-		Pages.dashboardPage.enterOtpAndclickVerify();
-	}
+//	@Given("Open the Browser")
+//	public void open_the_browser() {
+//		driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+//	}
+//
+//	@Given("user launches the Apollo247 {string}")
+//	public void user_launches_the_apollo247(String URL) {
+//		driver.get(URL);
+//		Pages.loadAllPages(driver);
+//	}
+//
+//	@Given("user closes the popup")
+//	public void user_closes_the_popup() {
+//		Pages.dashboardPage.closeDomPopup();
+//	}
+//
+//	@When("user logs in with mobile number {string}")
+//	public void user_logs_in_with_mobile_number(String mobile) {
+//		Pages.dashboardPage.login(mobile);
+//		Pages.dashboardPage.enterOtpAndclickVerify();
+//	}
 
 	@When("user clicks on Find Doctors")
 	public void user_clicks_on_find_doctors() {
@@ -80,7 +80,7 @@ public class search extends BaseClass {
 
 	@Then("booking details should be displayed")
 	public void booking_details_should_be_displayed() {
-		String url = driver.getCurrentUrl();
+		String url = b.driver.getCurrentUrl();
 
 		if (url.contains("appointment")) {
 			System.out.println("Booking successful");

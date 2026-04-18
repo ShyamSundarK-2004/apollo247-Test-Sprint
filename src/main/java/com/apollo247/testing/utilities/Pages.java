@@ -32,26 +32,13 @@ public class Pages {
 	public static void loadAllPages(WebDriver driver) {
 		dashboardPage = new DashboardPage(driver);
 		Searchdocter=new SearchDoctorPage(driver);
-
-		PageFactory.initElements(driver, dashboardPage);
-
-
-//		PageFactory.initElements(driver, dashboardPage);
-//		PageFactory.initElements(driver, Searchdocter);
-		
-		PageFactory.initElements(driver, dashboardPage);
-       	manageFamilyPage = new ManageFamilyPage(driver);
-		PageFactory.initElements(driver, manageFamilyPage);
-
+		manageFamilyPage = new ManageFamilyPage(driver);
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
-
 		healthInsurancePage=new HealthInsurancePage(driver);
+		PageFactory.initElements(driver, dashboardPage);
+		PageFactory.initElements(driver, dashboardPage);	
+		PageFactory.initElements(driver, manageFamilyPage);
 		PageFactory.initElements(driver, healthInsurancePage);
-
-
-		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
-
-
 		PageFactory.initElements(driver, Searchdocter);
 
 
