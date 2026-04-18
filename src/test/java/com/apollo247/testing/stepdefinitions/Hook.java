@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
 import com.apollo247.testing.utilities.BaseClass;
+import com.apollo247.testing.utilities.HandleCookies;
 import com.apollo247.testing.utilities.Pages;
 
 import io.cucumber.java.After;
@@ -23,41 +24,66 @@ public class Hook extends AllUtilityFunctions {
 
 	@Before
 	public void setup() throws IOException {
-		// reading from property file
-		String url = getPropertyKeyValue("url");
-		String browser = getPropertyKeyValue("browser");
-		// browser setup and launching
 
+		String url = readerUtil.getPropertyKeyValue("url");
+		String browser = readerUtil.getPropertyKeyValue("browser");
+
+		// 🚀 Launch browser
 		if (browser.equals("chrome")) {
 			b.driver = new ChromeDriver();
 		} else if (browser.equals("edge")) {
 			b.driver = new EdgeDriver();
 		}
 
-		// assigning driver for utility methods
 		initializeDriver(b.driver);
-
-		// launching browser in maximize window
 		configMaximizeBrowser();
+		waitForElements(80);
 
-		// adding a implicit wait for the page to load
-		waitForElements(50);
-
-		// navigate to url
+		// ✅ MUST open URL before cookies
 		enterURL(url);
 
-		// initialize all the pages with driver using page factory
+		// load pages
 		Pages.loadAllPages(b.driver);
 
-		// closing the shadow dom popup
+		// ✅ close popup AFTER login
 		Pages.dashboardPage.closeDomPopup();
 
-		// logging in with mobile number
-		Pages.dashboardPage.login(getPropertyKeyValue("phoneNo"));
+		HandleCookies cookiesUtil = new HandleCookies();
+		String cookieFile = "apolloCookies.data";
 
-		// enter otp and verify otp
-		Pages.dashboardPage.enterOtpAndclickVerify();
+		// 1. Load cookies
+		boolean cookiesLoaded = cookiesUtil.loadCookies(b.driver, cookieFile);
 
+		System.out.println("🔍 Checking session status...");
+
+		// 2. Validate login PROPERLY
+		if (!cookiesLoaded || !Pages.dashboardPage.isUserLoggedIn()) {
+
+			System.out.println("👉 Session not found. Redirecting to Login...");
+
+			Pages.dashboardPage.login(readerUtil.getPropertyKeyValue("phoneNo"));
+			Pages.dashboardPage.enterOtpAndclickVerify();
+
+			try {
+				Thread.sleep(30000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// 3. Save cookies ONLY if login success
+			if (Pages.dashboardPage.isUserLoggedIn()) {
+				cookiesUtil.saveCookies(b.driver, cookieFile);
+				System.out.println("✅ Login verified! Cookies captured.");
+			} else {
+				System.out.println("❌ Login failed. Cookies not saved.");
+			}
+
+		} else {
+			System.out.println("✅ Session restored via cookies.");
+		}
+
+		// ✅ close popup AFTER login
+		Pages.dashboardPage.closeDomPopup();
 	}
 
 	@After

@@ -29,7 +29,6 @@ public class LabTestPage {
 	private WebElement searchBar;
 
 	// test names inside each result
-
 	@FindBy(xpath = "//p[contains(@class,'RX')]")
 	private List<WebElement> testNames;
 
@@ -38,11 +37,16 @@ public class LabTestPage {
 	private WebElement popupCloseBtn;
 
 	// search result message
-	@FindBy(css = "[class='LabTestsSearch_noResultsFound__vFqRD']")
+	@FindBy(css = "[class='SearchResult_noResultsFound__srSdT']")
 	private WebElement resultNotFoundMsg;
 
+	// radiology booking section
 	@FindBy(css = "[href='/lab-tests/radiology']")
 	private WebElement radiologyBookingBtn;
+
+	// prescription test booking module
+	@FindBy(xpath = "//div[contains(@class,'KZ')]//div[contains(@class,'PZ')]")
+	private WebElement bookByPrescriptionModule;
 
 	// ===== GETTERS =====
 
@@ -66,13 +70,19 @@ public class LabTestPage {
 		return radiologyBookingBtn;
 	}
 
+	public WebElement getBookByMPescriptionModule() {
+		return bookByPrescriptionModule;
+	}
+
 	// ====== BUSINESS LOGIC ======
 
 	// enter search text
 	public void searchTest(String text) {
 		getSearchBar().click();
 		getSearchBar().sendKeys(text);
-		getSearchBar().sendKeys(Keys.ENTER);
+		if (!text.isEmpty()) {
+			getSearchBar().sendKeys(Keys.ENTER);
+		}
 	}
 
 	public void closePopupIfPresent() {
@@ -81,7 +91,7 @@ public class LabTestPage {
 				getPopupCloseBtn().click();
 			}
 		} catch (Exception e) {
-			Reporter.log("No Popup showes");
+			Reporter.log("No popup Displayed");
 		}
 	}
 
@@ -95,6 +105,23 @@ public class LabTestPage {
 
 	public String getCurrentPageUrl() {
 		return utilities.fetchApplicationURL();
+	}
+
+	public boolean isErrorMessageDisplayed() {
+		try {
+			return getResultNotFoundMsg().isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean isNoActionPerformed() {
+		String value = getSearchBar().getAttribute("value");
+		return value == null || value.isEmpty();
+	}
+
+	public void clickOnBookByPrescriptionModule() {
+		utilities.jsUtil.jsClick(getBookByMPescriptionModule());
 	}
 
 }

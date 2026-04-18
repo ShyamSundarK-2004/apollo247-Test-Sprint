@@ -9,17 +9,34 @@ import io.cucumber.java.en.When;
 
 public class LabTestSteps {
 
+	// ================= SEARCH Scenarios =================
+
 	@When("User searches for {string}")
 	public void user_searches_for(String testName) {
 		Pages.labTestPage.closePopupIfPresent();
 		Pages.labTestPage.searchTest(testName);
 	}
 
-	@Then("results should be displayed")
-	public void results_should_be_displayed() {
+	@Then("validate search result for {string}")
+	public void validate_search_result_for(String type) {
 
-		boolean flag = Pages.labTestPage.isResultDisplayed();
-		assertTrue(flag, "Results for the search are not displayed");
+		switch (type.toLowerCase()) {
+
+		case "valid":
+			assertTrue(Pages.labTestPage.isResultDisplayed(), "Cards are not displayed for valid search");
+			break;
+
+		case "invalid":
+			assertTrue(Pages.labTestPage.isErrorMessageDisplayed(), "Error message not displayed for invalid input");
+			break;
+
+		case "empty":
+			assertTrue(Pages.labTestPage.isNoActionPerformed(), "Unexpected behavior for empty search");
+			break;
+
+		default:
+			throw new IllegalArgumentException("Invalid type: " + type);
+		}
 	}
 
 }

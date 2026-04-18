@@ -13,6 +13,7 @@ public class DashBoardSteps {
 	@Given("User is on Lab Tests page")
 	public void user_is_on_lab_tests_page() {
 		Pages.dashboardPage.clickOnModule("Lab Tests");
+		Pages.labTestPage.closePopupIfPresent();
 	}
 
 	@Then("check user in on correct module")

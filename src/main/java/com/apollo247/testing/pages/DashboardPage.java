@@ -5,10 +5,10 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
-import com.apollo247.testing.utilities.Pages;
 
 public class DashboardPage {
 
@@ -18,12 +18,12 @@ public class DashboardPage {
 
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 		this.utilities = new AllUtilityFunctions();
-		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
+		this.utilities.initializeDriver(driver);
 	}
 
 	// ====== locators ======
-
 
 	// header login button
 	@FindBy(xpath = "//span[text()= 'Login']")
@@ -65,6 +65,9 @@ public class DashboardPage {
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
 
+	// profile image after login
+	@FindBy(xpath = "//div[@id='loginPopup']//img")
+	private WebElement profilePic;
 
 	// ===== getters and setter ======
 
@@ -118,12 +121,16 @@ public class DashboardPage {
 		return myAccountModule;
 	}
 
+	public WebElement getProfilePic() {
+		return profilePic;
+	}
+
 	// ====== business logic ======
 
 	// closing dom popup
 	public void closeDomPopup() {
 		// Wait for shadow host and locate the hidden host
-		WebElement domPopup = utilities.waituntilPresenceOfElementLocated(30L,
+		WebElement domPopup = utilities.waituntilPresenceOfElementLocated(20L,
 				By.cssSelector("ct-web-popup-imageonly"));
 
 		// Access shadow root
@@ -154,33 +161,28 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntillElementIsCLickable(40, getVerifyBtn());
+		WebElement verify = utilities.waitUntilElementIsCLickable(50L, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-		utilities.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
-	}
-	public void clickonHealthInsuranceModule() {
-		utility.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
-		healthInsuranceModule.click();
-
-		
 	}
 
 	public void clickOnMyAccountBtn() {
 		getMyAccountModule().click();
 	}
 
-	public String getCurrentPageUrl() {
-		return utility.fetchApplicationURL();
+	public boolean isUserLoggedIn() {
+		try {
+			return getProfilePic().isDisplayed(); // or any unique logged-in element
+		} catch (Exception e) {
+			return false;
+		}
 	}
-
-	
 
 }
