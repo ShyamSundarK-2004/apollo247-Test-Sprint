@@ -15,6 +15,7 @@ public class LabTestSteps {
 	public void user_searches_for(String testName) {
 		Pages.labTestPage.closePopupIfPresent();
 		Pages.labTestPage.searchTest(testName);
+
 	}
 
 	@Then("validate search result for {string}")

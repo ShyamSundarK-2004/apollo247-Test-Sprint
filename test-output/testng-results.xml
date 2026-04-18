@@ -8,26 +8,26 @@
       <![CDATA[No popup Displayed]]>
     </line>
   </reporter-output>
-  <suite started-at="2026-04-18T21:08:18 IST" name="Default suite" finished-at="2026-04-18T21:08:37 IST" duration-ms="18829">
+  <suite started-at="2026-04-18T21:24:41 IST" name="Default suite" finished-at="2026-04-18T21:25:10 IST" duration-ms="29079">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-04-18T21:08:18 IST" name="Default test" finished-at="2026-04-18T21:08:37 IST" duration-ms="18829">
+    <test started-at="2026-04-18T21:24:41 IST" name="Default test" finished-at="2026-04-18T21:25:10 IST" duration-ms="29079">
       <class name="com.apollo247.testing.runner.RunnerIO">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:08:18 IST" name="setUpClass" finished-at="2026-04-18T21:08:19 IST" duration-ms="948" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:24:41 IST" name="setUpClass" finished-at="2026-04-18T21:24:42 IST" duration-ms="1024" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@6917bb4]]>
+                <![CDATA[org.testng.TestRunner@65b97f47]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:08:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-18T21:08:37 IST" duration-ms="17770" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:24:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-18T21:25:10 IST" duration-ms="27924" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -48,9 +48,9 @@ from disconnected: not connected to DevTools
 Build info: version: '4.38.0', revision: '6b412e825c*'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [49f28f217a27b42c41a8b12007a139bd, findElement {value=//h3[text() = 'Upload and Order'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65362}, goog:processID: 7132, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65362/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 49f28f217a27b42c41a8b12007a139bd]]>
+Command: [62a0524a488e94e16f4c9b6e5b779cad, findElement {using=xpath, value=//h3[text() = 'Upload and Order']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55763}, goog:processID: 27592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55763/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 62a0524a488e94e16f4c9b6e5b779cad]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
@@ -59,9 +59,9 @@ from disconnected: not connected to DevTools
 Build info: version: '4.38.0', revision: '6b412e825c*'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [49f28f217a27b42c41a8b12007a139bd, findElement {value=//h3[text() = 'Upload and Order'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65362}, goog:processID: 7132, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65362/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 49f28f217a27b42c41a8b12007a139bd
+Command: [62a0524a488e94e16f4c9b6e5b779cad, findElement {using=xpath, value=//h3[text() = 'Upload and Order']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55763}, goog:processID: 27592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55763/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 62a0524a488e94e16f4c9b6e5b779cad
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -84,7 +84,7 @@ at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
 at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntilElementIsVisibility(AllUtilityFunctions.java:130)
-at com.apollo247.testing.pages.LabTestPage.clickOnBookByPrescriptionModule(LabTestPage.java:127)
+at com.apollo247.testing.pages.LabTestPage.clickOnBookByPrescriptionModule(LabTestPage.java:128)
 at com.apollo247.testing.stepdefinitions.BookTestByPrescriptionSteps.user_clicks_on_book_test_using_prescription(BookTestByPrescriptionSteps.java:18)
 at ✽.User clicks on book test using prescription(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/Prescription-scenario.feature:6)
 ]]>
@@ -99,7 +99,7 @@ at ✽.User clicks on book test using prescription(file:///C:/Users/Shyam%20Sund
             </line>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:08:37 IST" name="tearDownClass" finished-at="2026-04-18T21:08:37 IST" duration-ms="39" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:25:10 IST" name="tearDownClass" finished-at="2026-04-18T21:25:10 IST" duration-ms="41" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

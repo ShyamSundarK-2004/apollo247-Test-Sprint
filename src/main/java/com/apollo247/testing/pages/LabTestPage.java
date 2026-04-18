@@ -98,6 +98,7 @@ public class LabTestPage {
 	}
 
 	public boolean isResultDisplayed() {
+		utilities.waitUntilElementIsVisibility(15L, getTestNames().getFirst());
 		return getTestNames().size() > 0;
 	}
 
