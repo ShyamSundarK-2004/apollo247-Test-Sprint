@@ -150,6 +150,7 @@ public class DashboardPage {
 
 	// enter mobile number to login
 	public void enterMobileNumber(String number) {
+		utilities.waitUntilElementIsVisibility(15L, getMobileNumberField());
 		getMobileNumberField().sendKeys(number);
 	}
 

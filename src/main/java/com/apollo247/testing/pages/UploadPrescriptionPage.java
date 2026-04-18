@@ -71,10 +71,12 @@ public class UploadPrescriptionPage {
 	}
 
 	public boolean isFileAttached() {
+		utilities.waitUntilElementIsVisibility(15L, getFileAttached());
 		return getFileAttached().isDisplayed();
 	}
 
 	public boolean isWrongFileUploaded() {
+		utilities.waitUntilElementIsVisibility(15L, getWrongFileUpload());
 		return getWrongFileUpload().isDisplayed();
 	}
 

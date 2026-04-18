@@ -78,7 +78,9 @@ public class LabTestPage {
 
 	// enter search text
 	public void searchTest(String text) {
+		utilities.waitUntilElementIsVisibility(15L, getSearchBar());
 		getSearchBar().click();
+		utilities.waitUntilElementIsVisibility(15L, getSearchBar());
 		getSearchBar().sendKeys(text);
 		if (!text.isEmpty()) {
 			getSearchBar().sendKeys(Keys.ENTER);
@@ -109,6 +111,7 @@ public class LabTestPage {
 
 	public boolean isErrorMessageDisplayed() {
 		try {
+			utilities.waitUntilElementIsVisibility(15L, getResultNotFoundMsg());
 			return getResultNotFoundMsg().isDisplayed();
 		} catch (Exception e) {
 			return false;
