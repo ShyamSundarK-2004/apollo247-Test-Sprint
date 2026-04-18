@@ -45,7 +45,7 @@ public class LabTestPage {
 	private WebElement radiologyBookingBtn;
 
 	// prescription test booking module
-	@FindBy(xpath = "//div[contains(@class,'KZ')]//div[contains(@class,'PZ')]")
+	@FindBy(xpath = "//h3[text() = 'Upload and Order']")
 	private WebElement bookByPrescriptionModule;
 
 	// ===== GETTERS =====
@@ -78,9 +78,9 @@ public class LabTestPage {
 
 	// enter search text
 	public void searchTest(String text) {
-		utilities.waitUntilElementIsVisibility(15L, getSearchBar());
+		utilities.waitUntilElementIsVisibility(10L, getSearchBar());
 		getSearchBar().click();
-		utilities.waitUntilElementIsVisibility(15L, getSearchBar());
+		utilities.waitUntilElementIsVisibility(10L, getSearchBar());
 		getSearchBar().sendKeys(text);
 		if (!text.isEmpty()) {
 			getSearchBar().sendKeys(Keys.ENTER);
@@ -124,6 +124,7 @@ public class LabTestPage {
 	}
 
 	public void clickOnBookByPrescriptionModule() {
+		utilities.waitUntilElementIsVisibility(20L, getBookByMPescriptionModule());
 		utilities.jsUtil.jsClick(getBookByMPescriptionModule());
 	}
 

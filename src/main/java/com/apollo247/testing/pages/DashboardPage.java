@@ -69,6 +69,10 @@ public class DashboardPage {
 	@FindBy(xpath = "//div[@id='loginPopup']//img")
 	private WebElement profilePic;
 
+	// user account popup
+	@FindBy(xpath = "//div[@id = 'loginPopup' and text() = 'My Account']")
+	private WebElement userAccountPopup;
+
 	// ===== getters and setter ======
 
 	// login button
@@ -121,8 +125,14 @@ public class DashboardPage {
 		return myAccountModule;
 	}
 
+	// profile pic popup
 	public WebElement getProfilePic() {
 		return profilePic;
+	}
+
+	// user account popup
+	public WebElement getUserAccountPopup() {
+		return userAccountPopup;
 	}
 
 	// ====== business logic ======
@@ -162,13 +172,13 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntilElementIsCLickable(50L, getVerifyBtn());
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+//		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
@@ -180,7 +190,8 @@ public class DashboardPage {
 
 	public boolean isUserLoggedIn() {
 		try {
-			return getProfilePic().isDisplayed(); // or any unique logged-in element
+			getProfilePic().click();
+			return getUserAccountPopup().isDisplayed();
 		} catch (Exception e) {
 			return false;
 		}
