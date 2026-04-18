@@ -207,4 +207,11 @@ public class DashboardPage {
 	    profile.click();
 	}
 
+	public String getCurrentPageUrl() {
+		return utilities.fetchApplicationURL();
+	}
+
+
+	
+
 }

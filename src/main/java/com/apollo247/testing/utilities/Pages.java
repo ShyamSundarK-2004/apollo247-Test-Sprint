@@ -4,12 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import com.apollo247.testing.pages.DashboardPage;
-import com.apollo247.testing.pages.SearchDoctorPage;
-import com.apollo247.testing.pages.ManageFamilyPage;
-import com.apollo247.testing.pages.MembershipsPage;
 import com.apollo247.testing.pages.LabTestPage;
-import com.apollo247.testing.pages.LogoutPage;
+
 import com.apollo247.testing.pages.HealthInsurancePage;
+
+
+import com.apollo247.testing.pages.ManageFamilyPage;
+import com.apollo247.testing.pages.SearchDoctorPage;
+import com.apollo247.testing.pages.MembershipsPage;
+import com.apollo247.testing.pages.LogoutPage;
 import com.apollo247.testing.pages.MyAppointmentsPage;
 import com.apollo247.testing.pages.NeedHelpPage;
 import com.apollo247.testing.pages.NotificationsPage;
@@ -17,10 +20,13 @@ import com.apollo247.testing.pages.NotificationsPage;
 public class Pages {
 
 	public static DashboardPage dashboardPage;
-	public static SearchDoctorPage Searchdocter;
-	public static ManageFamilyPage manageFamilyPage; 
 	public static LabTestPage labTestPage;
+
 	public static HealthInsurancePage healthInsurancePage;
+	
+
+	public static ManageFamilyPage manageFamilyPage; 
+	public static SearchDoctorPage Searchdocter;
 	public static MyAppointmentsPage myappointmentsPage; 
 	public static MembershipsPage membershipsPage;
 	public static NotificationsPage notificationsPage;
@@ -49,5 +55,8 @@ public class Pages {
 		PageFactory.initElements(driver, logoutPage);
 
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
+		PageFactory.initElements(driver, manageFamilyPage);
+		
+
 	}
 }
