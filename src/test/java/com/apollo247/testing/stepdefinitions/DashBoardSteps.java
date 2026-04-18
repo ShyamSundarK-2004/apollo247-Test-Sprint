@@ -1,37 +1,30 @@
 package com.apollo247.testing.stepdefinitions;
 
-import com.apollo247.testing.utilities.BaseClass;
+import static org.testng.Assert.assertTrue;
+
 import com.apollo247.testing.utilities.Pages;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DashBoardSteps {
 
-	private BaseClass b;
-
-	public DashBoardSteps(BaseClass b) {
-		this.b = b;
+	@Given("User is on Lab Tests page")
+	public void user_is_on_lab_tests_page() {
+		Pages.dashboardPage.clickOnModule("Lab Tests");
 	}
 
-	@When("close the popup shown")
-	public void close_the_popup_shown() {
-		Pages.dashboardPage.closeDomPopup();
+	@Then("check user in on correct module")
+	public void check_user_in_on_correct_module() {
+		String title = Pages.labTestPage.getCurrentPageUrl();
+		assertTrue(title.contains("lab-tests"), "Page not Navigated to the module");
 	}
 
-	@When("User logs in with mobile number {string}")
-	public void user_logs_in_with_mobile_number(String mobileNumber) {
-		Pages.dashboardPage.login(mobileNumber);
-	}
+	@When("User clicks on profile module")
+	public void user_clicks_on_profile_module() {
+		Pages.dashboardPage.clickOnMyAccountBtn();
 
-	@Then("User should be prompted for OTP verification")
-	public void user_should_be_prompted_for_otp_verification() {
-		Pages.dashboardPage.enterOtpAndclickVerify();
-	}
-
-	@When("User clicks on {string} module")
-	public void user_clicks_on_module(String ModuleName) {
-		Pages.dashboardPage.clickonModule(b.driver, ModuleName);
 	}
 
 }

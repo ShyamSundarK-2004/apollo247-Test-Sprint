@@ -40,7 +40,7 @@ public class search extends BaseClass{
 	}
 	@When("user clicks on Find Doctors")
 	public void user_clicks_on_find_doctors() {
-		Pages.dashboardPage.clickonModule(driver, "Find Doctors");
+		Pages.dashboardPage.clickOnModule("Find Doctors");
 	}
 	@When("user searches for {string} specialist in {string} on date {string}")
 	public void searchDoctor(String spec, String city, String date) {

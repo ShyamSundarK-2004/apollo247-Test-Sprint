@@ -28,6 +28,7 @@ public class AllUtilityFunctions {
 
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
+		this.action = new Actions(driver);
 	}
 	// webdriver utlitiy
 
