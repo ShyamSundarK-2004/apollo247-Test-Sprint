@@ -1,4 +1,4 @@
-Feature: Apollo 247 Health Insurance - Member Selection Validation
+      Feature: Apollo 247 Health Insurance - Member Selection Validation
 	
 	  Background:
 	    
@@ -6,7 +6,7 @@ Feature: Apollo 247 Health Insurance - Member Selection Validation
 	
 	  @smoke @insurance @memberSelection
 	  Scenario: Verify valid member selection (Female and Self)
-	    When User selects "Male" and "Self" as members
+	    When User selects "Male" and "Self" at the age "22" as members
 	    And User clicks on "View Plans"
 	    Then Insurance plans should be loaded successfully
 	
@@ -16,7 +16,3 @@ Feature: Apollo 247 Health Insurance - Member Selection Validation
 	  #  And User clicks on "View Plans"
 	  #  Then Family insurance plans should be displayed correctly
 	
-	#@negative @insurance @validation
-	 # Scenario: Verify validation when no member is selected
-	  #  When User clicks on "View Plans" without selecting any member
-	  #  Then Proper validation error message should be displayed

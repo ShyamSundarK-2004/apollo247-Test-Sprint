@@ -31,12 +31,17 @@ public class Pages {
 =======
 
 import com.apollo247.testing.pages.HealthInsurancePage;
+import com.apollo247.testing.pages.HealthInsuranceProductListings;
 
 public class Pages {
 
 	public static DashboardPage dashboardPage;;
 	public static HealthInsurancePage healthInsurancePage;
+<<<<<<< HEAD
 >>>>>>> 903d57d (Insurance Updated)
+=======
+	public static HealthInsuranceProductListings healthInsuranceProductListings;
+>>>>>>> 643c1e6 (Test scenarios Updated)
 
 	// all the pages are initialized with the driver object
 	public static void loadAllPages(WebDriver driver) {
@@ -57,6 +62,7 @@ public class Pages {
 
 >>>>>>> 903d57d (Insurance Updated)
 
+<<<<<<< HEAD
 		// labtest page driver initialization
 		// upload_prescription page driver initialization
 		bookByPrescriptionPage = new UploadPrescriptionPage(driver);
@@ -70,6 +76,18 @@ public class Pages {
 		// radiology page driver initialization
 		radiologyPage = new RadiologyPage(driver);
 		PageFactory.initElements(driver, radiologyPage);
+=======
+		healthInsurancePage=new HealthInsurancePage(driver);
+		PageFactory.initElements(driver, healthInsurancePage);
+		
+		
+		healthInsuranceProductListings=new HealthInsuranceProductListings(driver);
+		PageFactory.initElements(driver, healthInsuranceProductListings);
+		
+		
+
+		
+>>>>>>> 643c1e6 (Test scenarios Updated)
 
 	}
 }

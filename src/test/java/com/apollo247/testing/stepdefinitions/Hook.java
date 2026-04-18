@@ -2,6 +2,7 @@ package com.apollo247.testing.stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -14,10 +15,16 @@ import com.apollo247.testing.utilities.WebdriverUtility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
+<<<<<<< HEAD
 public class Hook extends WebdriverUtility {
+=======
+public class Hook extends AllUtilityFunctions {
+	 private BaseClass b;
+>>>>>>> 643c1e6 (Test scenarios Updated)
 
-	private BaseClass b;
+	    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
+<<<<<<< HEAD
 	WebDriver Basedriver;
 
 	// dependency Injection
@@ -44,10 +51,25 @@ public class Hook extends WebdriverUtility {
 
 		// initialize driver to utlitlies
 		initializeDriver(b.getDriver());
+=======
+	    public Hook(BaseClass b) {
+	        this.b = b;
+	    }
 
-		// launching browser in maximize window
-		configMaximizeBrowser();
+	    public static WebDriver getDriver() {
+	        return driver.get();
+	    }
 
+	    @Before
+	    public void setup() throws IOException {
+
+	        String url = getPropertyKeyValue("url");
+	        String browser = getPropertyKeyValue("browser");
+>>>>>>> 643c1e6 (Test scenarios Updated)
+
+	        WebDriver localDriver;
+
+<<<<<<< HEAD
 		// adding a implicit wait for the page to load
 		waitForElements(40);
 
@@ -59,10 +81,28 @@ public class Hook extends WebdriverUtility {
 
 
 		Pages.loadAllPages(b.getDriver());
+=======
+	        if (browser.equalsIgnoreCase("chrome")) {
+	            localDriver = new ChromeDriver();
+	        } else if (browser.equalsIgnoreCase("edge")) {
+	            localDriver = new EdgeDriver();
+	        } else {
+	            throw new RuntimeException("Invalid browser");
+	        }
 
-		// closing the shadow dom popup
-		Pages.dashboardPage.closeDomPopup();
+	        // ✅ Thread-safe driver
+	        driver.set(localDriver);
 
+	        // ✅ Inject into BaseClass (for DI)
+	        b.driver = getDriver();
+>>>>>>> 643c1e6 (Test scenarios Updated)
+
+	        initializeDriver(getDriver());
+	        configMaximizeBrowser();
+	        waitForElements(50);
+	        enterURL(url);
+
+<<<<<<< HEAD
 		// logging in with mobile number
 		Pages.dashboardPage.login("phoneNo");
 
@@ -80,4 +120,18 @@ public class Hook extends WebdriverUtility {
 //		quitBroswerWindow();
 //		b.unload();
 	}
+=======
+	        Pages.loadAllPages(getDriver());
+
+	        Pages.dashboardPage.closeDomPopup();
+	        Pages.dashboardPage.login(getPropertyKeyValue("phoneNo"));
+	        Pages.dashboardPage.enterOtpAndclickVerify();
+	    }
+
+	    @After
+	    public void teadDown() {
+	        getDriver().quit();
+	        driver.remove(); // ✅ important
+	    }
+>>>>>>> 643c1e6 (Test scenarios Updated)
 }

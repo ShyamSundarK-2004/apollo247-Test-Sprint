@@ -59,12 +59,6 @@ public class HealthInsurancePage {
 	@FindBy(xpath = "//span[.='Father']")
 	private WebElement selectFatherMemeber;
 
-	@FindBy(xpath = "//span[.='View Plans']")
-	private WebElement viewPlansButton;
-
-	@FindBy(xpath = "//p[.='View Plans']")
-	private WebElement viewPlansHeader;
-
 	// ----------Getters ------------
 	public WebElement getClickBuyInsurance() {
 		return buyInsuranceButton;
@@ -79,14 +73,6 @@ public class HealthInsurancePage {
 		return submitSelectLocation;
 	}
 
-	public WebElement getViewPlans() {
-		return viewPlansButton;
-	}
-
-	public WebElement getViewPlansHeader() {
-		return viewPlansHeader;
-	}
-
 	// ---------Business Logic----------
 	public void performEnterPinCode(String pincode) {
 		// getClickBuyInsurance().click();
@@ -94,13 +80,7 @@ public class HealthInsurancePage {
 		getSubmitButton().click();
 	}
 
-	public void performViewPlans() {
-		getViewPlans().click();
-
-	}
-
 	public void selectGender(String gender) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		By locator = By.xpath("//button[normalize-space()='" + gender + "']");
 
 		for (int i = 0; i < 3; i++) {
@@ -116,7 +96,6 @@ public class HealthInsurancePage {
 	public void clickViewButton(String buttonName) {
 
 		By locator = By.xpath("//span[normalize-space()='" + buttonName + "']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(0));
 
 		for (int i = 0; i < 3; i++) {
 			try {
@@ -141,24 +120,7 @@ public class HealthInsurancePage {
 		throw new RuntimeException("Failed to click View Plans after retries");
 	}
 
-	public WebElement viewPlanHeader() {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[.='View Plans']")));
-	}
-
-	public List<WebElement> viewNumberOfPlans() {
-		return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
-				By.xpath("//div[contains(@class,'plan') or .//button[contains(text(),'Proceed')]]")));
-
-	}
-
-	public void selectMember(String member, String age) {
-
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-		// 1. Click Member
-		By memberLocator = By.xpath("//span[normalize-space()='" + member + "']");
-		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(memberLocator))).click();
-
+	public void unselectMember() {
 		try {
 			WebElement checkbox = driver.findElement(By.xpath("//input[@type=\"checkbox\"][1]"));
 			if (checkbox.isSelected()) {
@@ -168,16 +130,31 @@ public class HealthInsurancePage {
 			// ignore if not selected
 		}
 
-		// 2.Again Click member
-		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(memberLocator))).click();
-
-		// 3. Wait for dropdown container (VISIBLE, not clickable)
-		By dropdownContainer = By.className("MemberTile_popoverIn__JgkxT");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownContainer));
-
-		// 4. Select Age
-		By ageLocator = By.xpath("//li[normalize-space()='" + age + "']");
-		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(ageLocator))).click();
 	}
 
+	public String errorMessageNoMemeberSelected() {
+		WebElement errorMsg = wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Select minimum one adult')]")));
+		return errorMsg.getText().trim();
+	}
+
+	public void selectMember(String member, String age) {
+
+		wait.pollingEvery(Duration.ofMillis(200));
+
+		// Click member
+		By memberLocator = By.xpath("//span[normalize-space()='" + member + "']");
+		wait.until(ExpectedConditions.elementToBeClickable(memberLocator)).click();
+
+		// Wait for dropdown
+		By dropdown = By.xpath("//div[contains(@class,'MemberTile_popoverIn')]");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dropdown));
+
+		// Select age INSIDE dropdown (important)
+		By ageLocator = By.xpath("//div[contains(@class,'MemberTile_popoverIn')]//li[normalize-space()='" + age + "']");
+		wait.until(ExpectedConditions.elementToBeClickable(ageLocator)).click();
+
+		// Wait for dropdown to disappear
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(dropdown));
+	}
 }

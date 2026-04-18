@@ -17,12 +17,13 @@ public class TS_INS_01 {
 		System.out.println("navigated successfully ");
 
 	}
-
-	@When("User selects {string} and {string} as members")
-	public void user_selects_and_as_members(String gender, String member) {
+	@When("User selects {string} and {string} at the age {string} as members")
+	public void user_selects_and_at_the_age_as_members(String gender, String member, String age) {
 		Pages.healthInsurancePage.selectGender(gender);
-		Pages.healthInsurancePage.selectMember(member, "22");
+		Pages.healthInsurancePage.unselectMember();
+		Pages.healthInsurancePage.selectMember(member, age);
 		System.out.println("user selected");
+	    
 	}
 
 	@When("User clicks on {string}")
@@ -34,8 +35,8 @@ public class TS_INS_01 {
 
 	@Then("Insurance plans should be loaded successfully")
 	public void insurance_plans_should_be_loaded_successfully() {
-		Assert.assertTrue(Pages.healthInsurancePage.viewPlanHeader().isDisplayed(), "View Plans header not displayed");
-		Assert.assertTrue(Pages.healthInsurancePage.viewNumberOfPlans().size() > 0, "No plans found on page");
+		Assert.assertTrue(Pages.healthInsuranceProductListings.viewPlanHeader().isDisplayed(), "View Plans header not displayed");
+		Assert.assertTrue(Pages.healthInsuranceProductListings.viewNumberOfPlans().size() > 0, "No plans found on page");
 		System.out.println("Plans are shown");
 	}
 
