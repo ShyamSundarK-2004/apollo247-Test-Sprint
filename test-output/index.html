@@ -26,6 +26,9 @@
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
       <span class="top-banner-font-1">1 suite, 1 failed test</span>
+
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +42,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +53,9 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Shyam Sundar\AppData\Local\Temp\testng-eclipse-1813149043\testng-customsuite.xml</span>
+                    <span>C:\Users\Shyam Sundar\AppData\Local\Temp\testng-eclipse--7848888\testng-customsuite.xml</span>
+
+                    <span>C:\Users\Swetha\AppData\Local\Temp\testng-eclipse-368842711\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -60,7 +65,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Default_suite" class="navigator-link ">
-                    <span>1 group</span>
+                    <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,11 +107,17 @@
                     </span>
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
-                        <img src="failed.png" width="3%"/>
+                        <img src="failed.png" width="3
                         <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.LabTest_RunnerIO" class="method navigator-link" hash-for-method="runScenario(&quot;Verify user can initiate radiology request successfully&quot;, &quot;Complete Automation Testing on LabTest M...)">runScenario("Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest M...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
+
+                        <a href="#" panel-name="suite-Default_suite" title="com.apollo247.testing.runner.RunnerIO_Docter" class="method navigator-link" hash-for-method="runScenario(&quot;Verify BMI result for Female user&quot;, &quot;Apollo 247 Health Tools - BMI Calculator&quot;)">runScenario("Verify BMI result for Female user", "Apollo 247 Health Tools - BMI Calculator")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -126,20 +137,19 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;Verify user can initiate radiology request successfully&quot;, &quot;Complete Automation Testing on LabTest M...)">
-                  </a> <!-- runScenario("Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest M...) -->
+                  <a name="runScenario(&quot;Verify BMI result for Female user&quot;, &quot;Apollo 247 Health Tools - BMI Calculator&quot;)">
+                  </a> <!-- runScenario("Verify BMI result for Female user", "Apollo 247 Health Tools - BMI Calculator") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("Verify user can initiate radiology request successfully","Complete Automation Testing on LabTest Module")</span>
-                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+                  <span class="parameters">("Verify BMI result for Female user","Apollo 247 Health Tools - BMI Calculator")</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
   (Session info: chrome=147.0.7727.56)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.5&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [75393a8e9a8b6050188edbb90b82074f, clickElement {id=f.61C0BBB1BCAD1E7570195C36A60D0B0E.d.F5E8CD14FE6007468C0E62FA23F3EB6D.e.47}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57163}, goog:processID: 26256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57163/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (75393a8e9a8b6050188edbb90b82074f)] -&gt; xpath: //button[text()=&apos;‹&apos;]]
-Session ID: 75393a8e9a8b6050188edbb90b82074f
+Command: [ad86123da40fe9ece3b4894879ed1e3e, findElement {using=xpath, value=//button[text()=&apos;Verify&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\Swetha\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56686}, goog:processID: 20124, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56686/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: ad86123da40fe9ece3b4894879ed1e3e
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -150,11 +160,22 @@ Session ID: 75393a8e9a8b6050188edbb90b82074f
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:170)
-	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
-	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntillElementIsCLickable(AllUtilityFunctions.java:125)
+	at com.apollo247.testing.pages.DashboardPage.enterOtpAndclickVerify(DashboardPage.java:161)
+	at com.apollo247.testing.stepdefinitions.Hook.setup(Hook.java:59)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -166,7 +187,9 @@ Session ID: 75393a8e9a8b6050188edbb90b82074f
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Shyam Sundar\AppData\Local\Temp\testng-eclipse-1813149043\testng-customsuite.xml</span>
+
+            <span class="header-content">C:\Users\Swetha\AppData\Local\Temp\testng-eclipse-368842711\testng-customsuite.xml</span>
+
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -199,14 +222,6 @@ Session ID: 75393a8e9a8b6050188edbb90b82074f
             <span class="header-content">Groups for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="test-group">
-              <span class="test-group-name">cucumber</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">runScenario</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Default_suite" class="panel">
@@ -227,12 +242,21 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'com.apollo247.testing.runner.LabTest_RunnerIO')
-data.setCell(0, 3, 115293);
+data.setCell(0, 3, 171993);
+=======
+data.addRows(1);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'runScenario')
+data.setCell(0, 2, 'com.apollo247.testing.runner.RunnerIO_Docter')
+data.setCell(0, 3, 56724);
+
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 56 seconds</span>
+
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -266,18 +290,23 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.apollo247.testing.runner.LabTest_RunnerIO</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@67fb5025)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@10f10230)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@539a138b)</span>
+
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest M...)</span>
-                <span class="method-start">1113 ms</span>
+                <span class="method-start">173255 ms</span>
+
+                <span class="method-name">runScenario("Verify BMI result for Female user", "Apollo 247 Health Tools - BMI Calculator")</span>
+                <span class="method-start">158 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">116426 ms</span>
+                <span class="method-start">56895 ms</span>
+
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -1,6 +1,7 @@
 package com.apollo247.testing.utilities;
 
 import java.time.Duration;
+
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -16,8 +17,6 @@ public class WebdriverUtility {
 
 	protected WebDriver driver;
 	WebDriverWait wait;
-	
-
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
 
