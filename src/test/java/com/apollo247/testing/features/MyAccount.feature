@@ -1,6 +1,6 @@
 Feature: Account Module - All Functionalities
 
-@ManageFamily
+@ManageFamily @Positive
 Scenario: Add valid family member from Excel
 Given user opens My Account panel
 When user navigates to Manage Family Members
@@ -40,8 +40,8 @@ And user dismisses the error popup
 
 Examples:
 | Email              |
-| abc@capgemini.com  |
-| test@benz.com      |
+| [abc@capgemini.com](mailto:abc@capgemini.com)  |
+| [test@benz.com](mailto:test@benz.com)      |
 
 @MyMemberships @PlanValidation
 Scenario: Verify membership plan details after clicking Buy Now

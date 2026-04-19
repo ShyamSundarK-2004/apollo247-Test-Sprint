@@ -16,6 +16,7 @@ import com.apollo247.testing.pages.LogoutPage;
 import com.apollo247.testing.pages.MyAppointmentsPage;
 import com.apollo247.testing.pages.NeedHelpPage;
 import com.apollo247.testing.pages.NotificationsPage;
+import com.apollo247.testing.pages.MyAppointmentsPage;
 
 public class Pages {
 
@@ -57,6 +58,11 @@ public class Pages {
 		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
 		PageFactory.initElements(driver, manageFamilyPage);
 		
+		
+		PageFactory.initElements(driver, dashboardPage);
+		PageFactory.initElements(driver, manageFamilyPage);
+		PageFactory.initElements(driver, myappointmentsPage);
+
 
 	}
 }

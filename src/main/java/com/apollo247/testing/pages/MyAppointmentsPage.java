@@ -8,9 +8,15 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+<<<<<<< Updated upstream
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+=======
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+>>>>>>> Stashed changes
 
 public class MyAppointmentsPage {
 
@@ -45,6 +51,7 @@ public class MyAppointmentsPage {
     // Navigate to My Appointments
     public void openMyAppointments() {
 
+<<<<<<< Updated upstream
         // Step 1: Click profile icon (FAST but safe)
         WebElement profile = wait.until(
                 ExpectedConditions.presenceOfElementLocated(
@@ -66,6 +73,27 @@ public class MyAppointmentsPage {
         );
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", myAppointments);
+=======
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        // Step 1: Click profile icon safely
+        wait.until(ExpectedConditions.elementToBeClickable(profileIcon)).click();
+
+        // Step 2: Wait for panel/menu to load
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//span[contains(.,'My Appointments')]")
+        ));
+
+        // Step 3: Re-locate element (IMPORTANT for stale fix)
+        WebElement myAppointmentsFresh = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[contains(.,'My Appointments')]")
+            )
+        );
+
+        // Step 4: Click using JS (bypass interception)
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", myAppointmentsFresh);
+>>>>>>> Stashed changes
     }
 
     // Validate appointments page content

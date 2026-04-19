@@ -1,6 +1,5 @@
 package com.apollo247.testing.stepdefinitions;
 
-
 import org.testng.Assert;
 
 import com.apollo247.testing.utilities.Pages;
@@ -54,14 +53,15 @@ public class AccountModuleSteps {
     public void family_member_should_be_created_successfully() {
         System.out.println("All members added successfully");
     }
-    
-    //Negative Testcase
+
+    // ✅ NEW NEGATIVE STEP
     @Then("validation error message should be displayed")
     public void validation_error_message_should_be_displayed() {
         Assert.assertTrue(
             Pages.manageFamilyPage.isValidationErrorDisplayed(),
             "❌ Validation error not displayed"
         );
+        System.out.println(" Validation error displayed successfully");
     }
 
     // ──────────────────────────────────────────
@@ -159,7 +159,7 @@ public class AccountModuleSteps {
     public void notification_preferences_page_should_be_displayed() {
         Assert.assertTrue(
             Pages.notificationsPage.isNotificationPageDisplayed(),
-            "❌ Notification Preferences page not loaded"
+            " Notification Preferences page not loaded"
         );
         System.out.println("Notification Preferences page loaded successfully");
     }
