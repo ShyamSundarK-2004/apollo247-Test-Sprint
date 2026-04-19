@@ -1,11 +1,8 @@
 package com.apollo247.testing.pages;
 
 import java.time.Duration;
-<<<<<<< Updated upstream
 import java.util.List;
 import java.util.Map;
-=======
->>>>>>> Stashed changes
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,15 +14,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
-<<<<<<< Updated upstream
 import com.apollo247.testing.utilities.ExcelUtilities;
-=======
->>>>>>> Stashed changes
 
 public class ManageFamilyPage {
 
     WebDriver driver;
-<<<<<<< Updated upstream
     WebDriverWait wait;
     public AllUtilityFunctions utility;
     private ExcelUtilities excelUtilities = new ExcelUtilities();
@@ -36,15 +29,7 @@ public class ManageFamilyPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.utility = new AllUtilityFunctions();
         this.utility.initializeDriver(driver);
-=======
-    public AllUtilityFunctions utility;
-
-    public ManageFamilyPage(WebDriver driver) {
-        this.driver = driver;
-        this.utility = new AllUtilityFunctions();
-        this.utility.initializeDriver(driver);
-        PageFactory.initElements(driver, this);
->>>>>>> Stashed changes
+    
     }
 
     // ----------------------------
@@ -93,10 +78,8 @@ public class ManageFamilyPage {
 
     public void clickAddNewProfile() {
 
-<<<<<<< Updated upstream
-=======
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
->>>>>>> Stashed changes
 
         WebElement element = wait.until(
                 ExpectedConditions.visibilityOf(addNewProfile)
@@ -117,10 +100,8 @@ public class ManageFamilyPage {
 
     public void selectMaleAndBrother() {
 
-<<<<<<< Updated upstream
-=======
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
->>>>>>> Stashed changes
 
         // wait for form to load
         wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -132,7 +113,6 @@ public class ManageFamilyPage {
                 ExpectedConditions.elementToBeClickable(
                         By.xpath("//*[contains(text(),'Male')]")
                 )
-<<<<<<< Updated upstream
         );
         male.click();
 
@@ -185,38 +165,8 @@ public class ManageFamilyPage {
     //  SUCCESS VALIDATION (NEW CLEAN APPROACH)
     // ----------------------------
 
-    public boolean isSuccessToastDisplayed() {
-
-=======
-        );
-        male.click();
-
-        // open dropdown
-        WebElement dropdown = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//div[contains(@class,'AphSelect_select')]")
-                )
-        );
-        dropdown.click();
-
-        // wait for dropdown options to render
-        wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.cssSelector("[data-value='BROTHER']")
-        ));
-
-        // re-find fresh element (VERY IMPORTANT)
-        WebElement brother = wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector("[data-value='BROTHER']")
-                )
-        );
-
-        brother.click();
-    }
-    public void saveFamilyMember() {
-        saveBtn.click();
-        confirmBtn.click();
-    }
+    
+    
 
     // ----------------------------
     // 🔥 SUCCESS VALIDATION (NEW CLEAN APPROACH)
@@ -225,7 +175,6 @@ public class ManageFamilyPage {
     public boolean isSuccessToastDisplayed() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
->>>>>>> Stashed changes
 
         try {
             return wait.until(
@@ -287,10 +236,10 @@ public class ManageFamilyPage {
                 // ✅ Open form again
                 clickAddNewProfile();
 
-                // ✅ Wait for form fields
+                //  Wait for form fields
                 wait.until(ExpectedConditions.visibilityOf(firstName));
 
-                // ✅ Fill and save
+                //  Fill and save
                 addFamilyMember(fName, lName, dob);
             }
 

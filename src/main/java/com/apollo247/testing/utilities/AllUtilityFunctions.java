@@ -27,14 +27,10 @@ public class AllUtilityFunctions {
 	Actions action;
 
 	public void initializeDriver(WebDriver driver) {
-<<<<<<< Updated upstream
 		this.driver = driver;
 		this.action = new Actions(driver);
 
-=======
-	    this.driver = driver;
-	    this.action = new Actions(driver);
->>>>>>> Stashed changes
+	    
 	}
 	// webdriver utlitiy
 
