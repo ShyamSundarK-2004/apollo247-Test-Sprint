@@ -3,13 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.apollo247.testing.runner.RunnerIO_Docter">
+      <class name="com.apollo247.testing.runner.LabTest_RunnerIO">
         <methods>
           <include name="setUpClass"/>
+<<<<<<< HEAD
           <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
+=======
+          <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+>>>>>>> e6dfc3535d5f069bb3f89f744050ee04cd2ed4a2
         </methods>
-      </class> <!-- com.apollo247.testing.runner.RunnerIO_Docter -->
+      </class> <!-- com.apollo247.testing.runner.LabTest_RunnerIO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -80,7 +80,7 @@ public class search  {
 
 	@Then("booking details should be displayed")
 	public void booking_details_should_be_displayed() {
-		String url = b.driver.getCurrentUrl();
+		String url = b.getDriver().getCurrentUrl();
 
 		if (url.contains("appointment")) {
 			System.out.println("Booking successful");

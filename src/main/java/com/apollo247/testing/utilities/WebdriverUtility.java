@@ -1,18 +1,10 @@
 package com.apollo247.testing.utilities;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
-import java.util.Random;
 import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,15 +12,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AllUtilityFunctions {
+public class WebdriverUtility {
 
 	protected WebDriver driver;
 	WebDriverWait wait;
-	Actions action;
+	
 
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
-		this.action = new Actions(driver);
+
 	}
 	// webdriver utlitiy
 
@@ -120,7 +112,7 @@ public class AllUtilityFunctions {
 	}
 
 	// explicit wait for element to be clickable
-	public WebElement waitUntillElementIsCLickable(long timeInSeconds, WebElement object) {
+	public WebElement waitUntilElementIsCLickable(long timeInSeconds, WebElement object) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
 		return wait.until(ExpectedConditions.elementToBeClickable(object));
 	}
@@ -207,67 +199,4 @@ public class AllUtilityFunctions {
 		driver.switchTo().frame(element);
 	}
 
-	// file utlitility
-
-	// read
-	public String getPropertyKeyValue(String key) throws IOException {
-		FileInputStream fs = new FileInputStream("./src/test/resources/Reader/common.properties");
-		Properties prop = new Properties();
-		prop.load(fs);
-		String value = prop.getProperty(key);
-		return value;
-	}
-
-	// java utlitility
-
-	// Generate random number
-	public int getRandomNumber(int range) {
-		Random randomNumber = new Random();
-		int randomNum = randomNumber.nextInt(range);
-		return randomNum;
-	}
-
-	// Generate current date
-	public String getCurrentDate(String dateFormat) {
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
-		return sdf.format(date);
-	}
-
-	// Counting days (add days to current date)
-	public String getFutureDate(int days) {
-		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		sdf.format(date);
-		Calendar cal = sdf.getCalendar();
-		cal.add(Calendar.DAY_OF_MONTH, days);
-		String requiredDays = sdf.format(cal.getTime());
-		return requiredDays;
-	}
-
-	// actions utlitility
-
-	// pause
-	public void pauseOnAction(long timeInSeconds) {
-		action.pause(timeInSeconds);
-	}
-
-	// Click using Actions
-	public void clickOnElement(WebElement element) {
-		action.click(element).perform();
-	}
-
-	// SendKeys using Actions
-	public void sendKeys(WebElement element, String value) {
-		action.sendKeys(element, value).perform();
-	}
-
-	// keys down in dropdown
-	public void navigateDownDropdown(WebElement element, int count) {
-		Actions a = action.click(element).pause(2000);
-		for (int i = 1; i <= count; i++) {
-			a.keyDown(Keys.ARROW_DOWN);
-		}
-		a.click().perform();
-	}
 }

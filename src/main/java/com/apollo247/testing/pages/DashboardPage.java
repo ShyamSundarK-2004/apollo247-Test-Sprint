@@ -8,19 +8,22 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
-import com.apollo247.testing.utilities.Pages;
+import com.apollo247.testing.utilities.WebdriverUtility;
 
 public class DashboardPage {
 
 	public WebDriverWait wait;
 	public WebDriver driver;
-	public AllUtilityFunctions utilities;
+	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
-		this.utilities = new AllUtilityFunctions();
+
+		this.utilities = new WebdriverUtility();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
+
+		utilities.initializeDriver(driver);
+
 
 	}
 
@@ -65,6 +68,14 @@ public class DashboardPage {
 	// my account module
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
+
+	// profile image after login
+	@FindBy(xpath = "//div[@id='loginPopup']//img")
+	private WebElement profilePic;
+
+	// user account popup
+	@FindBy(xpath = "//div[@id = 'loginPopup' and text() = 'My Account']")
+	private WebElement userAccountPopup;
 
 	// ===== getters and setter ======
 
@@ -118,12 +129,22 @@ public class DashboardPage {
 		return myAccountModule;
 	}
 
+	// profile pic popup
+	public WebElement getProfilePic() {
+		return profilePic;
+	}
+
+	// user account popup
+	public WebElement getUserAccountPopup() {
+		return userAccountPopup;
+	}
+
 	// ====== business logic ======
 
 	// closing dom popup
 	public void closeDomPopup() {
 		// Wait for shadow host and locate the hidden host
-		WebElement domPopup = utilities.waituntilPresenceOfElementLocated(30L,
+		WebElement domPopup = utilities.waituntilPresenceOfElementLocated(20L,
 				By.cssSelector("ct-web-popup-imageonly"));
 
 		// Access shadow root
@@ -143,6 +164,7 @@ public class DashboardPage {
 
 	// enter mobile number to login
 	public void enterMobileNumber(String number) {
+		utilities.waitUntilElementIsVisibility(15L, getMobileNumberField());
 		getMobileNumberField().sendKeys(number);
 	}
 
@@ -154,27 +176,29 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntillElementIsCLickable(60, getVerifyBtn());
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-		utilities.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+//		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
 
-	public void clickonHealthInsuranceModule() {
-		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-		WebElement healthInsuranceModule = Pages.healthInsurancePage.getClickBuyInsurance();
-		healthInsuranceModule.click();
-
-	}
-
 	public void clickOnMyAccountBtn() {
 		getMyAccountModule().click();
+	}
+
+	public boolean isUserLoggedIn() {
+		try {
+			getProfilePic().click();
+			return getUserAccountPopup().isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }

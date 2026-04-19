@@ -8,17 +8,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Reporter;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.WebdriverUtility;
+import com.apollo247.testing.utilities.JavaScriptUtilities;
 
 public class LabTestPage {
 
 	WebDriver driver;
-	AllUtilityFunctions utilities;
+	WebdriverUtility utilities = new WebdriverUtility();
+	JavaScriptUtilities jsUtil;
 
 	public LabTestPage(WebDriver driver) {
 		this.driver = driver;
-		this.utilities = new AllUtilityFunctions();
 		utilities.initializeDriver(driver);
+		this.jsUtil = new JavaScriptUtilities(driver);
 
 	}
 
@@ -29,7 +31,6 @@ public class LabTestPage {
 	private WebElement searchBar;
 
 	// test names inside each result
-
 	@FindBy(xpath = "//p[contains(@class,'RX')]")
 	private List<WebElement> testNames;
 
@@ -38,11 +39,16 @@ public class LabTestPage {
 	private WebElement popupCloseBtn;
 
 	// search result message
-	@FindBy(css = "[class='LabTestsSearch_noResultsFound__vFqRD']")
+	@FindBy(css = "[class='SearchResult_noResultsFound__srSdT']")
 	private WebElement resultNotFoundMsg;
 
+	// radiology booking section
 	@FindBy(css = "[href='/lab-tests/radiology']")
 	private WebElement radiologyBookingBtn;
+
+	// prescription test booking module
+	@FindBy(xpath = "//h3[text() = 'Upload and Order']")
+	private WebElement bookByPrescriptionModule;
 
 	// ===== GETTERS =====
 
@@ -66,13 +72,26 @@ public class LabTestPage {
 		return radiologyBookingBtn;
 	}
 
+	public WebElement getBookByMPescriptionModule() {
+		return bookByPrescriptionModule;
+	}
+
 	// ====== BUSINESS LOGIC ======
+
+	// click on search box
+	public void clickOnSearchBox() {
+		utilities.waitUntilElementIsVisibility(30L, getSearchBar());
+		getSearchBar().click();
+	}
 
 	// enter search text
 	public void searchTest(String text) {
-		getSearchBar().click();
+		clickOnSearchBox();
+		utilities.waitUntilElementIsVisibility(25L, getSearchBar());
 		getSearchBar().sendKeys(text);
-		getSearchBar().sendKeys(Keys.ENTER);
+		if (!text.isEmpty()) {
+			getSearchBar().sendKeys(Keys.ENTER);
+		}
 	}
 
 	public void closePopupIfPresent() {
@@ -81,20 +100,43 @@ public class LabTestPage {
 				getPopupCloseBtn().click();
 			}
 		} catch (Exception e) {
-			Reporter.log("No Popup showes");
+			Reporter.log("No popup Displayed");
 		}
 	}
 
 	public boolean isResultDisplayed() {
+		utilities.waitUntilElementIsVisibility(20L, getTestNames().getFirst());
 		return getTestNames().size() > 0;
-	}
-
-	public void clickOnRadiologyBookingBtn() {
-		getRadiologyBookingBtn().click();
 	}
 
 	public String getCurrentPageUrl() {
 		return utilities.fetchApplicationURL();
+	}
+
+	public boolean isErrorMessageDisplayed() {
+		try {
+			utilities.waitUntilElementIsVisibility(20L, getResultNotFoundMsg());
+			return getResultNotFoundMsg().isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean isNoActionPerformed() {
+		String value = getSearchBar().getAttribute("value");
+		return value == null || value.isEmpty();
+	}
+
+	public void clickOnBookByPrescriptionModule() {
+		utilities.waitUntilElementIsVisibility(20L, getBookByMPescriptionModule());
+		jsUtil.jsClick(getBookByMPescriptionModule());
+	}
+
+	public void clickOnRadiologyBookingBtn() {
+		utilities.waitUntilElementIsVisibility(20L, getRadiologyBookingBtn());
+		getRadiologyBookingBtn().click();
+		utilities.switchToWindowByURL("radiology");
+
 	}
 
 }
