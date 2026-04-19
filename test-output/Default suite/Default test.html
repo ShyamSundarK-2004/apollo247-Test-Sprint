@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Apr 19 20:42:29 IST 2026</td>
+<td>Started on:</td><td>Sun Apr 19 21:32:58 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>173 seconds (173346 ms)</td>
+<tr><td>Total time:</td><td>116 seconds (116520 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,40 +77,66 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='com.apollo247.testing.runner.LabTest_RunnerIO.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.LabTest_RunnerIO<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest Module"<br/>
-<a href="#Output-1808986169" onClick='toggleBox("Output-1808986169", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1310865036" onClick='toggleBox("Output-1310865036", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1808986169" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1808986169">
+<a href="#Output-1310865036" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1310865036">
 No popup Displayed<br/>
 </div>
 </td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //button[text()=&apos;‹&apos;]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:169)
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [75393a8e9a8b6050188edbb90b82074f, clickElement {id=f.61C0BBB1BCAD1E7570195C36A60D0B0E.d.F5E8CD14FE6007468C0E62FA23F3EB6D.e.47}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57163}, goog:processID: 26256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57163/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (75393a8e9a8b6050188edbb90b82074f)] -&gt; xpath: //button[text()=&apos;‹&apos;]]
+Session ID: 75393a8e9a8b6050188edbb90b82074f
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:170)
 	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
 	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1808986169", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1808986169'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //button[text()=&apos;‹&apos;]
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+</pre></div><a href='#' onClick='toggleBox("stack-trace1310865036", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1310865036'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:169)
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [75393a8e9a8b6050188edbb90b82074f, clickElement {id=f.61C0BBB1BCAD1E7570195C36A60D0B0E.d.F5E8CD14FE6007468C0E62FA23F3EB6D.e.47}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57163}, goog:processID: 26256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57163/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (75393a8e9a8b6050188edbb90b82074f)] -&gt; xpath: //button[text()=&apos;‹&apos;]]
+Session ID: 75393a8e9a8b6050188edbb90b82074f
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:170)
 	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
 	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
 </pre></div></td>
-<td>171</td>
+<td>115</td>
 <td>com.apollo247.testing.runner.LabTest_RunnerIO@2de23121</td></tr>
 </table><p>
 </body>

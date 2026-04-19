@@ -5,26 +5,26 @@
       <![CDATA[No popup Displayed]]>
     </line>
   </reporter-output>
-  <suite started-at="2026-04-19T20:42:29 IST" name="Default suite" finished-at="2026-04-19T20:45:22 IST" duration-ms="173346">
+  <suite started-at="2026-04-19T21:32:58 IST" name="Default suite" finished-at="2026-04-19T21:34:54 IST" duration-ms="116520">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-04-19T20:42:29 IST" name="Default test" finished-at="2026-04-19T20:45:22 IST" duration-ms="173346">
+    <test started-at="2026-04-19T21:32:58 IST" name="Default test" finished-at="2026-04-19T21:34:54 IST" duration-ms="116520">
       <class name="com.apollo247.testing.runner.LabTest_RunnerIO">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T20:42:29 IST" name="setUpClass" finished-at="2026-04-19T20:42:30 IST" duration-ms="1214" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T21:32:58 IST" name="setUpClass" finished-at="2026-04-19T21:32:59 IST" duration-ms="1088" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@10f10230]]>
+                <![CDATA[org.testng.TestRunner@67fb5025]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T20:42:30 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-19T20:45:22 IST" duration-ms="171993" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T21:32:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-19T21:34:54 IST" duration-ms="115293" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -37,37 +37,55 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
             <message>
-              <![CDATA[Unable to find element with locator By.xpath: //button[text()='‹']
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+              <![CDATA[stale element reference: stale element not found in the current frame
+  (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: '4.38.0', revision: '6b412e825c*'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: driver.version: RemoteWebDriver]]>
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [75393a8e9a8b6050188edbb90b82074f, clickElement {id=f.61C0BBB1BCAD1E7570195C36A60D0B0E.d.F5E8CD14FE6007468C0E62FA23F3EB6D.e.47}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57163}, goog:processID: 26256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57163/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (75393a8e9a8b6050188edbb90b82074f)] -> xpath: //button[text()='‹']]
+Session ID: 75393a8e9a8b6050188edbb90b82074f]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //button[text()='‹']
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: '4.38.0', revision: '6b412e825c*'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: driver.version: RemoteWebDriver
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:169)
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [75393a8e9a8b6050188edbb90b82074f, clickElement {id=f.61C0BBB1BCAD1E7570195C36A60D0B0E.d.F5E8CD14FE6007468C0E62FA23F3EB6D.e.47}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57163}, goog:processID: 26256, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57163/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (75393a8e9a8b6050188edbb90b82074f)] -> xpath: //button[text()='‹']]
+Session ID: 75393a8e9a8b6050188edbb90b82074f
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:170)
 at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
 at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
             <line>
               <![CDATA[No popup Displayed]]>
             </line>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T20:45:22 IST" name="tearDownClass" finished-at="2026-04-19T20:45:22 IST" duration-ms="45" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T21:34:54 IST" name="tearDownClass" finished-at="2026-04-19T21:34:54 IST" duration-ms="52" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
