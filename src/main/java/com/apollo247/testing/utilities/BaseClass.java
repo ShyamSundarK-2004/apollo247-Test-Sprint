@@ -4,6 +4,20 @@ import org.openqa.selenium.WebDriver;
 
 public class BaseClass {
 
-	public WebDriver driver;
+	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
+	// Set driver
+	public void setDriver(WebDriver driverInstance) {
+		driver.set(driverInstance);
+	}
+
+	// Get driver
+	public WebDriver getDriver() {
+		return driver.get();
+	}
+
+	// Remove driver
+	public void unload() {
+		driver.remove();
+	}
 }

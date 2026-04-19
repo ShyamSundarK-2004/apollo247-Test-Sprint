@@ -8,17 +8,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Reporter;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.WebdriverUtility;
+import com.apollo247.testing.utilities.JavaScriptUtilities;
 
 public class LabTestPage {
 
 	WebDriver driver;
-	AllUtilityFunctions utilities;
+	WebdriverUtility utilities = new WebdriverUtility();
+	JavaScriptUtilities jsUtil;
 
 	public LabTestPage(WebDriver driver) {
 		this.driver = driver;
-		this.utilities = new AllUtilityFunctions();
 		utilities.initializeDriver(driver);
+		this.jsUtil = new JavaScriptUtilities(driver);
 
 	}
 
@@ -45,7 +47,7 @@ public class LabTestPage {
 	private WebElement radiologyBookingBtn;
 
 	// prescription test booking module
-	@FindBy(xpath = "//div[contains(@class,'KZ')]//div[contains(@class,'PZ')]")
+	@FindBy(xpath = "//h3[text() = 'Upload and Order']")
 	private WebElement bookByPrescriptionModule;
 
 	// ===== GETTERS =====
@@ -76,9 +78,16 @@ public class LabTestPage {
 
 	// ====== BUSINESS LOGIC ======
 
+	// click on search box
+	public void clickOnSearchBox() {
+		utilities.waitUntilElementIsVisibility(30L, getSearchBar());
+		getSearchBar().click();
+	}
+
 	// enter search text
 	public void searchTest(String text) {
-		getSearchBar().click();
+		clickOnSearchBox();
+		utilities.waitUntilElementIsVisibility(25L, getSearchBar());
 		getSearchBar().sendKeys(text);
 		if (!text.isEmpty()) {
 			getSearchBar().sendKeys(Keys.ENTER);
@@ -96,11 +105,8 @@ public class LabTestPage {
 	}
 
 	public boolean isResultDisplayed() {
+		utilities.waitUntilElementIsVisibility(20L, getTestNames().getFirst());
 		return getTestNames().size() > 0;
-	}
-
-	public void clickOnRadiologyBookingBtn() {
-		getRadiologyBookingBtn().click();
 	}
 
 	public String getCurrentPageUrl() {
@@ -109,6 +115,7 @@ public class LabTestPage {
 
 	public boolean isErrorMessageDisplayed() {
 		try {
+			utilities.waitUntilElementIsVisibility(20L, getResultNotFoundMsg());
 			return getResultNotFoundMsg().isDisplayed();
 		} catch (Exception e) {
 			return false;
@@ -121,7 +128,15 @@ public class LabTestPage {
 	}
 
 	public void clickOnBookByPrescriptionModule() {
-		utilities.jsUtil.jsClick(getBookByMPescriptionModule());
+		utilities.waitUntilElementIsVisibility(20L, getBookByMPescriptionModule());
+		jsUtil.jsClick(getBookByMPescriptionModule());
+	}
+
+	public void clickOnRadiologyBookingBtn() {
+		utilities.waitUntilElementIsVisibility(20L, getRadiologyBookingBtn());
+		getRadiologyBookingBtn().click();
+		utilities.switchToWindowByURL("radiology");
+
 	}
 
 }

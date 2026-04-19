@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Apr 18 15:39:04 IST 2026</td>
+<td>Started on:</td><td>Mon Apr 20 04:15:03 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>53 seconds (53383 ms)</td>
+<tr><td>Total time:</td><td>229 seconds (229012 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,24 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.apollo247.testing.runner.RunnerIO.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.RunnerIO<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify booking lab test using prescription", "upload and book a test using prescription"</td>
-<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+<td title='com.apollo247.testing.runner.LabTest_RunnerIO.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.LabTest_RunnerIO<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest Module"<br/>
+<a href="#Output-1506703662" onClick='toggleBox("Output-1506703662", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1506703662" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1506703662">
+No popup Displayed<br/>
+No popup Displayed<br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: chrome=147.0.7727.56)
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f640dc6819fdd8a40592d88de0beeed4, findElement {value=//span[text()= &apos;Login&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61494}, goog:processID: 30824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61494/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f640dc6819fdd8a40592d88de0beeed4
+Command: [b6517e95efb2f28f3935c484ace12452, findElement {using=xpath, value=//span[contains(@class,&apos;react-calendar&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50898}, goog:processID: 15548, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50898/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b6517e95efb2f28f3935c484ace12452
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -100,18 +110,20 @@ Session ID: f640dc6819fdd8a40592d88de0beeed4
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy24.click(Unknown Source)
-	at com.apollo247.testing.pages.DashboardPage.clickLoginButton(DashboardPage.java:148)
-	at com.apollo247.testing.pages.DashboardPage.login(DashboardPage.java:158)
-	at com.apollo247.testing.stepdefinitions.Hook.setup(Hook.java:64)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1607453282", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1607453282'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+	at jdk.proxy2/jdk.proxy2.$Proxy24.getText(Unknown Source)
+	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:163)
+	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
+	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1506703662", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1506703662'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: chrome=147.0.7727.56)
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f640dc6819fdd8a40592d88de0beeed4, findElement {value=//span[text()= &apos;Login&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61494}, goog:processID: 30824, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61494/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f640dc6819fdd8a40592d88de0beeed4
+Command: [b6517e95efb2f28f3935c484ace12452, findElement {using=xpath, value=//span[contains(@class,&apos;react-calendar&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50898}, goog:processID: 15548, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50898/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b6517e95efb2f28f3935c484ace12452
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -128,13 +140,13 @@ Session ID: f640dc6819fdd8a40592d88de0beeed4
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy24.click(Unknown Source)
-	at com.apollo247.testing.pages.DashboardPage.clickLoginButton(DashboardPage.java:148)
-	at com.apollo247.testing.pages.DashboardPage.login(DashboardPage.java:158)
-	at com.apollo247.testing.stepdefinitions.Hook.setup(Hook.java:64)
+	at jdk.proxy2/jdk.proxy2.$Proxy24.getText(Unknown Source)
+	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:163)
+	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
+	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
 </pre></div></td>
-<td>52</td>
-<td>com.apollo247.testing.runner.RunnerIO@2de23121</td></tr>
+<td>227</td>
+<td>com.apollo247.testing.runner.LabTest_RunnerIO@2de23121</td></tr>
 </table><p>
 </body>
 </html>

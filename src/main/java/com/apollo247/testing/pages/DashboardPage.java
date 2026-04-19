@@ -8,19 +8,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.WebdriverUtility;
 
 public class DashboardPage {
 
 	public WebDriverWait wait;
 	public WebDriver driver;
-	public AllUtilityFunctions utilities;
+	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		this.utilities = new AllUtilityFunctions();
-		this.utilities.initializeDriver(driver);
+		utilities.initializeDriver(driver);
+
 	}
 
 	// ====== locators ======
@@ -68,6 +67,10 @@ public class DashboardPage {
 	// profile image after login
 	@FindBy(xpath = "//div[@id='loginPopup']//img")
 	private WebElement profilePic;
+
+	// user account popup
+	@FindBy(xpath = "//div[@id = 'loginPopup' and text() = 'My Account']")
+	private WebElement userAccountPopup;
 
 	// ===== getters and setter ======
 
@@ -121,8 +124,14 @@ public class DashboardPage {
 		return myAccountModule;
 	}
 
+	// profile pic popup
 	public WebElement getProfilePic() {
 		return profilePic;
+	}
+
+	// user account popup
+	public WebElement getUserAccountPopup() {
+		return userAccountPopup;
 	}
 
 	// ====== business logic ======
@@ -150,6 +159,7 @@ public class DashboardPage {
 
 	// enter mobile number to login
 	public void enterMobileNumber(String number) {
+		utilities.waitUntilElementIsVisibility(15L, getMobileNumberField());
 		getMobileNumberField().sendKeys(number);
 	}
 
@@ -161,13 +171,13 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntilElementIsCLickable(50L, getVerifyBtn());
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+//		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
@@ -179,7 +189,8 @@ public class DashboardPage {
 
 	public boolean isUserLoggedIn() {
 		try {
-			return getProfilePic().isDisplayed(); // or any unique logged-in element
+			getProfilePic().click();
+			return getUserAccountPopup().isDisplayed();
 		} catch (Exception e) {
 			return false;
 		}
