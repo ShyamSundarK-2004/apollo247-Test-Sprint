@@ -131,6 +131,7 @@ public class RadiologyPage {
 	}
 
 	public void chooseCity(String cityName) {
+		jsUtil.jsScrollIntoView(getChooseCityField());
 		jsUtil.jsClick(getChooseCityField());
 		utilities.waitUntilElementIsVisibility(20L, getChooseCityField());
 		WebElement chooseCity = driver.findElement(By.xpath("//li[text() = '" + cityName + "']"));

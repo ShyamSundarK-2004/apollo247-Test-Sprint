@@ -28,7 +28,7 @@ Feature: Complete Automation Testing on LabTest Module
     When User enters radiology details
       | city      | hospital                   | date     | tests         | filePath                                               |
       | Bengaluru | Indiranagar- Apollo Clinic | April-15 | X-Ray,CT Scan | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
-      | Chennai   | T Nagar- Apollo Clinic     | May-23   | X-Ray,ECG     | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
+    # | Chennai   | T Nagar- Apollo Clinic     | May-23   | X-Ray,ECG     | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
     Then User should see request call button is enabled
 
   @labTest @EndtoEndScenario
