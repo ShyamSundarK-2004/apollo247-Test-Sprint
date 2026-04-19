@@ -1,12 +1,14 @@
 package com.apollo247.testing.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.apollo247.testing.utilities.WebdriverUtility;
 import com.apollo247.testing.utilities.JavaScriptUtilities;
+import com.apollo247.testing.utilities.WebdriverUtility;
 
 public class RadiologyPage {
 
@@ -23,11 +25,11 @@ public class RadiologyPage {
 	// ====== Locators ======
 
 	// select city input field
-	@FindBy(xpath = "//div[text() = 'Choose City']")
+	@FindBy(xpath = "(//div[contains(@class,'AphSelect_select')])[2]")
 	private WebElement chooseCityField;
 
 	// select hospital or clinic field
-	@FindBy(xpath = "//div[contains(text(), 'Hospital')]")
+	@FindBy(xpath = "(//div[contains(@class,'AphSelect_select')])[3]")
 	private WebElement selectHospitalField;
 
 	// select date field
@@ -35,7 +37,7 @@ public class RadiologyPage {
 	private WebElement pickPreferedDate;
 
 	// select test name
-	@FindBy(xpath = "//div[text() = 'Choose Tests']")
+	@FindBy(xpath = "(//div[contains(@class,'AphSelect_select')])[4]")
 	private WebElement selectTestName;
 
 	// add test details field
@@ -53,6 +55,18 @@ public class RadiologyPage {
 	// popup close button
 	@FindBy(css = "[alt='close']")
 	private WebElement closePopupBtn;
+
+	// current month in calendar
+	@FindBy(xpath = "//span[contains(@class,'react-calendar')]")
+	private WebElement currentMonth;
+
+	// go to next calender month
+	@FindBy(xpath = "//button[text() = '›']")
+	private WebElement clickNextBtn;
+
+	// request call button
+	@FindBy(xpath = "//button[contains(@class,'Radiology_requestButton')]")
+	private WebElement requestCallBtn;
 
 	// ====== Getters ======
 
@@ -88,6 +102,18 @@ public class RadiologyPage {
 		return closePopupBtn;
 	}
 
+	public WebElement getCurrentMonth() {
+		return currentMonth;
+	}
+
+	public WebElement getClickNextBtn() {
+		return clickNextBtn;
+	}
+
+	public WebElement getRequestCallbtn() {
+		return requestCallBtn;
+	}
+
 	// ====== Business Logic ======
 
 	public void closeRadiologyPopup() {
@@ -100,10 +126,13 @@ public class RadiologyPage {
 		}
 	}
 
+	public String getCurrentPageUrl() {
+		return utilities.fetchApplicationURL();
+	}
+
 	public void chooseCity(String cityName) {
 		jsUtil.jsClick(getChooseCityField());
 		utilities.waitUntilElementIsVisibility(20L, getChooseCityField());
-		getUploadPrescriptionField().click();
 		WebElement chooseCity = driver.findElement(By.xpath("//li[text() = '" + cityName + "']"));
 		chooseCity.click();
 	}
@@ -114,8 +143,52 @@ public class RadiologyPage {
 		selecthospital.click();
 	}
 
-	public String getCurrentPageUrl() {
-		return utilities.fetchApplicationURL();
+	public void chooseTestName(String testName) {
+		String[] names = testName.split(",");
+		getSelectTestName().click();
+		for (String name : names) {
+			WebElement test = driver.findElement(By.xpath("//label[text() = '" + name + "']/preceding-sibling::input"));
+			test.click();
+		}
+	}
+
+	public void chooseDate(String dateinput) {
+
+		String[] parts = dateinput.split("-");
+		String day = parts[0];
+		String targetMonth = parts[1];
+		getPickPreferedDate().click();
+		while (true) {
+			String currentMonth = getCurrentMonth().getText().split(" ")[0];
+			if (currentMonth.equalsIgnoreCase(targetMonth)) {
+				break;
+			}
+			if (isFutureMonth(currentMonth, targetMonth)) {
+				getClickNextBtn().click(); // forward
+			} else {
+				driver.findElement(By.xpath("//button[text()='‹']")).click(); // previous
+			}
+		}
+		driver.findElement(By.xpath("//abbr[text()='" + day + "']")).click();
+	}
+
+	private boolean isFutureMonth(String current, String target) {
+
+		List<String> months = List.of("January", "February", "March", "April", "May", "June", "July", "August",
+				"September", "October", "November", "December");
+
+		int currentIndex = months.indexOf(current);
+		int targetIndex = months.indexOf(target);
+
+		return targetIndex > currentIndex;
+	}
+
+	public void UploadPrescription(String path) {
+		getUploadPrescriptionField().sendKeys(path);
+	}
+
+	public boolean isRequestCallBtnEnabled() {
+		return getRequestCallbtn().isEnabled();
 	}
 
 }

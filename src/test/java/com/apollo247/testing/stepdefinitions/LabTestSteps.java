@@ -2,6 +2,9 @@ package com.apollo247.testing.stepdefinitions;
 
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+import java.util.Map;
+
 import com.apollo247.testing.utilities.Pages;
 
 import io.cucumber.java.en.Given;
@@ -78,7 +81,7 @@ public class LabTestSteps {
 
 	@Then("verify  proceed button is enabled")
 	public void verify_proceed_button_is_enabled() {
-		assertTrue(Pages.bookByPrescriptionPage.isProceedBtnEnabled(), "Proceed button is not enalbled");
+		assertTrue(Pages.bookByPrescriptionPage.isProceedBtnEnabled(), "Proceed button is not enabled");
 	}
 
 	// ================= Radiology Scenarios =================
@@ -102,18 +105,31 @@ public class LabTestSteps {
 
 	@When("User enters radiology details")
 	public void user_enters_radiology_details(io.cucumber.datatable.DataTable dataTable) {
-		// Write code here that turns the phrase above into concrete actions
-		// For automatic transformation, change DataTable to one of
-		// E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-		// Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-		// Double, Byte, Short, Long, BigInteger or BigDecimal.
-		//
-		// For other transformations you can register a DataTableType.
+		List<Map<String, String>> allData = dataTable.asMaps();
+
+		for (Map<String, String> row : allData) {
+
+			String city = row.get("city");
+			String hospital = row.get("hospital");
+			String testName = row.get("tests");
+			String date = row.get("date");
+			String filePath = row.get("filePath");
+
+			Pages.radiologyPage.chooseCity(city);
+			Pages.radiologyPage.chooseHospital(hospital);
+			Pages.radiologyPage.chooseDate(date);
+			Pages.radiologyPage.chooseTestName(testName);
+			Pages.radiologyPage.UploadPrescription(filePath);
+			
+
+		}
 
 	}
 
 	@Then("User should see request call button is enabled")
 	public void user_should_see_request_call_button_is_enabled() {
-
+		assertTrue(Pages.radiologyPage.isRequestCallBtnEnabled(), "Request Call Button is not Enabled");
 	}
+
+	// ================= End To End Scenarios =================
 }
