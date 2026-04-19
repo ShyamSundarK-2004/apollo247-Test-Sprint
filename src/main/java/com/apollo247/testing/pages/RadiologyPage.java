@@ -3,10 +3,13 @@ package com.apollo247.testing.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import com.apollo247.testing.utilities.ActionUtilities;
 import com.apollo247.testing.utilities.JavaScriptUtilities;
 import com.apollo247.testing.utilities.WebdriverUtility;
 
@@ -14,12 +17,14 @@ public class RadiologyPage {
 
 	WebdriverUtility utilities = new WebdriverUtility();
 	JavaScriptUtilities jsUtil;
+	ActionUtilities actions;
 	WebDriver driver;
 
 	public RadiologyPage(WebDriver driver) {
 		this.driver = driver;
 		utilities.initializeDriver(driver);
 		jsUtil = new JavaScriptUtilities(driver);
+		actions = new ActionUtilities(driver);
 	}
 
 	// ====== Locators ======
@@ -68,6 +73,10 @@ public class RadiologyPage {
 	@FindBy(xpath = "//button[contains(@class,'Radiology_requestButton')]")
 	private WebElement requestCallBtn;
 
+	// go to previous calendar month
+	@FindBy(xpath = "//button[text()='‹']")
+	private WebElement clickPreviousBtn;
+
 	// ====== Getters ======
 
 	public WebElement getChooseCityField() {
@@ -110,6 +119,10 @@ public class RadiologyPage {
 		return clickNextBtn;
 	}
 
+	public WebElement getClickPreviousBtn() {
+		return clickPreviousBtn;
+	}
+
 	public WebElement getRequestCallbtn() {
 		return requestCallBtn;
 	}
@@ -131,9 +144,9 @@ public class RadiologyPage {
 	}
 
 	public void chooseCity(String cityName) {
-		jsUtil.jsScrollIntoView(getChooseCityField());
-		jsUtil.jsClick(getChooseCityField());
+		jsUtil.scrollByPixels(-150);
 		utilities.waitUntilElementIsVisibility(20L, getChooseCityField());
+		getChooseCityField().click();
 		WebElement chooseCity = driver.findElement(By.xpath("//li[text() = '" + cityName + "']"));
 		chooseCity.click();
 	}
@@ -156,21 +169,25 @@ public class RadiologyPage {
 	public void chooseDate(String dateinput) {
 
 		String[] parts = dateinput.split("-");
-		String day = parts[0];
-		String targetMonth = parts[1];
+		String targetMonth = parts[0];
+		String day = parts[1];
 		getPickPreferedDate().click();
 		while (true) {
 			String currentMonth = getCurrentMonth().getText().split(" ")[0];
 			if (currentMonth.equalsIgnoreCase(targetMonth)) {
 				break;
 			}
-			if (isFutureMonth(currentMonth, targetMonth)) {
+			if (isFutureMonth(currentMonth, targetMonth) && getClickNextBtn().isEnabled()) {
 				getClickNextBtn().click(); // forward
 			} else {
-				driver.findElement(By.xpath("//button[text()='‹']")).click(); // previous
+				if (getClickPreviousBtn().isEnabled()) {
+					getClickPreviousBtn().click();
+				}
 			}
 		}
 		driver.findElement(By.xpath("//abbr[text()='" + day + "']")).click();
+
+		actions.pressEscape();
 	}
 
 	private boolean isFutureMonth(String current, String target) {
