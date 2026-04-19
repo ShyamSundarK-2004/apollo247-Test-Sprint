@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Apr 19 18:06:16 IST 2026</td>
+<td>Started on:</td><td>Sun Apr 19 20:42:29 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>1 seconds (1511 ms)</td>
+<tr><td>Total time:</td><td>173 seconds (173346 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,9 +76,41 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.apollo247.testing.runner.LabTest_RunnerIO.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.LabTest_RunnerIO<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest Module"</td>
-<td></td>
-<td>0</td>
+<td title='com.apollo247.testing.runner.LabTest_RunnerIO.runScenario()'><b>runScenario</b><br>Test class: com.apollo247.testing.runner.LabTest_RunnerIO<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Verify user can initiate radiology request successfully", "Complete Automation Testing on LabTest Module"<br/>
+<a href="#Output-1808986169" onClick='toggleBox("Output-1808986169", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1808986169" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1808986169">
+No popup Displayed<br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //button[text()=&apos;‹&apos;]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:169)
+	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
+	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1808986169", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1808986169'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with locator By.xpath: //button[text()=&apos;‹&apos;]
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.10&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:168)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at com.apollo247.testing.pages.RadiologyPage.chooseDate(RadiologyPage.java:169)
+	at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:120)
+	at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
+</pre></div></td>
+<td>171</td>
 <td>com.apollo247.testing.runner.LabTest_RunnerIO@2de23121</td></tr>
 </table><p>
 </body>

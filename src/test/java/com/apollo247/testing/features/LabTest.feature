@@ -16,25 +16,23 @@ Feature: Complete Automation Testing on LabTest Module
 
   @labTest @prescriptionScenario
   Scenario: Verify booking lab test using prescription
-    Given User is on Lab Tests page
     When User clicks on book test using prescription
     And User uploads valid prescription
     Then verify  proceed button is enabled
 
   @labTest @radiologyScenario
   Scenario: Verify user can initiate radiology request successfully
-    Given User is on Lab Tests page
     When User clicks on lab test search bar
     And User clicks on explore radiology option and switch to radiology tab
     Then User should be on radiology page
     When User enters radiology details
-      | city    | hospital               | date     | tests             | file       |
-      | Chennai | T Nagar- Apollo Clinic | 23-April | X-Ray,ECG,CT Scan | report.pdf |
+      | city      | hospital                   | date     | tests         | filePath                                               |
+      | Bengaluru | Indiranagar- Apollo Clinic | April-15 | X-Ray,CT Scan | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
+      | Chennai   | T Nagar- Apollo Clinic     | May-23   | X-Ray,ECG     | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
     Then User should see request call button is enabled
 
   @labTest @EndtoEndScenario
   Scenario: Verify user can complete lab test booking till payment page
-    Given User is on Lab Tests page
     When User searches for "testName"
     Then User should see relevant test results
     When User selects a test
@@ -48,3 +46,8 @@ Feature: Complete Automation Testing on LabTest Module
     When User selects slot and reviews cart
     And User proceeds to payment
     Then User should be on payment page
+
+  @labTest @viewReportScenario
+  Scenario: verify user can able to see their order history for different patient names
+    When user click on view report button
+    Then verify myOrder page is displayed
