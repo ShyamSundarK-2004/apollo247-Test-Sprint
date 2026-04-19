@@ -5,18 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.WebdriverUtility;
 
 public class UploadPrescriptionPage {
 
-	WebDriver driver;
-	AllUtilityFunctions utilities;
+	WebdriverUtility utilities = new WebdriverUtility();
 
 	public UploadPrescriptionPage(WebDriver driver) {
-		this.driver = driver;
-		this.utilities = new AllUtilityFunctions();
 		utilities.initializeDriver(driver);
-
 	}
 
 	// ====== Locators ======
@@ -80,8 +76,8 @@ public class UploadPrescriptionPage {
 		return getWrongFileUpload().isDisplayed();
 	}
 
-	public void clickOnProceedBtn() {
-		getProceedBtn().click();
+	public boolean isProceedBtnEnabled() {
+		return getProceedBtn().isEnabled();
 	}
 
 	public boolean checkTestStatus() {

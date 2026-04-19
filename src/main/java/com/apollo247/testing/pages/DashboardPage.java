@@ -8,19 +8,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.WebdriverUtility;
 
 public class DashboardPage {
 
 	public WebDriverWait wait;
 	public WebDriver driver;
-	public AllUtilityFunctions utilities;
+	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		this.utilities = new AllUtilityFunctions();
-		this.utilities.initializeDriver(driver);
+		utilities.initializeDriver(driver);
+
 	}
 
 	// ====== locators ======

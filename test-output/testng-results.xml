@@ -1,109 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[No popup Displayed]]>
-    </line>
-    <line>
-      <![CDATA[No popup Displayed]]>
-    </line>
   </reporter-output>
-  <suite started-at="2026-04-18T21:24:41 IST" name="Default suite" finished-at="2026-04-18T21:25:10 IST" duration-ms="29079">
+  <suite started-at="2026-04-19T18:06:16 IST" name="Default suite" finished-at="2026-04-19T18:06:18 IST" duration-ms="1511">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-04-18T21:24:41 IST" name="Default test" finished-at="2026-04-18T21:25:10 IST" duration-ms="29079">
-      <class name="com.apollo247.testing.runner.RunnerIO">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:24:41 IST" name="setUpClass" finished-at="2026-04-18T21:24:42 IST" duration-ms="1024" status="PASS">
+    <test started-at="2026-04-19T18:06:16 IST" name="Default test" finished-at="2026-04-19T18:06:18 IST" duration-ms="1511">
+      <class name="com.apollo247.testing.runner.LabTest_RunnerIO">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T18:06:16 IST" name="setUpClass" finished-at="2026-04-19T18:06:17 IST" duration-ms="1064" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@65b97f47]]>
+                <![CDATA[org.testng.TestRunner@5eefa415]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:24:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-18T21:25:10 IST" duration-ms="27924" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T18:06:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-19T18:06:18 IST" duration-ms="320" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Verify booking lab test using prescription"]]>
+                <![CDATA["Verify user can initiate radiology request successfully"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["upload and book a test using prescription"]]>
+                <![CDATA["Complete Automation Testing on LabTest Module"]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchSessionException">
-            <message>
-              <![CDATA[invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=147.0.7727.56)
-Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [62a0524a488e94e16f4c9b6e5b779cad, findElement {using=xpath, value=//h3[text() = 'Upload and Order']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55763}, goog:processID: 27592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55763/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 62a0524a488e94e16f4c9b6e5b779cad]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
-from disconnected: not connected to DevTools
-  (Session info: chrome=147.0.7727.56)
-Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [62a0524a488e94e16f4c9b6e5b779cad, findElement {using=xpath, value=//h3[text() = 'Upload and Order']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55763}, goog:processID: 27592, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55763/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 62a0524a488e94e16f4c9b6e5b779cad
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at jdk.proxy2/jdk.proxy2.$Proxy24.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-at com.apollo247.testing.utilities.AllUtilityFunctions.waitUntilElementIsVisibility(AllUtilityFunctions.java:130)
-at com.apollo247.testing.pages.LabTestPage.clickOnBookByPrescriptionModule(LabTestPage.java:128)
-at com.apollo247.testing.stepdefinitions.BookTestByPrescriptionSteps.user_clicks_on_book_test_using_prescription(BookTestByPrescriptionSteps.java:18)
-at ✽.User clicks on book test using prescription(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/Prescription-scenario.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
-            <line>
-              <![CDATA[No popup Displayed]]>
-            </line>
-            <line>
-              <![CDATA[No popup Displayed]]>
-            </line>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.RunnerIO@2de23121]" started-at="2026-04-18T21:25:10 IST" name="tearDownClass" finished-at="2026-04-18T21:25:10 IST" duration-ms="41" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-19T18:06:18 IST" name="tearDownClass" finished-at="2026-04-19T18:06:18 IST" duration-ms="43" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- com.apollo247.testing.runner.RunnerIO -->
+      </class> <!-- com.apollo247.testing.runner.LabTest_RunnerIO -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

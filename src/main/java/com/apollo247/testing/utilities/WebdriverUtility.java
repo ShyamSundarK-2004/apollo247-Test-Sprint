@@ -12,22 +12,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AllUtilityFunctions {
+public class WebdriverUtility {
 
 	protected WebDriver driver;
 	WebDriverWait wait;
-	Actions action;
-	public ReaderUtilities readerUtil = new ReaderUtilities();
-	public JavaUtilities javaUtil = new JavaUtilities();
-	public ActionUtilities actionUtil = new ActionUtilities();
-	public JavaScriptUtilities jsUtil;
-
-	public HandleCookies handleCookies = new HandleCookies();
+	
 
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
-		this.action = new Actions(driver);
-		jsUtil = new JavaScriptUtilities(driver);
+
 	}
 	// webdriver utlitiy
 

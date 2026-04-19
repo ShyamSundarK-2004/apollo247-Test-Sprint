@@ -17,4 +17,8 @@ public class JavaScriptUtilities {
 		js.executeScript("arguments[0].click()", element);
 	}
 
+	public void jsScrollIntoView(WebElement element) {
+		js.executeScript("arguments[0].scrollIntoView()", element);
+	}
+
 }
