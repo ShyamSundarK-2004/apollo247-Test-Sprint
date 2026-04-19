@@ -1,10 +1,19 @@
 package com.apollo247.testing.stepdefinitions;
 
 import java.time.Duration;
+
 import java.util.List;
 import java.util.Map;
 
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import com.apollo247.testing.utilities.BaseClass;
 import com.apollo247.testing.utilities.Pages;
@@ -12,6 +21,7 @@ import com.apollo247.testing.utilities.Pages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 
 public class search  {
 	private BaseClass b;
@@ -43,6 +53,10 @@ public class search  {
 //		Pages.dashboardPage.login(mobile);
 //		Pages.dashboardPage.enterOtpAndclickVerify();
 //	}
+
+
+
+
 
 	@When("user clicks on Find Doctors")
 	public void user_clicks_on_find_doctors() {
@@ -80,6 +94,7 @@ public class search  {
 
 	@Then("booking details should be displayed")
 	public void booking_details_should_be_displayed() {
+
 		String url = b.getDriver().getCurrentUrl();
 
 		if (url.contains("appointment")) {
@@ -88,7 +103,154 @@ public class search  {
 			throw new AssertionError("Booking failed");
 		}
 
+
 	
 
+	   
+	}
+	//Filter
+	@Given("User click the general Physician")
+	public void user_click_the_general_physician() {
+	    Pages.FilterDocter.ClickGeneral();
+	}
+	@When("user applies sorting as {string}")
+	public void user_applies_sorting_as(String price) {
+	    Pages.FilterDocter.Relevance();
+	}
+	@When("user filters doctors by experience {string}")
+	public void user_filters_doctors_by_experience(String experience) {
+	    Pages.FilterDocter.getExperience().click();
+	}
+	@When("user filters doctors by language {string}")
+	public void user_filters_doctors_by_language(String Lang) {
+		Pages.FilterDocter.getLanguage().click();
+	    
+	}
+	@When("user clicks on first displayed docter")
+	public void user_clicks_on_first_displayed_docter(String doctname) {
+		Pages.FilterDocter.ClickDocter(doctname);
+	  
+	}
+	@When("select the slot and continue to book")
+	public void select_the_slot_and_continue_to_book() {
+	    Pages.Searchdocter.SelectSlot();
+	}
+	@Then("verify the booking details")
+	public void verify_the_booking_details() {
+		    String url = b.getDriver().getCurrentUrl();
+
+		    if(url.contains("appointment")) {
+		        System.out.println("Booking successful");
+		    } else {
+		        throw new AssertionError("Booking failed");
+		    }
+	    
+	}
+	//MyAppointment
+	@When("User navigates to My Appointments and clicks View All")
+	public void user_navigates_to_my_appointments_and_clicks_view_all() {
+		Pages.AppointmentDocter.getViewAll();
+	}
+	@When("User clicks on Rebook for a doctor")
+	public void user_clicks_on_rebook_for_a_doctor() {
+		Pages.AppointmentDocter.Rebook();
+	}
+	@When("User clicks Continue")
+	public void user_clicks_continue() {
+		Pages.Searchdocter.getContinueBtn();
+		
+	    
+	}
+	@When("User click ChangeBtn to Change the patient and click proceed")
+	public void user_click_change_btn_to_change_the_patient_and_click_proceed() {
+		Pages.AppointmentDocter.ChangePatient();
+	    
+	}
+	@Then("User should see Book Appointment option")
+	public void user_should_see_book_appointment_option() {
+		 Assert.assertTrue(Pages.AppointmentDocter.AppointmentVisible(),
+		            "Book Appointment not visible");
+
+		    System.out.println("Book Appointment is visible");
+	
+	}
+	//location
+	@When("User selects location and specialization")
+	public void user_selects_location_and_specialization() {
+	    Pages.LocationDocter.selectLocation();
+	}
+	@When("User sorts by Most Liked")
+	public void user_sorts_by_most_liked() {
+	    Pages.LocationDocter.sortByMostLiked();
+	}
+	@When("User opens doctor description")
+	public void user_opens_doctor_description() {
+	    Pages.LocationDocter.openDoctor();
+	}
+	@Then("Doctor description should be validated")
+	public void doctor_description_should_be_validated() {
+		 String text = Pages.LocationDocter.getDescription();
+
+	        Assert.assertTrue(
+	            text.contains("Dr. Gitanjali Kochar is a top General Physician"),
+	            "Description mismatch" );
+	        System.out.println("Description validated successfully");
+	        
+	}
+	//hearttool
+	@When("User navigates to Health Tools page")
+	public void user_navigates_to_health_tools_page() {
+		Pages.HeartToolPage.clickHealthToolCard();
+	    
+	}
+	@When("User clicks CALCULATE for Body Mass Index")
+	public void user_clicks_calculate_for_body_mass_index() {
+		Pages.HeartToolPage.clickBMICard();
+	}
+	@When("User selects gender as Female")
+	public void user_selects_gender_as_female() {
+	    Pages.HeartToolPage.Female();
+	
+	}
+	@When("User navigates to height input")
+	public void user_navigates_to_height_input() {
+	    Pages.HeartToolPage.clickNavigate();
+	}
+	@When("User enters height as {string}")
+	public void user_enters_height_as(String height) {
+		  Pages.HeartToolPage.Height(height);
+	
+	}
+	@When("User clicks next arrow")
+	public void user_clicks_next_arrow() {
+	    Pages.HeartToolPage.clickNextArrow();
+	}
+	@When("User enters weight as {string}")
+	public void user_enters_weight_as(String weight) {
+	    Pages.HeartToolPage.Weight(weight);
+	}
+	@When("User clicks CALCULATE button")
+	public void user_clicks_calculate_button() {
+	    Pages.HeartToolPage.clickCalculate();;
+	}
+	@Then("BMI result should be displayed")
+	public void bmi_result_should_be_displayed() {
+		Assert.assertTrue(Pages.HeartToolPage.isBMIResultDisplayed());
+	}
+	@Then("BMI category should be {string} or {string} or {string}")
+	public void bmi_category_should_be_or_or(String normal, String overweight, String obese) {
+
+	    String actual = Pages.HeartToolPage.getBMICategory();
+
+	    Assert.assertTrue(
+	        actual.contains(normal) || 
+	        actual.contains(overweight) || 
+	        actual.contains(obese)
+	    );
+	}
+	
+
+
+
 }
-}
+
