@@ -3,6 +3,7 @@ package com.apollo247.testing.pages;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,32 +52,33 @@ public class SearchDoctorPage {
 
     @FindBy(xpath = "//span[text()='Change']")
     private WebElement change;
-    
+
     @FindBy(xpath = "//span[text()='Add Patient']")
     private WebElement addPatientBtn;
-    
-    @FindBy(css = "[placeholder=\"First Name\"]")
+
+    @FindBy(css = "[placeholder='First Name']")
     private WebElement firstName;
-    
-    @FindBy(css = "[placeholder=\"Last name\"]")
+
+    @FindBy(css = "[placeholder='Last name']")
     private WebElement lastName;
-    
+
     @FindBy(xpath = "//input[@placeholder='DD / MM / YYYY']")
     private WebElement dob;
-    
-    @FindBy(xpath = "//button[text()='Select relation']")
+
+    @FindBy(xpath = "//button[contains(text(),'Select relation')]")
     private WebElement relationDropdown;
-    
+
     @FindBy(xpath = "//button[text()='Male']")
     private WebElement maleButton;
-    
-    @FindBy(css = "[placeholder=\"Enter Email\"]")
+
+    @FindBy(css = "[placeholder='Enter Email']")
     private WebElement email;
-    
-    @FindBy(css = "[type=\"checkbox\"]")
+
+    @FindBy(css = "input[type='checkbox']")
     private WebElement Checkbox;
     
-    @FindBy(xpath = "//span[text()='Save']")
+
+    @FindBy(xpath = "//button[text()='Save']")
     private WebElement Save;
 	public WebElement getSpeciality() {
 		return Speciality;
@@ -176,33 +178,49 @@ public class SearchDoctorPage {
 	public WebElement getSave() {
 		return Save;
 	}
-	public void SearchDoctor(String SpecialityName, String LocationName,String date) {
-        wait.until(ExpectedConditions.elementToBeClickable(Speciality)).click();
-        SpecialistInput.sendKeys(SpecialityName);
-        wait.until(ExpectedConditions.elementToBeClickable(
-        	    By.xpath("//span[text()='" + SpecialityName + "']")
-        	)).click();
-        dateIcon.click();
-        driver.findElement(By.xpath(
-                "//button[contains(@class,'react-calendar__tile')]/abbr[text()='" + date + "']"
-            )).click();
+	public void SearchDoctor(String SpecialityName, String LocationName, String date) {
 
-        location.click();
-        location.clear();
-        location.sendKeys(LocationName);
+	    
+	    wait.until(ExpectedConditions.elementToBeClickable(Speciality)).click();
+	    SpecialistInput.sendKeys(SpecialityName);
 
-        // wait for dropdown option
-        WebElement city = wait.until(
-            ExpectedConditions.elementToBeClickable(
-                By.xpath("//li[@role='option']//span[contains(text(),'" + LocationName + "')]")
-            )
-        );
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(
+	            By.xpath("//span[normalize-space()='" + SpecialityName + "']")))
+	        .click();
 
-        // click using JS (IMPORTANT for overlay issues)
-        ((org.openqa.selenium.JavascriptExecutor) driver)
-                .executeScript("arguments[0].click();", city);
-    }
+	    // Select Date
+	    wait.until(ExpectedConditions.elementToBeClickable(dateIcon)).click();
 
+	    wait.until(ExpectedConditions.elementToBeClickable(
+	            By.xpath("//button[contains(@class,'react-calendar__tile')]//abbr[text()='" + date + "']")))
+	        .click();
+
+	    driver.findElement(By.tagName("body")).click();
+
+	    // Select Location
+	    wait.until(ExpectedConditions.elementToBeClickable(location)).click();
+	    location.clear();
+	    location.sendKeys(LocationName);
+
+	    // Wait for dropdown
+	    By locationOption = By.xpath("//li[@role='option']//span[normalize-space()='" + LocationName + "']");
+
+	    WebElement city = wait.until(
+	            ExpectedConditions.visibilityOfElementLocated(locationOption)
+	    );
+
+	    wait.until(ExpectedConditions.elementToBeClickable(city));
+
+	    // Normal click first
+	    try {
+	        city.click();
+	    } catch (Exception e) {
+	        // fallback JS click
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", city);
+	    }
+
+	    wait.until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
+	}
     public void SelectDoctor(String doctorName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
@@ -239,13 +257,27 @@ public class SearchDoctorPage {
     }
     public void selectDOB(String year, String month, String day) {
 
-        dob.click();
+        // Open DOB calendar
+        wait.until(ExpectedConditions.elementToBeClickable(dob)).click();
 
-        driver.findElement(By.xpath("//span[contains(@class,'react-calendar__navigation__label')]")).click();
-        driver.findElement(By.xpath("//span[contains(@class,'react-calendar__navigation__label')]")).click();
+        for(int i=0; i<2; i++){
+            WebElement header=wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[contains(@class,'react-calendar__navigation__label')]")
+            ));
 
-        driver.findElement(By.xpath("//button[text()='" + year + "']")).click();
-        driver.findElement(By.xpath("//button[text()='" + month + "']")).click();
-        driver.findElement(By.xpath("//abbr[text()='" + day + "']")).click();
+            wait.until(ExpectedConditions.elementToBeClickable(header)).click();
+            wait.until(ExpectedConditions.elementToBeClickable(header)).click();
+        }
+        // Select Year directly (no need decade logic)
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[text()='" + year + "']"))).click();
+
+        // Select Month (Jan, Feb, Mar...)
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button//abbr[text()='" + month + "']"))).click();
+
+        // Select Day
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button//abbr[text()='" + day + "']"))).click();
     }
 }

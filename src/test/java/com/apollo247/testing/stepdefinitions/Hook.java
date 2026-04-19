@@ -57,6 +57,7 @@ public class Hook extends AllUtilityFunctions {
 
 		// enter otp and verify otp
 		Pages.dashboardPage.enterOtpAndclickVerify();
+		Pages.dashboardPage.clickOnModule("Find Doctors");
 
 	}
 

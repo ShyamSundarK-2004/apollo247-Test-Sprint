@@ -1,13 +1,7 @@
 Feature: Apollo 247 Doctor Booking
 
-Background:
-  Given Open the Browser
-  And user launches the Apollo247 "https://www.apollo247.com/"
-  And user closes the popup
-  When user logs in with mobile number "9500573968"
-  And user clicks on Find Doctors
-
-Scenario Outline: Book a hospital visit appointment
+Scenario: Book a hospital visit appointment
+  When user clicks on Find Doctors
   And user searches for "Andrology" specialist in "Chennai" on date "20"
   And user selects doctor "Dr. Amvrin Chatterjee"
   And user selects available slot

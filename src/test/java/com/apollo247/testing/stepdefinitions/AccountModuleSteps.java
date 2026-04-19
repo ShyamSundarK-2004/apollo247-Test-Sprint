@@ -22,31 +22,31 @@ public class AccountModuleSteps extends BaseClass{
         this.b = b;
     }
     
-	@Given("Open the browser")
-	public void open_the_browser() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-	}
-	@Given("user launches the Apollo247 {string}")
-	public void user_launches_the_apollo247(String URL) {
-		driver.get(URL);
-		Pages.loadAllPages(driver);
-	    
-	}
-	@Given("user closes the popup")
-	public void user_closes_the_popup() {
-	    Pages.dashboardPage.closeDomPopup();
-	}
-	@When("user logs in with mobile number {string}")
-	public void user_logs_in_with_mobile_number(String mobile) {
-	    Pages.dashboardPage.login(mobile);
-	}
-	@When("user clicks verify after entering OTP")
-	public void user_clicks_verify_after_entering_otp() {
-		Pages.dashboardPage.enterOtpAndclickVerify();
-	    
-	}
+//	@Given("Open the browser")
+//	public void open_the_browser() {
+//		driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+//	}
+//	@Given("user launches the Apollo247 {string}")
+//	public void user_launches_the_apollo247(String URL) {
+//		driver.get(URL);
+//		Pages.loadAllPages(driver);
+//	    
+//	}
+//	@Given("user closes the popup")
+//	public void user_closes_the_popup() {
+//	    Pages.dashboardPage.closeDomPopup();
+//	}
+//	@When("user logs in with mobile number {string}")
+//	public void user_logs_in_with_mobile_number(String mobile) {
+//	    Pages.dashboardPage.login(mobile);
+//	}
+//	@When("user clicks verify after entering OTP")
+//	public void user_clicks_verify_after_entering_otp() {
+//		Pages.dashboardPage.enterOtpAndclickVerify();
+//	    
+//	}
 	@When("user opens My Account panel")
 	public void user_opens_my_account_panel() {
 	    Pages.manageFamilyPage.getProfileIcon().click();
