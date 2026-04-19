@@ -164,7 +164,7 @@ public class search {
 	}
 	@When("User clicks CALCULATE for Body Mass Index")
 	public void user_clicks_calculate_for_body_mass_index() {
-		Pages.HeartToolPage.clickBMICard();
+		Pages.HeartToolPage.clickBMICalculate();
 	}
 	@When("User selects gender as Female")
 	public void user_selects_gender_as_female() {

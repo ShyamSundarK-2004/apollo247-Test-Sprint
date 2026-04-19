@@ -24,9 +24,6 @@ public class HealthtoolPage {
     	@FindBy(linkText="Health Tools")
     	private WebElement heartHealthToolCard;
 
-    @FindBy(xpath = "//*[contains(text(),'Body Mass Index')]")
-    private WebElement bmiCard;
-
     @FindBy(xpath = "//h4[text()='Body Mass Index']/..//span[text()='CALCULATE']")
     private WebElement bmiCalculateBtn;
 
@@ -72,11 +69,6 @@ public class HealthtoolPage {
 	public WebElement getHeartHealthToolCard() {
 		return heartHealthToolCard;
 	}
-
-	public WebElement getBmiCard() {
-		return bmiCard;
-	}
-
 	public WebElement getBmiCalculateBtn() {
 		return bmiCalculateBtn;
 	}
@@ -125,7 +117,7 @@ public class HealthtoolPage {
 		return normalLabel;
 	}
 	public void clickHealthToolCard() {
-		viewall.click();
+		wait.until(ExpectedConditions.elementToBeClickable(viewall)).click();
 	    heartHealthToolCard.click();
 	    String parent = driver.getWindowHandle();
 
@@ -137,9 +129,7 @@ public class HealthtoolPage {
 	    }
 	}
 
-	public void clickBMICard() {
-	    bmiCard.click();
-	}
+	
 
 	public void clickBMICalculate() {
 		wait.until(ExpectedConditions.elementToBeClickable(bmiCalculateBtn));
