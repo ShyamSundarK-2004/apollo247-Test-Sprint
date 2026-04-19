@@ -1,6 +1,8 @@
 package com.apollo247.testing.pages;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,12 +14,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.AllUtilityFunctions;
+import com.apollo247.testing.utilities.ExcelUtilities;
 
 public class ManageFamilyPage {
 
     WebDriver driver;
     WebDriverWait wait;
     public AllUtilityFunctions utility;
+    private ExcelUtilities excelUtilities = new ExcelUtilities();
+
 
     public ManageFamilyPage(WebDriver driver) {
         this.driver = driver;
@@ -129,10 +134,28 @@ public class ManageFamilyPage {
         brother.click();
     }
     public void saveFamilyMember() {
-        saveBtn.click();
-        confirmBtn.click();
-    }
 
+        wait.until(ExpectedConditions.elementToBeClickable(
+            By.xpath("//span[text()='Save']"))).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+            By.xpath("//span[text()='CONFIRM']"))).click();
+
+        //  Check success popup appears
+        WebElement successMsg = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(text(),'successfully')]")
+            )
+        );
+
+        //  If it reaches here → success confirmed
+        System.out.println(" Member created successfully");
+
+        //  Now click OK
+        wait.until(ExpectedConditions.elementToBeClickable(
+            By.xpath("//*[text()='OK']")
+        )).click();
+    }
     // ----------------------------
     //  SUCCESS VALIDATION (NEW CLEAN APPROACH)
     // ----------------------------
@@ -177,5 +200,47 @@ public class ManageFamilyPage {
 
     public void closePopup(SearchContext shadowRoot) {
         shadowRoot.findElement(By.cssSelector("#close")).click();
+    }
+ // ----------------------------
+ // EXCEL DATA DRIVEN FLOW
+ // ----------------------------
+    public void addFamilyMembersFromExcel() {
+        try {
+            List<Map<String, String>> members =
+                excelUtilities.getAccountModuleData("FamilyMembers");
+
+            for (Map<String, String> member : members) {
+
+                String fName = member.get("firstName");
+                String lName = member.get("lastName");
+                String dob   = member.get("dob");
+
+                System.out.println("✅ Adding from Excel: " + fName + " " + lName);
+
+                // ✅ Wait until Add Profile is clickable again
+                wait.until(ExpectedConditions.elementToBeClickable(addNewProfile));
+
+                // ✅ Open form again
+                clickAddNewProfile();
+
+                // ✅ Wait for form fields
+                wait.until(ExpectedConditions.visibilityOf(firstName));
+
+                // ✅ Fill and save
+                addFamilyMember(fName, lName, dob);
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException("❌ Add family flow failed: " + e.getMessage());
+        }
+    }
+    public boolean isValidationErrorDisplayed() {
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(text(),'required') or contains(text(),'invalid')]")
+            )).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
