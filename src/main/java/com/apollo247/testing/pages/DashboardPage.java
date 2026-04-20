@@ -189,11 +189,21 @@ public class DashboardPage {
 		moduleName.click();
 	}
 
+<<<<<<< HEAD
 	public void clickonHealthInsuranceModule() {
 		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 		WebElement healthInsuranceModule = driver
 				.findElement(By.cssSelector("[href='https://apollo247insurance.com/health-insurance']"));
 		healthInsuranceModule.click();
+=======
+<<<<<<< HEAD
+=======
+	public void clickonHealthInsuranceModule() {
+		utilities.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule = Pages.healthInsurancePage.getClickBuyInsurance();
+		healthInsuranceModule.click();
+>>>>>>> 903d57d (Insurance Updated)
+>>>>>>> cc14d5d3e26d4e610b56f9bb63f1a3383a8d801a
 
 	}
 
