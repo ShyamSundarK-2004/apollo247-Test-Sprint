@@ -45,5 +45,6 @@ public class Pages {
 		// radiology page driver initialization
 		radiologyPage = new RadiologyPage(driver);
 		PageFactory.initElements(driver, radiologyPage);
+
 	}
 }

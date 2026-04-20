@@ -5,7 +5,6 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.WebdriverUtility;
@@ -17,15 +16,24 @@ public class DashboardPage {
 	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
+
 		this.driver = driver;
-<<<<<<< HEAD
+
 		PageFactory.initElements(driver, this);
 		this.utilities = new AllUtilityFunctions();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
-=======
+
 		utilities.initializeDriver(driver);
 
->>>>>>> feature/labtest
+		this.utilities = new WebdriverUtility();
+		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
+
+//		this.utilities = new AllUtilityFunctions();
+//		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
+
+		this.driver = driver;
+		utilities.initializeDriver(driver);
+
 	}
 
 	// ====== locators ======
@@ -70,8 +78,6 @@ public class DashboardPage {
 	@FindBy(css = "[title='Login/SignUp']")
 	private WebElement myAccountModule;
 
-<<<<<<< HEAD
-=======
 	// profile image after login
 	@FindBy(xpath = "//div[@id='loginPopup']//img")
 	private WebElement profilePic;
@@ -80,8 +86,8 @@ public class DashboardPage {
 	@FindBy(xpath = "//div[@id = 'loginPopup' and text() = 'My Account']")
 	private WebElement userAccountPopup;
 
->>>>>>> feature/labtest
 	// ===== getters and setter ======
+	// ===== getters ======
 
 	// login button
 	public WebElement getLoginBtn() {
@@ -180,38 +186,36 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-<<<<<<< HEAD
 		WebElement verify = utilities.waitUntillElementIsCLickable(60, getVerifyBtn());
-=======
 		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
->>>>>>> feature/labtest
+
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-//		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
-<<<<<<< HEAD
 
 	public void clickonHealthInsuranceModule() {
 		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule = driver
+				.findElement(By.cssSelector("[href='https://apollo247insurance.com/health-insurance']"));
+		healthInsuranceModule.click();
+
+	public void clickonHealthInsuranceModule() {
+		utilities.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 		WebElement healthInsuranceModule = Pages.healthInsurancePage.getClickBuyInsurance();
 		healthInsuranceModule.click();
 
 	}
-=======
->>>>>>> feature/labtest
 
 	public void clickOnMyAccountBtn() {
 		getMyAccountModule().click();
 	}
 
-<<<<<<< HEAD
-=======
 	public boolean isUserLoggedIn() {
 		try {
 			getProfilePic().click();
@@ -221,5 +225,9 @@ public class DashboardPage {
 		}
 	}
 
->>>>>>> feature/labtest
+	public String getCurrentPageUrl() {
+		return utilities.fetchApplicationURL();
+
+	}
+
 }

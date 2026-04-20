@@ -1,7 +1,8 @@
-/test-output/
-/target/
-/Reports/
-/Screenshots/
+test-output/
+target/
+Screenshot/
+.project
+.classpath
+.settings/
 *.log
 *.html
-*.xml
