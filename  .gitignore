@@ -1,18 +1,8 @@
-<<<<<<< HEAD
 test-output/
-Reports/
 target/
 Screenshot/
 .project
 .classpath
 .settings/
 *.log
-=======
-/test-output/
-/target/
-/Reports/
-/Screenshots/
-*.log
 *.html
-*.xml
->>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9

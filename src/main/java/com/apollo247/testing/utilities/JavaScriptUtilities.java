@@ -20,11 +20,8 @@ public class JavaScriptUtilities {
 		js.executeScript("arguments[0].scrollIntoView()", element);
 	}
 
-<<<<<<< HEAD
-=======
 	public void scrollByPixels(int pixels) {
 		js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
 	}
 
->>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 }

@@ -17,12 +17,9 @@ public class DashboardPage {
 
 	public DashboardPage(WebDriver driver) {
 
-		this.driver= driver;
+		this.driver = driver;
 		this.utilities = new WebdriverUtility();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
-
-
-
 
 //		this.utilities = new AllUtilityFunctions();
 //		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
@@ -82,7 +79,7 @@ public class DashboardPage {
 	@FindBy(xpath = "//div[@id = 'loginPopup' and text() = 'My Account']")
 	private WebElement userAccountPopup;
 
-	// ===== getters and setter ======
+	// ===== getters ======
 
 	// login button
 	public WebElement getLoginBtn() {
@@ -182,36 +179,27 @@ public class DashboardPage {
 
 	public void enterOtpAndclickVerify() {
 
-		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());	
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
 		verify.click();
 	}
 
 	public void clickOnModule(String module) {
 
-//		utilities.waitUntilInvisibilityOfElementLocated(35L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
-//	public void clickonHealthInsuranceModule() {
-//		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-//		//WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
-//		healthInsuranceModule.click();
 
+	public void clickonHealthInsuranceModule() {
+		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule = driver
+				.findElement(By.cssSelector("[href='https://apollo247insurance.com/health-insurance']"));
+		healthInsuranceModule.click();
 
-//	public void clickonHealthInsuranceModule() {
-//		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-//		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
-//		healthInsuranceModule.click();
-//
-//		
-//	}
-
+	}
 
 	public void clickOnMyAccountBtn() {
 		getMyAccountModule().click();
 	}
-
 
 	public boolean isUserLoggedIn() {
 		try {
@@ -220,7 +208,7 @@ public class DashboardPage {
 		} catch (Exception e) {
 			return false;
 		}
-		}
+	}
 
 	public String getCurrentPageUrl() {
 		return utilities.fetchApplicationURL();
