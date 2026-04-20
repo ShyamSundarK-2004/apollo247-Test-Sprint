@@ -7,6 +7,10 @@
         <methods>
           <include name="setUpClass"/>
 <<<<<<< HEAD
+          <include name="tearDownClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
           <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
@@ -18,6 +22,7 @@
           <include name="runScenario" invocation-numbers="0"/>
           <include name="tearDownClass"/>
 >>>>>>> feature/finddoctor
+>>>>>>> f9095cccc09cc29bc73fe27d9cb0fdfd26f07801
         </methods>
       </class> <!-- com.apollo247.testing.runner.LabTest_RunnerIO -->
     </classes>
