@@ -197,6 +197,13 @@ public class DashboardPage {
 //		//WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
 //		healthInsuranceModule.click();
 
+<<<<<<< HEAD
+=======
+	public void clickonHealthInsuranceModule() {
+		utilities.waitUntilInvisibilityOfElementLocated(25L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		WebElement healthInsuranceModule = Pages.healthInsurancePage.getClickBuyInsurance();
+		healthInsuranceModule.click();
+>>>>>>> 903d57d (Insurance Updated)
 
 //	public void clickonHealthInsuranceModule() {
 //		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
