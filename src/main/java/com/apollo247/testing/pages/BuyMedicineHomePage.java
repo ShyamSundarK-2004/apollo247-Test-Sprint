@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Set;
 
-public class Apollo247HomePage extends BasePage {
+public class BuyMedicineHomePage extends GeneralBP {
 
     @FindBy(xpath = "//span[text()='Login']")
     private WebElement loginButton;
@@ -16,7 +16,7 @@ public class Apollo247HomePage extends BasePage {
     @FindBy(xpath = "//div[contains(@class,'NavigationNew_navigation')]//a[normalize-space(text())='Buy Medicines']")
     private WebElement buyMedicinesLink;
 
-    public Apollo247HomePage(WebDriver driver) { super(driver); }
+    public BuyMedicineHomePage(WebDriver driver) { super(driver); }
 
     public void openPopupCheck() {
         closeCleverTapPopup();

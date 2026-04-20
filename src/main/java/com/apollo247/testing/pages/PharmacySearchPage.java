@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class PharmacyHomePage extends BasePage {
+public class PharmacySearchPage extends GeneralBP {
 
     @FindBy(css = "div[data-placeholder='Search Medicines']")
     private WebElement searchBarTrigger;
@@ -18,7 +18,7 @@ public class PharmacyHomePage extends BasePage {
     @FindBy(css = "a[aria-label='Cart Icon']")
     private WebElement cartIcon;
 
-    public PharmacyHomePage(WebDriver driver) { super(driver); }
+    public PharmacySearchPage(WebDriver driver) { super(driver); }
 
     public void openSearch() {
         wait.until(ExpectedConditions.presenceOfElementLocated(
@@ -41,4 +41,4 @@ public class PharmacyHomePage extends BasePage {
         js.executeScript("arguments[0].click();", cartIcon);
         sleep(4000);
     }
-}
+}    

@@ -154,7 +154,7 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utility.waitUntillElementIsCLickable(60, getVerifyBtn());
+		WebElement verify = utilities.waitUntillElementIsCLickable(60, getVerifyBtn());
 		verify.click();
 	}
 
@@ -166,7 +166,7 @@ public class DashboardPage {
 		moduleName.click();
 	}
 	public void clickonHealthInsuranceModule() {
-		utility.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
 		WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
 		healthInsuranceModule.click();
 
@@ -178,7 +178,7 @@ public class DashboardPage {
 	}
 
 	public String getCurrentPageUrl() {
-		return utility.fetchApplicationURL();
+		return utilities.fetchApplicationURL();
 	}
 
 	

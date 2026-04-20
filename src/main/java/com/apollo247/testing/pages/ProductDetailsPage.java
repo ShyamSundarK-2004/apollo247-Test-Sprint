@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 import java.util.List;
 
-public class ProductDetailsPage extends BasePage {
+public class ProductDetailsPage extends GeneralBP {
 
     @FindBy(xpath =
             "//div[@role='button'][.//*[contains(text(),'Add to Cart') or contains(text(),'ADD TO CART')]]" +

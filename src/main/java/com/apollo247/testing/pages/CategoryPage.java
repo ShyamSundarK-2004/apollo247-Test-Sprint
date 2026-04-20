@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 /** Shared listing page: Pain Relief, Skin Care, Shop by Brand (Volini), etc. */
-public class CategoryPage extends BasePage {
+public class CategoryPage extends GeneralBP {
 
     @FindBy(css = "h1[class*='CategoryContentRoot_productTitle']")
     private WebElement pageTitle;

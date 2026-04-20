@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class CartPage extends BasePage {
+public class PharmacyCartPage extends GeneralBP {
 
     @FindBy(id = "pharma-cart-container")
     private WebElement cartContainer;
@@ -23,7 +23,7 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "(//*[contains(@class,'MedicineProductCard_optionHead')])[1]")
     private WebElement firstItemQtyHeader;
 
-    public CartPage(WebDriver driver) { super(driver); }
+    public PharmacyCartPage(WebDriver driver) { super(driver); }
 
     public boolean isLoaded() {
         try { wait.until(ExpectedConditions.visibilityOf(cartContainer)); return true; }

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class SearchResultsPage extends BasePage {
+public class SearchResultsPage extends GeneralBP {
 
     @FindBy(css = "div[class*='ProductCard'],div[class*='productCard'],div[class*='searchCard']")
     private List<WebElement> productCards;
