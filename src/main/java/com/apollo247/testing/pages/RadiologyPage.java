@@ -3,10 +3,20 @@ package com.apollo247.testing.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+<<<<<<< HEAD
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+=======
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+
+import com.apollo247.testing.utilities.ActionUtilities;
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 import com.apollo247.testing.utilities.JavaScriptUtilities;
 import com.apollo247.testing.utilities.WebdriverUtility;
 
@@ -14,12 +24,20 @@ public class RadiologyPage {
 
 	WebdriverUtility utilities = new WebdriverUtility();
 	JavaScriptUtilities jsUtil;
+<<<<<<< HEAD
+=======
+	ActionUtilities actions;
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	WebDriver driver;
 
 	public RadiologyPage(WebDriver driver) {
 		this.driver = driver;
 		utilities.initializeDriver(driver);
 		jsUtil = new JavaScriptUtilities(driver);
+<<<<<<< HEAD
+=======
+		actions = new ActionUtilities(driver);
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	}
 
 	// ====== Locators ======
@@ -68,6 +86,13 @@ public class RadiologyPage {
 	@FindBy(xpath = "//button[contains(@class,'Radiology_requestButton')]")
 	private WebElement requestCallBtn;
 
+<<<<<<< HEAD
+=======
+	// go to previous calendar month
+	@FindBy(xpath = "//button[text()='‹']")
+	private WebElement clickPreviousBtn;
+
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	// ====== Getters ======
 
 	public WebElement getChooseCityField() {
@@ -110,6 +135,13 @@ public class RadiologyPage {
 		return clickNextBtn;
 	}
 
+<<<<<<< HEAD
+=======
+	public WebElement getClickPreviousBtn() {
+		return clickPreviousBtn;
+	}
+
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	public WebElement getRequestCallbtn() {
 		return requestCallBtn;
 	}
@@ -131,9 +163,15 @@ public class RadiologyPage {
 	}
 
 	public void chooseCity(String cityName) {
+<<<<<<< HEAD
 		jsUtil.jsScrollIntoView(getChooseCityField());
 		jsUtil.jsClick(getChooseCityField());
 		utilities.waitUntilElementIsVisibility(20L, getChooseCityField());
+=======
+		jsUtil.scrollByPixels(-150);
+		utilities.waitUntilElementIsVisibility(20L, getChooseCityField());
+		getChooseCityField().click();
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 		WebElement chooseCity = driver.findElement(By.xpath("//li[text() = '" + cityName + "']"));
 		chooseCity.click();
 	}
@@ -156,14 +194,20 @@ public class RadiologyPage {
 	public void chooseDate(String dateinput) {
 
 		String[] parts = dateinput.split("-");
+<<<<<<< HEAD
 		String day = parts[0];
 		String targetMonth = parts[1];
+=======
+		String targetMonth = parts[0];
+		String day = parts[1];
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 		getPickPreferedDate().click();
 		while (true) {
 			String currentMonth = getCurrentMonth().getText().split(" ")[0];
 			if (currentMonth.equalsIgnoreCase(targetMonth)) {
 				break;
 			}
+<<<<<<< HEAD
 			if (isFutureMonth(currentMonth, targetMonth)) {
 				getClickNextBtn().click(); // forward
 			} else {
@@ -171,6 +215,19 @@ public class RadiologyPage {
 			}
 		}
 		driver.findElement(By.xpath("//abbr[text()='" + day + "']")).click();
+=======
+			if (isFutureMonth(currentMonth, targetMonth) && getClickNextBtn().isEnabled()) {
+				getClickNextBtn().click(); // forward
+			} else {
+				if (getClickPreviousBtn().isEnabled()) {
+					getClickPreviousBtn().click();
+				}
+			}
+		}
+		driver.findElement(By.xpath("//abbr[text()='" + day + "']")).click();
+
+		actions.pressEscape();
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	}
 
 	private boolean isFutureMonth(String current, String target) {

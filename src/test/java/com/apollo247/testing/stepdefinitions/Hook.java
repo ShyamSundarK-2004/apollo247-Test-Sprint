@@ -1,7 +1,10 @@
 package com.apollo247.testing.stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
+<<<<<<< HEAD
 
+=======
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -56,6 +59,7 @@ public class Hook extends WebdriverUtility {
 		SessionManager.ManageSession(b.getDriver());
 
 		// initialize all the pages with driver using page factory
+<<<<<<< HEAD
 
 
 		Pages.loadAllPages(b.getDriver());
@@ -71,13 +75,22 @@ public class Hook extends WebdriverUtility {
 		Pages.dashboardPage.clickOnModule("Find Doctors");
 
 
+=======
+		Pages pages = new Pages(b.getDriver());
+		b.setPages(pages);
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	}
 
 	
 
 	@After
 	public void teadDown() {
+<<<<<<< HEAD
 //		quitBroswerWindow();
 //		b.unload();
+=======
+		quitBroswerWindow();
+		b.unload();
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	}
 }

@@ -30,6 +30,7 @@ Feature: Complete Automation Testing on LabTest Module
       | Bengaluru | Indiranagar- Apollo Clinic | April-15 | X-Ray,CT Scan | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
     # | Chennai   | T Nagar- Apollo Clinic     | May-23   | X-Ray,ECG     | C:\\Users\\Shyam Sundar\\Documents\\prescription2.jpeg |
     Then User should see request call button is enabled
+<<<<<<< HEAD
 
   @labTest @EndtoEndScenario
   Scenario: Verify user can complete lab test booking till payment page
@@ -51,3 +52,5 @@ Feature: Complete Automation Testing on LabTest Module
   Scenario: verify user can able to see their order history for different patient names
     When user click on view report button
     Then verify myOrder page is displayed
+=======
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9

@@ -5,10 +5,8 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.apollo247.testing.utilities.Pages;
 import com.apollo247.testing.utilities.WebdriverUtility;
 
 public class DashboardPage {
@@ -18,6 +16,7 @@ public class DashboardPage {
 	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
+
 		this.driver= driver;
 		this.utilities = new WebdriverUtility();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
@@ -28,6 +27,8 @@ public class DashboardPage {
 //		this.utilities = new AllUtilityFunctions();
 //		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
 
+		this.driver = driver;
+		utilities.initializeDriver(driver);
 
 	}
 
@@ -181,7 +182,7 @@ public class DashboardPage {
 
 	public void enterOtpAndclickVerify() {
 
-		WebElement verify = utilities.waitUntilElementIsCLickable(60, getVerifyBtn());
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());	
 		verify.click();
 	}
 

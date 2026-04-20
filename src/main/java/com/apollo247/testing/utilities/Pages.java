@@ -3,7 +3,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import com.apollo247.testing.pages.DashboardPage;
 import com.apollo247.testing.pages.LabTestPage;
+<<<<<<< HEAD
 import com.apollo247.testing.pages.SearchDoctorPage;
+=======
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 import com.apollo247.testing.pages.RadiologyPage;
 import com.apollo247.testing.pages.UploadPrescriptionPage;
 import com.apollo247.testing.pages.filterDocterPage;
@@ -16,6 +19,7 @@ import com.apollo247.testing.pages.HealthtoolPage;
 
 public class Pages {
 
+<<<<<<< HEAD
 	public static DashboardPage dashboardPage;
 	public static LabTestPage labTestPage;
 //	public static HealthInsurancePage healthInsurancePage;
@@ -27,9 +31,15 @@ public class Pages {
 	public static MyAppointmentPage AppointmentDocter;
 	public static LocationPage LocationDocter;
 	public static HealthtoolPage HeartToolPage;
+=======
+	public DashboardPage dashboardPage;
+	public LabTestPage labTestPage;
+	public UploadPrescriptionPage bookByPrescriptionPage;
+	public RadiologyPage radiologyPage;
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 
 	// all the pages are initialized with the driver object
-	public static void loadAllPages(WebDriver driver) {
+	public Pages(WebDriver driver) {
 
 		// dashboard page driver initialization
 		dashboardPage = new DashboardPage(driver);
@@ -43,6 +53,11 @@ public class Pages {
 		PageFactory.initElements(driver, Searchdocter);
 
 		// labtest page driver initialization
+<<<<<<< HEAD
+=======
+		labTestPage = PageFactory.initElements(driver, LabTestPage.class);
+
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 		// upload_prescription page driver initialization
 		bookByPrescriptionPage = new UploadPrescriptionPage(driver);
 		PageFactory.initElements(driver, bookByPrescriptionPage);
@@ -56,5 +71,8 @@ public class Pages {
 		radiologyPage = new RadiologyPage(driver);
 		PageFactory.initElements(driver, radiologyPage);
 
+		// radiology page driver initialization
+		radiologyPage = new RadiologyPage(driver);
+		PageFactory.initElements(driver, radiologyPage);
 	}
 }

@@ -9,7 +9,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,6 +16,10 @@ public class WebdriverUtility {
 
 	protected WebDriver driver;
 	WebDriverWait wait;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f43f88b3ea8ad539e74e567c768991d95ce1f3e9
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
 
