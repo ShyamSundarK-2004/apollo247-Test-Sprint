@@ -60,23 +60,23 @@ public class search  {
 
 	@When("user clicks on Find Doctors")
 	public void user_clicks_on_find_doctors() {
-		Pages.dashboardPage.clickOnModule("Find Doctors");
+		b.getPages().dashboardPage.clickOnModule("Find Doctors");
 	}
 
 	@When("user searches for {string} specialist in {string} on date {string}")
 	public void searchDoctor(String spec, String city, String date) {
 
-		Pages.Searchdocter.SearchDoctor(spec, city, date);
+		b.getPages().Searchdocter.SearchDoctor(spec, city, date);
 	}
 
 	@When("user selects doctor {string}")
 	public void selectDoctor(String doctorName) {
-	    Pages.Searchdocter.SelectDoctor(doctorName);
+		b.getPages().Searchdocter.SelectDoctor(doctorName);
 	}
 
 	@When("user selects available slot")
 	public void user_selects_available_slot() {
-		Pages.Searchdocter.SelectSlot();
+		b.getPages().Searchdocter.SelectSlot();
 	}
 
 	@When("user adds new patient with details")
@@ -89,7 +89,7 @@ public class search  {
 		String year = data.get(0).get("year");
 		String month = data.get(0).get("month");
 		String day = data.get(0).get("day");
-		Pages.Searchdocter.AddPatient(fName, lName, mail, year, month, day);
+		b.getPages().Searchdocter.AddPatient(fName, lName, mail, year, month, day);
 	}
 
 	@Then("booking details should be displayed")
@@ -111,29 +111,29 @@ public class search  {
 	//Filter
 	@Given("User click the general Physician")
 	public void user_click_the_general_physician() {
-	    Pages.FilterDocter.ClickGeneral();
+		b.getPages().FilterDocter.ClickGeneral();
 	}
 	@When("user applies sorting as {string}")
 	public void user_applies_sorting_as(String price) {
-	    Pages.FilterDocter.Relevance();
+		b.getPages().FilterDocter.Relevance();
 	}
 	@When("user filters doctors by experience {string}")
 	public void user_filters_doctors_by_experience(String experience) {
-	    Pages.FilterDocter.getExperience().click();
+		b.getPages().FilterDocter.getExperience().click();
 	}
 	@When("user filters doctors by language {string}")
 	public void user_filters_doctors_by_language(String Lang) {
-		Pages.FilterDocter.getLanguage().click();
+		b.getPages().FilterDocter.getLanguage().click();
 	    
 	}
 	@When("user clicks on first displayed docter")
 	public void user_clicks_on_first_displayed_docter(String doctname) {
-		Pages.FilterDocter.ClickDocter(doctname);
+		b.getPages().FilterDocter.ClickDocter(doctname);
 	  
 	}
 	@When("select the slot and continue to book")
 	public void select_the_slot_and_continue_to_book() {
-	    Pages.Searchdocter.SelectSlot();
+		b.getPages().Searchdocter.SelectSlot();
 	}
 	@Then("verify the booking details")
 	public void verify_the_booking_details() {
@@ -149,26 +149,26 @@ public class search  {
 	//MyAppointment
 	@When("User navigates to My Appointments and clicks View All")
 	public void user_navigates_to_my_appointments_and_clicks_view_all() {
-		Pages.AppointmentDocter.getViewAll();
+		b.getPages().AppointmentDocter.getViewAll();
 	}
 	@When("User clicks on Rebook for a doctor")
 	public void user_clicks_on_rebook_for_a_doctor() {
-		Pages.AppointmentDocter.Rebook();
+		b.getPages().AppointmentDocter.Rebook();
 	}
 	@When("User clicks Continue")
 	public void user_clicks_continue() {
-		Pages.Searchdocter.getContinueBtn();
+		b.getPages().Searchdocter.getContinueBtn();
 		
 	    
 	}
 	@When("User click ChangeBtn to Change the patient and click proceed")
 	public void user_click_change_btn_to_change_the_patient_and_click_proceed() {
-		Pages.AppointmentDocter.ChangePatient();
+		b.getPages().AppointmentDocter.ChangePatient();
 	    
 	}
 	@Then("User should see Book Appointment option")
 	public void user_should_see_book_appointment_option() {
-		 Assert.assertTrue(Pages.AppointmentDocter.AppointmentVisible(),
+		 Assert.assertTrue(b.getPages().AppointmentDocter.AppointmentVisible(),
 		            "Book Appointment not visible");
 
 		    System.out.println("Book Appointment is visible");
@@ -177,19 +177,19 @@ public class search  {
 	//location
 	@When("User selects location and specialization")
 	public void user_selects_location_and_specialization() {
-	    Pages.LocationDocter.selectLocation();
+		b.getPages().LocationDocter.selectLocation();
 	}
 	@When("User sorts by Most Liked")
 	public void user_sorts_by_most_liked() {
-	    Pages.LocationDocter.sortByMostLiked();
+		b.getPages().LocationDocter.sortByMostLiked();
 	}
 	@When("User opens doctor description")
 	public void user_opens_doctor_description() {
-	    Pages.LocationDocter.openDoctor();
+		b.getPages().LocationDocter.openDoctor();
 	}
 	@Then("Doctor description should be validated")
 	public void doctor_description_should_be_validated() {
-		 String text = Pages.LocationDocter.getDescription();
+		 String text = b.getPages().LocationDocter.getDescription();
 
 	        Assert.assertTrue(
 	            text.contains("Dr. Gitanjali Kochar is a top General Physician"),
@@ -200,47 +200,47 @@ public class search  {
 	//hearttool
 	@When("User navigates to Health Tools page")
 	public void user_navigates_to_health_tools_page() {
-		Pages.HeartToolPage.clickHealthToolCard();
+		b.getPages().HeartToolPage.clickHealthToolCard();
 	    
 	}
 	@When("User clicks CALCULATE for Body Mass Index")
 	public void user_clicks_calculate_for_body_mass_index() {
-		Pages.HeartToolPage.clickBMICard();
+		b.getPages().HeartToolPage.clickBMICalculate();
 	}
 	@When("User selects gender as Female")
 	public void user_selects_gender_as_female() {
-	    Pages.HeartToolPage.Female();
+		b.getPages().HeartToolPage.Female();
 	
 	}
 	@When("User navigates to height input")
 	public void user_navigates_to_height_input() {
-	    Pages.HeartToolPage.clickNavigate();
+		b.getPages().HeartToolPage.clickNavigate();
 	}
 	@When("User enters height as {string}")
 	public void user_enters_height_as(String height) {
-		  Pages.HeartToolPage.Height(height);
+		b.getPages().HeartToolPage.Height(height);
 	
 	}
 	@When("User clicks next arrow")
 	public void user_clicks_next_arrow() {
-	    Pages.HeartToolPage.clickNextArrow();
+		b.getPages().HeartToolPage.clickNextArrow();
 	}
 	@When("User enters weight as {string}")
 	public void user_enters_weight_as(String weight) {
-	    Pages.HeartToolPage.Weight(weight);
+		b.getPages().HeartToolPage.Weight(weight);
 	}
 	@When("User clicks CALCULATE button")
 	public void user_clicks_calculate_button() {
-	    Pages.HeartToolPage.clickCalculate();;
+		b.getPages().HeartToolPage.clickCalculate();;
 	}
 	@Then("BMI result should be displayed")
 	public void bmi_result_should_be_displayed() {
-		Assert.assertTrue(Pages.HeartToolPage.isBMIResultDisplayed());
+		Assert.assertTrue(b.getPages().HeartToolPage.isBMIResultDisplayed());
 	}
 	@Then("BMI category should be {string} or {string} or {string}")
 	public void bmi_category_should_be_or_or(String normal, String overweight, String obese) {
 
-	    String actual = Pages.HeartToolPage.getBMICategory();
+	    String actual = b.getPages().HeartToolPage.getBMICategory();
 
 	    Assert.assertTrue(
 	        actual.contains(normal) || 
@@ -253,4 +253,3 @@ public class search  {
 
 
 }
-

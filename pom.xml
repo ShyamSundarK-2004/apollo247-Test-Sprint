@@ -66,13 +66,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
-        <groupId>org.apache.poi</groupId>
-        <artifactId>poi-ooxml</artifactId>
-        <version>5.4.1</version>
-        </dependency>
-		
-=======
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.10.1</version>
@@ -84,6 +77,5 @@
     <scope>test</scope>
 </dependency>
 
->>>>>>> e0e53877cf1731a16176a9c23f5898a1a35ce501
 	</dependencies>
 </project>

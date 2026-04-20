@@ -1,13 +1,11 @@
 package com.apollo247.testing.pages;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.apollo247.testing.utilities.Pages;
@@ -20,11 +18,10 @@ public class DashboardPage {
 	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
-		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		
+		this.driver= driver;
 		this.utilities = new WebdriverUtility();
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
+
 
 
 
@@ -41,7 +38,7 @@ public class DashboardPage {
 	@FindBy(xpath = "//span[text()= 'Login']")
 	private WebElement loginBtn;
 
-	// phone number field 
+	// phone number field
 	@FindBy(css = "[name='mobileNumber']")
 	private WebElement mobileNumberField;
 
@@ -184,10 +181,8 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-		WebElement verify = utilities.waitUntilElementIsCLickable(120, getVerifyBtn());
 
-
-		
+		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
 		verify.click();
 	}
 
@@ -198,10 +193,6 @@ public class DashboardPage {
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
-//	public void clickonHealthInsuranceModule() {
-//		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
-//		//WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
-//		healthInsuranceModule.click();
 
 
 //	public void clickonHealthInsuranceModule() {
@@ -214,43 +205,8 @@ public class DashboardPage {
 
 
 	public void clickOnMyAccountBtn() {
-
-	    utilities.waitUntilInvisibilityOfElementLocated(10L, By.id("loginPopup"));
-
-	    WebElement element = utilities.waitUntilElementIsCLickable(20, getMyAccountModule());
-
-	    try {
-	        element.click();
-	    } catch (Exception e) {
-	        ((org.openqa.selenium.JavascriptExecutor) driver)
-	                .executeScript("arguments[0].click();", element);
-	    }
+		getMyAccountModule().click();
 	}
-	public void clickProfileIcon() {
-
-	    // Close popup if present
-	    try {
-	        closeDomPopup();
-	    } catch (Exception e) {
-	        // ignore
-	    }
-
-	    By profileIcon = By.className("ProfileNew_profileContainer__mUxKD");
-
-
-	    WebElement profile = wait.until(
-	        ExpectedConditions.elementToBeClickable(profileIcon)
-	    );
-
-	    profile.click();
-	}
-
-	public String getCurrentPageUrl() {
-		return utilities.fetchApplicationURL();
-	}
-
-
-	
 
 
 	public boolean isUserLoggedIn() {
@@ -262,6 +218,12 @@ public class DashboardPage {
 		}
 		}
 
-	
+	public String getCurrentPageUrl() {
+		return utilities.fetchApplicationURL();
+
+	}
+	public void clickProfileIcon() {
+	    clickOnMyAccountBtn();
+	}
 
 }

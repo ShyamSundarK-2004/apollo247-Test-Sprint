@@ -13,28 +13,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
 import com.apollo247.testing.utilities.ExcelUtilities;
 
 public class ManageFamilyPage {
 
     WebDriver driver;
     WebDriverWait wait;
-    public AllUtilityFunctions utility;
-    private ExcelUtilities excelUtilities = new ExcelUtilities();
 
+    private ExcelUtilities excelUtilities = new ExcelUtilities();
 
     public ManageFamilyPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.utility = new AllUtilityFunctions();
-        this.utility.initializeDriver(driver);
-    
     }
 
-    // ----------------------------
-    // LOCATORS (STATIC ELEMENTS)
-    // ----------------------------
+    // ================= LOCATORS =================
 
     @FindBy(className = "ProfileNew_profileContainer__mUxKD")
     private WebElement profileIcon;
@@ -63,24 +56,33 @@ public class ManageFamilyPage {
     @FindBy(xpath = "//span[.='CONFIRM']")
     private WebElement confirmBtn;
 
-    // ----------------------------
-    // NAVIGATION
-    // ----------------------------
+    // ================= BASIC ACTION HELPERS =================
 
-    public void openManageFamilyMembers() {
-        utility.safeClick(driver, profileIcon);
-        utility.safeClick(driver, manageFamilyMembers);
+    private void click(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 
-    // ----------------------------
-    // ADD PROFILE FLOW
-    // ----------------------------
+    private void jsClick(WebElement element) {
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", element);
+    }
+
+    private void type(WebElement element, String value) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    // ================= NAVIGATION =================
+
+    public void openManageFamilyMembers() {
+        click(profileIcon);
+        click(manageFamilyMembers);
+    }
+
+    // ================= ADD FAMILY MEMBER =================
 
     public void clickAddNewProfile() {
-
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         WebElement element = wait.until(
                 ExpectedConditions.visibilityOf(addNewProfile)
         );
@@ -88,27 +90,21 @@ public class ManageFamilyPage {
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].scrollIntoView({block:'center'});", element);
 
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].click();", element);
+        jsClick(element);
     }
 
     public void enterFamilyMemberDetails(String fName, String lName, String dateOfBirth) {
-        firstName.sendKeys(fName);
-        lastName.sendKeys(lName);
-        dob.sendKeys(dateOfBirth);
+        type(firstName, fName);
+        type(lastName, lName);
+        type(dob, dateOfBirth);
     }
 
     public void selectMaleAndBrother() {
 
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-        // wait for form to load
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.cssSelector("[placeholder='First Name']")
         ));
 
-        // select Male
         WebElement male = wait.until(
                 ExpectedConditions.elementToBeClickable(
                         By.xpath("//*[contains(text(),'Male')]")
@@ -116,7 +112,6 @@ public class ManageFamilyPage {
         );
         male.click();
 
-        // open dropdown
         WebElement dropdown = wait.until(
                 ExpectedConditions.elementToBeClickable(
                         By.xpath("//div[contains(@class,'AphSelect_select')]")
@@ -124,73 +119,58 @@ public class ManageFamilyPage {
         );
         dropdown.click();
 
-        // wait for dropdown options to render
         wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.cssSelector("[data-value='BROTHER']")
         ));
 
-        // re-find fresh element (VERY IMPORTANT)
         WebElement brother = wait.until(
                 ExpectedConditions.elementToBeClickable(
                         By.cssSelector("[data-value='BROTHER']")
+        ));
+        brother.click();
+    }
+
+    public void saveFamilyMember() {
+
+        click(saveBtn);
+        click(confirmBtn);
+
+        WebElement successMsg = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//*[contains(text(),'successfully')]")
                 )
         );
 
-        brother.click();
-    }
-    public void saveFamilyMember() {
+        System.out.println("Member created successfully");
 
         wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//span[text()='Save']"))).click();
-
-        wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//span[text()='CONFIRM']"))).click();
-
-        //  Check success popup appears
-        WebElement successMsg = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//*[contains(text(),'successfully')]")
-            )
-        );
-
-        //  If it reaches here → success confirmed
-        System.out.println(" Member created successfully");
-
-        //  Now click OK
-        wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//*[text()='OK']")
+                By.xpath("//*[text()='OK']")
         )).click();
     }
-    // ----------------------------
-    //  SUCCESS VALIDATION (NEW CLEAN APPROACH)
-    // ----------------------------
 
-    
-    
-
-    // ----------------------------
-    // 🔥 SUCCESS VALIDATION (NEW CLEAN APPROACH)
-    // ----------------------------
+    // ================= SUCCESS / VALIDATION =================
 
     public boolean isSuccessToastDisplayed() {
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         try {
-            return wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(text(),'successfully') or contains(text(),'created') or contains(text(),'added')]")
-                    )
-            ).isDisplayed();
-
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//*[contains(text(),'successfully') or contains(text(),'created') or contains(text(),'added')]")
+            )).isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
 
-    // ----------------------------
-    // FULL FLOW WRAPPER
-    // ----------------------------
+    public boolean isValidationErrorDisplayed() {
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//*[contains(text(),'required') or contains(text(),'invalid')]")
+            )).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    // ================= FULL FLOW =================
 
     public void addFamilyMember(String fName, String lName, String dobValue) {
         enterFamilyMemberDetails(fName, lName, dobValue);
@@ -198,62 +178,37 @@ public class ManageFamilyPage {
         saveFamilyMember();
     }
 
-    // ----------------------------
-    // NEGATIVE SCENARIO
-    // ----------------------------
+    // ================= EXCEL FLOW =================
 
-    public void clickSaveWithoutEnteringDetails() {
-        clickAddNewProfile();
-        saveBtn.click();
-    }
-
-    // ----------------------------
-    // SHADOW DOM POPUP
-    // ----------------------------
-
-    public void closePopup(SearchContext shadowRoot) {
-        shadowRoot.findElement(By.cssSelector("#close")).click();
-    }
- // ----------------------------
- // EXCEL DATA DRIVEN FLOW
- // ----------------------------
     public void addFamilyMembersFromExcel() {
         try {
             List<Map<String, String>> members =
-                excelUtilities.getAccountModuleData("FamilyMembers");
+                    excelUtilities.getAccountModuleData("FamilyMembers");
 
             for (Map<String, String> member : members) {
 
                 String fName = member.get("firstName");
                 String lName = member.get("lastName");
-                String dob   = member.get("dob");
+                String dob = member.get("dob");
 
-                System.out.println("✅ Adding from Excel: " + fName + " " + lName);
+                System.out.println("Adding from Excel: " + fName + " " + lName);
 
-                // ✅ Wait until Add Profile is clickable again
                 wait.until(ExpectedConditions.elementToBeClickable(addNewProfile));
-
-                // ✅ Open form again
                 clickAddNewProfile();
 
-                //  Wait for form fields
                 wait.until(ExpectedConditions.visibilityOf(firstName));
 
-                //  Fill and save
                 addFamilyMember(fName, lName, dob);
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("❌ Add family flow failed: " + e.getMessage());
+            throw new RuntimeException("Add family flow failed: " + e.getMessage());
         }
     }
-    public boolean isValidationErrorDisplayed() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//*[contains(text(),'required') or contains(text(),'invalid')]")
-            )).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+
+    // ================= POPUP HANDLING =================
+
+    public void closePopup(SearchContext shadowRoot) {
+        shadowRoot.findElement(By.cssSelector("#close")).click();
     }
 }
