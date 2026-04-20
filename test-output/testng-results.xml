@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="2" failed="2" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[No popup Displayed]]>
@@ -14,26 +14,26 @@
       <![CDATA[No popup Displayed]]>
     </line>
   </reporter-output>
-  <suite started-at="2026-04-20T08:18:57 IST" name="Suite" finished-at="2026-04-20T08:20:52 IST" duration-ms="115436">
+  <suite started-at="2026-04-20T12:26:07 IST" name="Suite" finished-at="2026-04-20T12:29:24 IST" duration-ms="196665">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-04-20T08:18:57 IST" name="Apollo247_parallel_tests" finished-at="2026-04-20T08:20:52 IST" duration-ms="115436">
+    <test started-at="2026-04-20T12:26:07 IST" name="Apollo247_parallel_tests" finished-at="2026-04-20T12:29:24 IST" duration-ms="196665">
       <class name="com.apollo247.testing.runner.LabTest_RunnerIO">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T08:18:57 IST" name="setUpClass" finished-at="2026-04-20T08:18:58 IST" duration-ms="931" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T12:26:07 IST" name="setUpClass" finished-at="2026-04-20T12:26:08 IST" duration-ms="1031" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@74751b3]]>
+                <![CDATA[org.testng.TestRunner@4f2b503c]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T08:18:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T08:20:52 IST" duration-ms="114382" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T12:26:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T12:28:02 IST" duration-ms="114178" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -52,26 +52,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T08:18:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T08:20:50 IST" duration-ms="112101" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Verify booking lab test using prescription"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Complete Automation Testing on LabTest Module"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[No popup Displayed]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T08:18:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T08:20:47 IST" duration-ms="109589" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T12:26:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T12:28:04 IST" duration-ms="115543" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -90,7 +71,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T08:18:58 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T08:20:52 IST" duration-ms="113831" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T12:26:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T12:28:07 IST" duration-ms="119314" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -103,13 +84,122 @@
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <div class="AphSelect_select__MnPUj " tabindex="0">...</div> is not clickable at point (926, 599). Other element would receive the click: <div class="Radiology_form__lJsX7">...</div>
+  (Session info: chrome=147.0.7727.56)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d4948e228198ac71b29d3e3894abb0bd, clickElement {id=f.7DFEACEB59847EB464C86309BB28DBC8.d.0FB27A5DD6D8D3747A0F6B9212650AC5.e.24}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59104}, goog:processID: 30536, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59104/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d4948e228198ac71b29d3e3894abb0bd)] -> xpath: (//div[contains(@class,'AphSelect_select')])[2]]
+Session ID: d4948e228198ac71b29d3e3894abb0bd]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <div class="AphSelect_select__MnPUj " tabindex="0">...</div> is not clickable at point (926, 599). Other element would receive the click: <div class="Radiology_form__lJsX7">...</div>
+  (Session info: chrome=147.0.7727.56)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d4948e228198ac71b29d3e3894abb0bd, clickElement {id=f.7DFEACEB59847EB464C86309BB28DBC8.d.0FB27A5DD6D8D3747A0F6B9212650AC5.e.24}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59104}, goog:processID: 30536, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59104/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d4948e228198ac71b29d3e3894abb0bd)] -> xpath: (//div[contains(@class,'AphSelect_select')])[2]]
+Session ID: d4948e228198ac71b29d3e3894abb0bd
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy24.click(Unknown Source)
+at com.apollo247.testing.pages.RadiologyPage.chooseCity(RadiologyPage.java:149)
+at com.apollo247.testing.stepdefinitions.LabTestSteps.user_enters_radiology_details(LabTestSteps.java:126)
+at ✽.User enters radiology details(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
             <line>
               <![CDATA[No popup Displayed]]>
             </line>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T08:20:52 IST" name="tearDownClass" finished-at="2026-04-20T08:20:52 IST" duration-ms="22" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T12:26:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-20T12:29:24 IST" duration-ms="195514" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify booking lab test using prescription"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Complete Automation Testing on LabTest Module"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[contains(@class,'PreviewUploadedPrescription')]//img' (tried for 15 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[contains(@class,'PreviewUploadedPrescription')]//img' (tried for 15 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at com.apollo247.testing.utilities.WebdriverUtility.waitUntilElementIsVisibility(WebdriverUtility.java:121)
+at com.apollo247.testing.pages.UploadPrescriptionPage.isFileAttached(UploadPrescriptionPage.java:70)
+at com.apollo247.testing.stepdefinitions.LabTestSteps.user_uploads_valid_prescription(LabTestSteps.java:86)
+at ✽.User uploads valid prescription(file:///C:/Users/Shyam%20Sundar/git/apollo247-Testing/src/test/java/com/apollo247/testing/features/LabTest.feature:20)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(@class,'PreviewUploadedPrescription')]//img"}
+  (Session info: chrome=147.0.7727.56)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [4aea88a47f08a0b7aab7d6c13e5723d2, findElement {value=//span[contains(@class,'PreviewUploadedPrescription')]//img, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 147.0.7727.56, chrome: {chromedriverVersion: 147.0.7727.57 (b4f28b5637d0..., userDataDir: C:\Users\SHYAMS~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59106}, goog:processID: 21112, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59106/devtoo..., se:cdpVersion: 147.0.7727.56, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4aea88a47f08a0b7aab7d6c13e5723d2
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy24.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 4 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+            <line>
+              <![CDATA[No popup Displayed]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.apollo247.testing.runner.LabTest_RunnerIO@2de23121]" started-at="2026-04-20T12:29:24 IST" name="tearDownClass" finished-at="2026-04-20T12:29:24 IST" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
