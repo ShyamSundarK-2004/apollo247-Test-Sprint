@@ -1,69 +1,88 @@
 package com.apollo247.testing.stepdefinitions;
 
-import java.io.IOException;
+import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
-import com.apollo247.testing.utilities.AllUtilityFunctions;
 import com.apollo247.testing.utilities.BaseClass;
 import com.apollo247.testing.utilities.Pages;
+import com.apollo247.testing.utilities.ReaderUtilities;
+import com.apollo247.testing.utilities.SessionManager;
+import com.apollo247.testing.utilities.WebdriverUtility;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-public class Hook extends AllUtilityFunctions {
+public class Hook extends WebdriverUtility {
 
 	private BaseClass b;
+
+	WebDriver Basedriver;
 
 	// dependency Injection
 	public Hook(BaseClass b) {
 		this.b = b;
 	}
 
+	ReaderUtilities readerUtil = new ReaderUtilities();
+
 	@Before
-	public void setup() throws IOException {
+	public void setup() throws Exception {
 		// reading from property file
-		String url = getPropertyKeyValue("url");
-		String browser = getPropertyKeyValue("browser");
+		String browser = readerUtil.getPropertyKeyValue("browser");
 		// browser setup and launching
 
 		if (browser.equals("chrome")) {
-			b.driver = new ChromeDriver();
+			Basedriver = new ChromeDriver();
 		} else if (browser.equals("edge")) {
-			b.driver = new EdgeDriver();
+			Basedriver = new EdgeDriver();
 		}
 
-		// assigning driver for utility methods
-		initializeDriver(b.driver);
+		// set driver instance for parallel execution
+		b.setDriver(Basedriver);
+
+		// initialize driver to utlitlies
+		initializeDriver(b.getDriver());
 
 		// launching browser in maximize window
 		configMaximizeBrowser();
 		waitForElements(20);
 
 		// adding a implicit wait for the page to load
-		waitForElements(50);
+		waitForElements(40);
 
-		// navigate to url
-		enterURL(url);
+		// First run login manually Or if Logged in already use the same
+		// sessions/cookies
+		SessionManager.ManageSession(b.getDriver());
 
 		// initialize all the pages with driver using page factory
-		Pages.loadAllPages(b.driver);
+
+
+		Pages.loadAllPages(b.getDriver());
 
 		// closing the shadow dom popup
 		Pages.dashboardPage.closeDomPopup();
 
 		// logging in with mobile number
-		Pages.dashboardPage.login(getPropertyKeyValue("phoneNo"));
+		Pages.dashboardPage.login("phoneNo");
 
 		// enter otp and verify otp
 		Pages.dashboardPage.enterOtpAndclickVerify();
+<<<<<<< HEAD
 		
+=======
+		Pages.dashboardPage.clickOnModule("Find Doctors");
+
+>>>>>>> e0e53877cf1731a16176a9c23f5898a1a35ce501
 
 	}
 
+	
+
 	@After
 	public void teadDown() {
-		quitBroswerWindow();
+//		quitBroswerWindow();
+//		b.unload();
 	}
 }
