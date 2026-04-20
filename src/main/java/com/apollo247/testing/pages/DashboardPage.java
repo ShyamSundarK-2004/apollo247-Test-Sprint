@@ -181,7 +181,7 @@ public class DashboardPage {
 
 	public void enterOtpAndclickVerify() {
 
-		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
+		WebElement verify = utilities.waitUntilElementIsCLickable(60, getVerifyBtn());
 		verify.click();
 	}
 
@@ -192,6 +192,10 @@ public class DashboardPage {
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
+//	public void clickonHealthInsuranceModule() {
+//		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+//		//WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
+//		healthInsuranceModule.click();
 
 
 //	public void clickonHealthInsuranceModule() {
