@@ -20,14 +20,10 @@ public class DashboardPage {
 	public WebdriverUtility utilities = new WebdriverUtility();
 
 	public DashboardPage(WebDriver driver) {
-<<<<<<< HEAD
 		this.driver = driver;
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		this.utilities = new AllUtilityFunctions();
-=======
-		this.driver= driver;
+		
 		this.utilities = new WebdriverUtility();
->>>>>>> e0e53877cf1731a16176a9c23f5898a1a35ce501
 		this.utilities.initializeDriver(driver); // Pass the active driver to utilities
 
 
@@ -188,12 +184,10 @@ public class DashboardPage {
 	}
 
 	public void enterOtpAndclickVerify() {
-<<<<<<< HEAD
-		WebElement verify = utilities.waitUntillElementIsCLickable(120, getVerifyBtn());
-=======
+		WebElement verify = utilities.waitUntilElementIsCLickable(120, getVerifyBtn());
 
-		WebElement verify = utilities.waitUntilElementIsCLickable(60L, getVerifyBtn());
->>>>>>> e0e53877cf1731a16176a9c23f5898a1a35ce501
+
+		
 		verify.click();
 	}
 
@@ -204,6 +198,10 @@ public class DashboardPage {
 		WebElement moduleName = driver.findElement(By.linkText(module));
 		moduleName.click();
 	}
+//	public void clickonHealthInsuranceModule() {
+//		utilities.waitUntilInvisibilityOfElementLocated(5L, By.cssSelector(".LoginModal_loginForm__0CKIM"));
+//		//WebElement healthInsuranceModule=Pages.healthInsurancePage.getClickBuyInsurance();
+//		healthInsuranceModule.click();
 
 
 //	public void clickonHealthInsuranceModule() {
@@ -219,7 +217,7 @@ public class DashboardPage {
 
 	    utilities.waitUntilInvisibilityOfElementLocated(10L, By.id("loginPopup"));
 
-	    WebElement element = utilities.waitUntillElementIsCLickable(20, getMyAccountModule());
+	    WebElement element = utilities.waitUntilElementIsCLickable(20, getMyAccountModule());
 
 	    try {
 	        element.click();
@@ -247,7 +245,6 @@ public class DashboardPage {
 	    profile.click();
 	}
 
-<<<<<<< HEAD
 	public String getCurrentPageUrl() {
 		return utilities.fetchApplicationURL();
 	}
@@ -255,7 +252,6 @@ public class DashboardPage {
 
 	
 
-=======
 
 	public boolean isUserLoggedIn() {
 		try {
@@ -266,10 +262,6 @@ public class DashboardPage {
 		}
 		}
 
-	public String getCurrentPageUrl() {
-		return utilities.fetchApplicationURL();
+	
 
-	}
-
->>>>>>> e0e53877cf1731a16176a9c23f5898a1a35ce501
 }

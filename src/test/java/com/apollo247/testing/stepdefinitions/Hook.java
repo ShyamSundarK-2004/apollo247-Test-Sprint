@@ -69,12 +69,9 @@ public class Hook extends WebdriverUtility {
 
 		// enter otp and verify otp
 		Pages.dashboardPage.enterOtpAndclickVerify();
-<<<<<<< HEAD
 		
-=======
 		Pages.dashboardPage.clickOnModule("Find Doctors");
 
->>>>>>> e0e53877cf1731a16176a9c23f5898a1a35ce501
 
 	}
 
