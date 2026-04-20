@@ -13,7 +13,7 @@ import io.cucumber.testng.CucumberOptions;
 	    },
 	    monochrome = true
 	)
-	public class TestRunner extends AbstractTestNGCucumberTests {
+	public class HealthInsurance_TestRunner extends AbstractTestNGCucumberTests {
 
 	    // Enables parallel execution
 	    @Override
