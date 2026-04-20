@@ -2,8 +2,6 @@
 /target/
 /Reports/
 /Screenshots/
-
 *.log
 *.html
 *.xml
-test-output/

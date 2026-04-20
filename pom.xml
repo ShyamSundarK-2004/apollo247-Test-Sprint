@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.apollo247</groupId>
-	<artifactId>com.apollo247.Testing_Sprint</artifactId>
+	<groupId>com.apollo.project</groupId>
+	<artifactId>ApolloProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies><!-- Source:
@@ -77,5 +77,10 @@
     <scope>test</scope>
 </dependency>
 
+		<dependency>
+			<groupId>com.PanimalarClg.SeleniumUIFramework</groupId>
+			<artifactId>SeleniumUIFrameworkOrangeHRM</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
