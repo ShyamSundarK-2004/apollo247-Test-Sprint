@@ -10,13 +10,13 @@ import com.apollo247.testing.pages.UploadPrescriptionPage;
 
 public class Pages {
 
-	public static DashboardPage dashboardPage;
-	public static LabTestPage labTestPage;
-	public static UploadPrescriptionPage bookByPrescriptionPage;
-	public static RadiologyPage radiologyPage;
+	public DashboardPage dashboardPage;
+	public LabTestPage labTestPage;
+	public UploadPrescriptionPage bookByPrescriptionPage;
+	public RadiologyPage radiologyPage;
 
 	// all the pages are initialized with the driver object
-	public static void loadAllPages(WebDriver driver) {
+	public Pages(WebDriver driver) {
 
 		// dashboard page driver initialization
 		dashboardPage = new DashboardPage(driver);
@@ -32,6 +32,5 @@ public class Pages {
 		// radiology page driver initialization
 		radiologyPage = new RadiologyPage(driver);
 		PageFactory.initElements(driver, radiologyPage);
-
 	}
 }

@@ -55,13 +55,13 @@ public class Hook extends WebdriverUtility {
 		SessionManager.ManageSession(b.getDriver());
 
 		// initialize all the pages with driver using page factory
-		Pages.loadAllPages(b.getDriver());
-
+		Pages pages = new Pages(b.getDriver());
+		b.setPages(pages);
 	}
 
 	@After
 	public void teadDown() {
-//		quitBroswerWindow();
-//		b.unload();
+		quitBroswerWindow();
+		b.unload();
 	}
 }
