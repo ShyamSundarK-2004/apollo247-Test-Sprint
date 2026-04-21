@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class JavaScriptUtilities {
-	private WebDriver driver;
+
 	JavascriptExecutor js;
 
 	public JavaScriptUtilities(WebDriver driver) {
-		this.driver = driver;
 		this.js = (JavascriptExecutor) driver;
 	}
 
@@ -19,6 +18,10 @@ public class JavaScriptUtilities {
 
 	public void jsScrollIntoView(WebElement element) {
 		js.executeScript("arguments[0].scrollIntoView()", element);
+	}
+
+	public void scrollByPixels(int pixels) {
+		js.executeScript("window.scrollBy(0, arguments[0]);", pixels);
 	}
 
 }

@@ -1,7 +1,6 @@
 package com.apollo247.testing.stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -56,28 +55,14 @@ public class Hook extends WebdriverUtility {
 		SessionManager.ManageSession(b.getDriver());
 
 		// initialize all the pages with driver using page factory
-
-
-		Pages.loadAllPages(b.getDriver());
-
-		// closing the shadow dom popup
-		Pages.dashboardPage.closeDomPopup();
-
-		// logging in with mobile number
-		Pages.dashboardPage.login("phoneNo");
-
-		// enter otp and verify otp
-		Pages.dashboardPage.enterOtpAndclickVerify();
-		Pages.dashboardPage.clickOnModule("Find Doctors");
-
-
+		Pages pages = new Pages(b.getDriver());
+		b.setPages(pages);
+		pages.dashboardPage.closeDomPopup();
 	}
-
-	
 
 	@After
 	public void teadDown() {
-//		quitBroswerWindow();
-//		b.unload();
+		quitBroswerWindow();
+		b.unload();
 	}
 }

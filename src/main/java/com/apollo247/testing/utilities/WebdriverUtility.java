@@ -1,7 +1,6 @@
 package com.apollo247.testing.utilities;
 
 import java.time.Duration;
-
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -9,7 +8,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,6 +15,7 @@ public class WebdriverUtility {
 
 	protected WebDriver driver;
 	WebDriverWait wait;
+
 	public void initializeDriver(WebDriver driver) {
 		this.driver = driver;
 
